@@ -1,0 +1,1066 @@
+[26-Jul-2020 15:27:38 America/La_Paz] An Error occurred while handling another error:
+PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ijhwkoqg_pancha.cache' doesn't exist in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php:1290
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(1290): PDOStatement->execute()
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT `data` F...')
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(425): yii\db\Command->queryInternal('fetchColumn', 0)
+#3 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/caching/DbCache.php(142): yii\db\Command->queryScalar()
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/caching/Cache.php(134): yii\caching\DbCache->getValue('72d0987baab1b10...')
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/CacheSession.php(80): yii\caching\Cache->get('72d0987baab1b10...')
+#6 [internal function]: yii\web\CacheSession->readSession('0303cd629914003...')
+#7 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Session.php(137): session_start()
+#8 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Session.php(642): yii\web\Session->open()
+#9 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/User.php(414): yii\web\Session->set('__returnUrl', '/')
+#10 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/User.php(446): yii\web\User->setReturnUrl('/')
+#11 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(156): yii\web\User->loginRequired()
+#12 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(140): yii\filters\AccessControl->denyAccess(Object(yii\web\User))
+#13 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\AccessControl->beforeAction(Object(yii\web\ErrorAction))
+#14 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#15 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#16 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#17 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\web\ErrorAction))
+#18 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\web\ErrorAction))
+#19 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('error', Array)
+#20 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/ErrorHandler.php(108): yii\base\Module->runAction('site/error')
+#21 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\db\Exception))
+#22 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\db\Exception))
+#23 {main}
+
+Next yii\db\Exception: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ijhwkoqg_pancha.cache' doesn't exist
+The SQL being executed was: SELECT `data` FROM `cache` WHERE `id` = '72d0987baab1b10ca39a636aedc13c25' AND (`expire` = 0 OR `expire` >1595791658) in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Schema.php:664
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(1295): yii\db\Schema->convertException(Object(PDOException), 'SELECT `data` F...')
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT `data` F...')
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(425): yii\db\Command->queryInternal('fetchColumn', 0)
+#3 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/caching/DbCache.php(142): yii\db\Command->queryScalar()
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/caching/Cache.php(134): yii\caching\DbCache->getValue('72d0987baab1b10...')
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/CacheSession.php(80): yii\caching\Cache->get('72d0987baab1b10...')
+#6 [internal function]: yii\web\CacheSession->readSession('0303cd629914003...')
+#7 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Session.php(137): session_start()
+#8 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Session.php(642): yii\web\Session->open()
+#9 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/User.php(414): yii\web\Session->set('__returnUrl', '/')
+#10 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/User.php(446): yii\web\User->setReturnUrl('/')
+#11 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(156): yii\web\User->loginRequired()
+#12 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(140): yii\filters\AccessControl->denyAccess(Object(yii\web\User))
+#13 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\AccessControl->beforeAction(Object(yii\web\ErrorAction))
+#14 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#15 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#16 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#17 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\web\ErrorAction))
+#18 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\web\ErrorAction))
+#19 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('error', Array)
+#20 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/ErrorHandler.php(108): yii\base\Module->runAction('site/error')
+#21 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\db\Exception))
+#22 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\db\Exception))
+#23 {main}
+Additional Information:
+Array
+(
+    [0] => 42S02
+    [1] => 1146
+    [2] => Table 'ijhwkoqg_pancha.cache' doesn't exist
+)
+
+Previous exception:
+PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ijhwkoqg_pancha.cache' doesn't exist in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php:1290
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(1290): PDOStatement->execute()
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT `data` F...')
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(425): yii\db\Command->queryInternal('fetchColumn', 0)
+#3 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/caching/DbCache.php(136): yii\db\Command->queryScalar()
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/caching/Cache.php(134): yii\caching\DbCache->getValue('358c789d4ea52a4...')
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/UrlManager.php(296): yii\caching\Cache->get('358c789d4ea52a4...')
+#6 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/UrlManager.php(229): yii\web\UrlManager->getBuiltRulesFromCache(Array)
+#7 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/UrlManager.php(191): yii\web\UrlManager->buildRules(Array)
+#8 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\web\UrlManager->init()
+#9 [internal function]: yii\base\BaseObject->__construct(Array)
+#10 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/di/Container.php(384): ReflectionClass->newInstanceArgs(Array)
+#11 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/di/Container.php(156): yii\di\Container->build('yii\\web\\UrlMana...', Array, Array)
+#12 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/BaseYii.php(349): yii\di\Container->get('yii\\web\\UrlMana...', Array, Array)
+#13 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/di/ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#14 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('urlManager', true)
+#15 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Application.php(571): yii\base\Module->get('urlManager')
+#16 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Request.php(272): yii\base\Application->getUrlManager()
+#17 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Application.php(82): yii\web\Request->resolve()
+#18 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#19 /home/ijhwkoqg/callcenter.dronebolivia.com/index.php(11): yii\base\Application->run()
+#20 {main}
+
+Next yii\db\Exception: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ijhwkoqg_pancha.cache' doesn't exist
+The SQL being executed was: SELECT `data` FROM `cache` WHERE `id` = '358c789d4ea52a4fb0f1887494f884d0' AND (`expire` = 0 OR `expire` >1595791658) in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Schema.php:664
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(1295): yii\db\Schema->convertException(Object(PDOException), 'SELECT `data` F...')
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT `data` F...')
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(425): yii\db\Command->queryInternal('fetchColumn', 0)
+#3 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/caching/DbCache.php(136): yii\db\Command->queryScalar()
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/caching/Cache.php(134): yii\caching\DbCache->getValue('358c789d4ea52a4...')
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/UrlManager.php(296): yii\caching\Cache->get('358c789d4ea52a4...')
+#6 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/UrlManager.php(229): yii\web\UrlManager->getBuiltRulesFromCache(Array)
+#7 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/UrlManager.php(191): yii\web\UrlManager->buildRules(Array)
+#8 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\web\UrlManager->init()
+#9 [internal function]: yii\base\BaseObject->__construct(Array)
+#10 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/di/Container.php(384): ReflectionClass->newInstanceArgs(Array)
+#11 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/di/Container.php(156): yii\di\Container->build('yii\\web\\UrlMana...', Array, Array)
+#12 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/BaseYii.php(349): yii\di\Container->get('yii\\web\\UrlMana...', Array, Array)
+#13 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/di/ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#14 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('urlManager', true)
+#15 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Application.php(571): yii\base\Module->get('urlManager')
+#16 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Request.php(272): yii\base\Application->getUrlManager()
+#17 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Application.php(82): yii\web\Request->resolve()
+#18 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#19 /home/ijhwkoqg/callcenter.dronebolivia.com/index.php(11): yii\base\Application->run()
+#20 {main}
+Additional Information:
+Array
+(
+    [0] => 42S02
+    [1] => 1146
+    [2] => Table 'ijhwkoqg_pancha.cache' doesn't exist
+)
+
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/bin:/usr/bin',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'es-419,es;q=0.9,es-ES;q=0.8,en;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_HOST' => 'callcenter.dronebolivia.com',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36 Edg/84.0.522.44',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'DOCUMENT_ROOT' => '/home/ijhwkoqg/callcenter.dronebolivia.com',
+    'REMOTE_ADDR' => '132.251.253.178',
+    'REMOTE_PORT' => '65387',
+    'SERVER_ADDR' => '66.225.241.73',
+    'SERVER_NAME' => 'callcenter.dronebolivia.com',
+    'SERVER_ADMIN' => 'webmaster@callcenter.dronebolivia.com',
+    'SERVER_PORT' => '80',
+    'REQUEST_SCHEME' => 'http',
+    'REQUEST_URI' => '/',
+    'SCRIPT_FILENAME' => '/home/ijhwkoqg/callcenter.dronebolivia.com/index.php',
+    'QUERY_STRING' => '',
+    'SCRIPT_URI' => 'http://callcenter.dronebolivia.com/',
+    'SCRIPT_URL' => '/',
+    'SCRIPT_NAME' => '/index.php',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SOFTWARE' => 'LiteSpeed',
+    'REQUEST_METHOD' => 'GET',
+    'X-LSCACHE' => 'on',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1595791658.0280559062957763671875,
+    'REQUEST_TIME' => 1595791658,
+    'argv' => [],
+    'argc' => 0,
+]
+[26-Jul-2020 15:27:46 America/La_Paz] An Error occurred while handling another error:
+PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ijhwkoqg_pancha.cache' doesn't exist in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php:1290
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(1290): PDOStatement->execute()
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT `data` F...')
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(425): yii\db\Command->queryInternal('fetchColumn', 0)
+#3 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/caching/DbCache.php(142): yii\db\Command->queryScalar()
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/caching/Cache.php(134): yii\caching\DbCache->getValue('d0a3d697346b30b...')
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/CacheSession.php(80): yii\caching\Cache->get('d0a3d697346b30b...')
+#6 [internal function]: yii\web\CacheSession->readSession('2fa91f49259bde9...')
+#7 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Session.php(137): session_start()
+#8 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Session.php(642): yii\web\Session->open()
+#9 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/User.php(414): yii\web\Session->set('__returnUrl', '/')
+#10 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/User.php(446): yii\web\User->setReturnUrl('/')
+#11 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(156): yii\web\User->loginRequired()
+#12 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(140): yii\filters\AccessControl->denyAccess(Object(yii\web\User))
+#13 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\AccessControl->beforeAction(Object(yii\web\ErrorAction))
+#14 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#15 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#16 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#17 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\web\ErrorAction))
+#18 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\web\ErrorAction))
+#19 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('error', Array)
+#20 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/ErrorHandler.php(108): yii\base\Module->runAction('site/error')
+#21 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\db\Exception))
+#22 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\db\Exception))
+#23 {main}
+
+Next yii\db\Exception: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ijhwkoqg_pancha.cache' doesn't exist
+The SQL being executed was: SELECT `data` FROM `cache` WHERE `id` = 'd0a3d697346b30b4aaaca48a4cdb2e7e' AND (`expire` = 0 OR `expire` >1595791666) in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Schema.php:664
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(1295): yii\db\Schema->convertException(Object(PDOException), 'SELECT `data` F...')
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT `data` F...')
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(425): yii\db\Command->queryInternal('fetchColumn', 0)
+#3 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/caching/DbCache.php(142): yii\db\Command->queryScalar()
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/caching/Cache.php(134): yii\caching\DbCache->getValue('d0a3d697346b30b...')
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/CacheSession.php(80): yii\caching\Cache->get('d0a3d697346b30b...')
+#6 [internal function]: yii\web\CacheSession->readSession('2fa91f49259bde9...')
+#7 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Session.php(137): session_start()
+#8 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Session.php(642): yii\web\Session->open()
+#9 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/User.php(414): yii\web\Session->set('__returnUrl', '/')
+#10 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/User.php(446): yii\web\User->setReturnUrl('/')
+#11 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(156): yii\web\User->loginRequired()
+#12 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(140): yii\filters\AccessControl->denyAccess(Object(yii\web\User))
+#13 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\AccessControl->beforeAction(Object(yii\web\ErrorAction))
+#14 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#15 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#16 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#17 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\web\ErrorAction))
+#18 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\web\ErrorAction))
+#19 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('error', Array)
+#20 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/ErrorHandler.php(108): yii\base\Module->runAction('site/error')
+#21 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\db\Exception))
+#22 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\db\Exception))
+#23 {main}
+Additional Information:
+Array
+(
+    [0] => 42S02
+    [1] => 1146
+    [2] => Table 'ijhwkoqg_pancha.cache' doesn't exist
+)
+
+Previous exception:
+PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ijhwkoqg_pancha.cache' doesn't exist in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php:1290
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(1290): PDOStatement->execute()
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT `data` F...')
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(425): yii\db\Command->queryInternal('fetchColumn', 0)
+#3 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/caching/DbCache.php(136): yii\db\Command->queryScalar()
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/caching/Cache.php(134): yii\caching\DbCache->getValue('358c789d4ea52a4...')
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/UrlManager.php(296): yii\caching\Cache->get('358c789d4ea52a4...')
+#6 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/UrlManager.php(229): yii\web\UrlManager->getBuiltRulesFromCache(Array)
+#7 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/UrlManager.php(191): yii\web\UrlManager->buildRules(Array)
+#8 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\web\UrlManager->init()
+#9 [internal function]: yii\base\BaseObject->__construct(Array)
+#10 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/di/Container.php(384): ReflectionClass->newInstanceArgs(Array)
+#11 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/di/Container.php(156): yii\di\Container->build('yii\\web\\UrlMana...', Array, Array)
+#12 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/BaseYii.php(349): yii\di\Container->get('yii\\web\\UrlMana...', Array, Array)
+#13 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/di/ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#14 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('urlManager', true)
+#15 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Application.php(571): yii\base\Module->get('urlManager')
+#16 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Request.php(272): yii\base\Application->getUrlManager()
+#17 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Application.php(82): yii\web\Request->resolve()
+#18 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#19 /home/ijhwkoqg/callcenter.dronebolivia.com/index.php(11): yii\base\Application->run()
+#20 {main}
+
+Next yii\db\Exception: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ijhwkoqg_pancha.cache' doesn't exist
+The SQL being executed was: SELECT `data` FROM `cache` WHERE `id` = '358c789d4ea52a4fb0f1887494f884d0' AND (`expire` = 0 OR `expire` >1595791666) in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Schema.php:664
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(1295): yii\db\Schema->convertException(Object(PDOException), 'SELECT `data` F...')
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT `data` F...')
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(425): yii\db\Command->queryInternal('fetchColumn', 0)
+#3 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/caching/DbCache.php(136): yii\db\Command->queryScalar()
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/caching/Cache.php(134): yii\caching\DbCache->getValue('358c789d4ea52a4...')
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/UrlManager.php(296): yii\caching\Cache->get('358c789d4ea52a4...')
+#6 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/UrlManager.php(229): yii\web\UrlManager->getBuiltRulesFromCache(Array)
+#7 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/UrlManager.php(191): yii\web\UrlManager->buildRules(Array)
+#8 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\web\UrlManager->init()
+#9 [internal function]: yii\base\BaseObject->__construct(Array)
+#10 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/di/Container.php(384): ReflectionClass->newInstanceArgs(Array)
+#11 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/di/Container.php(156): yii\di\Container->build('yii\\web\\UrlMana...', Array, Array)
+#12 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/BaseYii.php(349): yii\di\Container->get('yii\\web\\UrlMana...', Array, Array)
+#13 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/di/ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#14 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('urlManager', true)
+#15 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Application.php(571): yii\base\Module->get('urlManager')
+#16 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Request.php(272): yii\base\Application->getUrlManager()
+#17 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Application.php(82): yii\web\Request->resolve()
+#18 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#19 /home/ijhwkoqg/callcenter.dronebolivia.com/index.php(11): yii\base\Application->run()
+#20 {main}
+Additional Information:
+Array
+(
+    [0] => 42S02
+    [1] => 1146
+    [2] => Table 'ijhwkoqg_pancha.cache' doesn't exist
+)
+
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/bin:/usr/bin',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'HTTP_ACCEPT_CHARSET' => 'utf-8,ISO-8859-1;q=0.7,*;q=0.7',
+    'HTTP_ACCEPT_ENCODING' => 'x-gzip, gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-us,en-gb,en;q=0.7,*;q=0.3',
+    'HTTP_CONNECTION' => 'Keep-Alive',
+    'HTTP_HOST' => 'callcenter.dronebolivia.com',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Linux; Android 5.1.1; SM-G928X Build/LMY47X) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Mobile Safari/537.36',
+    'DOCUMENT_ROOT' => '/home/ijhwkoqg/callcenter.dronebolivia.com',
+    'REMOTE_ADDR' => '191.96.85.167',
+    'REMOTE_PORT' => '39621',
+    'SERVER_ADDR' => '66.225.241.73',
+    'SERVER_NAME' => 'callcenter.dronebolivia.com',
+    'SERVER_ADMIN' => 'webmaster@callcenter.dronebolivia.com',
+    'SERVER_PORT' => '443',
+    'REQUEST_SCHEME' => 'https',
+    'REQUEST_URI' => '/',
+    'HTTPS' => 'on',
+    'SSL_PROTOCOL' => 'TLSv1.2',
+    'SSL_SESSION_ID' => '583352e66d472f5719aff3a71e5f3b672d8369be2a39de810539639b48007633',
+    'SSL_CIPHER' => 'ECDHE-RSA-AES128-GCM-SHA256',
+    'SSL_CIPHER_USEKEYSIZE' => '128',
+    'SSL_CIPHER_ALGKEYSIZE' => '128',
+    'SCRIPT_FILENAME' => '/home/ijhwkoqg/callcenter.dronebolivia.com/index.php',
+    'QUERY_STRING' => '',
+    'SCRIPT_URI' => 'https://callcenter.dronebolivia.com/',
+    'SCRIPT_URL' => '/',
+    'SCRIPT_NAME' => '/index.php',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SOFTWARE' => 'LiteSpeed',
+    'REQUEST_METHOD' => 'GET',
+    'X-LSCACHE' => 'on',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1595791666.3593099117279052734375,
+    'REQUEST_TIME' => 1595791666,
+    'argv' => [],
+    'argc' => 0,
+]
+[26-Jul-2020 15:28:07 America/La_Paz] An Error occurred while handling another error:
+PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ijhwkoqg_pancha.cache' doesn't exist in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php:1290
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(1290): PDOStatement->execute()
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT `data` F...')
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(425): yii\db\Command->queryInternal('fetchColumn', 0)
+#3 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/caching/DbCache.php(142): yii\db\Command->queryScalar()
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/caching/Cache.php(134): yii\caching\DbCache->getValue('72d0987baab1b10...')
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/CacheSession.php(80): yii\caching\Cache->get('72d0987baab1b10...')
+#6 [internal function]: yii\web\CacheSession->readSession('0303cd629914003...')
+#7 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Session.php(137): session_start()
+#8 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Session.php(630): yii\web\Session->open()
+#9 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/User.php(683): yii\web\Session->get('__id')
+#10 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/User.php(192): yii\web\User->renewAuthStatus()
+#11 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/User.php(360): yii\web\User->getIdentity()
+#12 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessRule.php(238): yii\web\User->getIsGuest()
+#13 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessRule.php(170): yii\filters\AccessRule->matchRole(Object(yii\web\User))
+#14 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(123): yii\filters\AccessRule->allows(Object(yii\web\ErrorAction), Object(yii\web\User), Object(yii\web\Request))
+#15 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\AccessControl->beforeAction(Object(yii\web\ErrorAction))
+#16 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#17 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#18 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#19 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\web\ErrorAction))
+#20 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\web\ErrorAction))
+#21 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('error', Array)
+#22 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/ErrorHandler.php(108): yii\base\Module->runAction('site/error')
+#23 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\db\Exception))
+#24 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\db\Exception))
+#25 {main}
+
+Next yii\db\Exception: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ijhwkoqg_pancha.cache' doesn't exist
+The SQL being executed was: SELECT `data` FROM `cache` WHERE `id` = '72d0987baab1b10ca39a636aedc13c25' AND (`expire` = 0 OR `expire` >1595791687) in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Schema.php:664
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(1295): yii\db\Schema->convertException(Object(PDOException), 'SELECT `data` F...')
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT `data` F...')
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(425): yii\db\Command->queryInternal('fetchColumn', 0)
+#3 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/caching/DbCache.php(142): yii\db\Command->queryScalar()
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/caching/Cache.php(134): yii\caching\DbCache->getValue('72d0987baab1b10...')
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/CacheSession.php(80): yii\caching\Cache->get('72d0987baab1b10...')
+#6 [internal function]: yii\web\CacheSession->readSession('0303cd629914003...')
+#7 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Session.php(137): session_start()
+#8 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Session.php(630): yii\web\Session->open()
+#9 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/User.php(683): yii\web\Session->get('__id')
+#10 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/User.php(192): yii\web\User->renewAuthStatus()
+#11 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/User.php(360): yii\web\User->getIdentity()
+#12 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessRule.php(238): yii\web\User->getIsGuest()
+#13 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessRule.php(170): yii\filters\AccessRule->matchRole(Object(yii\web\User))
+#14 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(123): yii\filters\AccessRule->allows(Object(yii\web\ErrorAction), Object(yii\web\User), Object(yii\web\Request))
+#15 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\AccessControl->beforeAction(Object(yii\web\ErrorAction))
+#16 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#17 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#18 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#19 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\web\ErrorAction))
+#20 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\web\ErrorAction))
+#21 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('error', Array)
+#22 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/ErrorHandler.php(108): yii\base\Module->runAction('site/error')
+#23 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\db\Exception))
+#24 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\db\Exception))
+#25 {main}
+Additional Information:
+Array
+(
+    [0] => 42S02
+    [1] => 1146
+    [2] => Table 'ijhwkoqg_pancha.cache' doesn't exist
+)
+
+Previous exception:
+PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ijhwkoqg_pancha.cache' doesn't exist in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php:1290
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(1290): PDOStatement->execute()
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT `data` F...')
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(425): yii\db\Command->queryInternal('fetchColumn', 0)
+#3 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/caching/DbCache.php(136): yii\db\Command->queryScalar()
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/caching/Cache.php(134): yii\caching\DbCache->getValue('358c789d4ea52a4...')
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/UrlManager.php(296): yii\caching\Cache->get('358c789d4ea52a4...')
+#6 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/UrlManager.php(229): yii\web\UrlManager->getBuiltRulesFromCache(Array)
+#7 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/UrlManager.php(191): yii\web\UrlManager->buildRules(Array)
+#8 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\web\UrlManager->init()
+#9 [internal function]: yii\base\BaseObject->__construct(Array)
+#10 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/di/Container.php(384): ReflectionClass->newInstanceArgs(Array)
+#11 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/di/Container.php(156): yii\di\Container->build('yii\\web\\UrlMana...', Array, Array)
+#12 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/BaseYii.php(349): yii\di\Container->get('yii\\web\\UrlMana...', Array, Array)
+#13 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/di/ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#14 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('urlManager', true)
+#15 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Application.php(571): yii\base\Module->get('urlManager')
+#16 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Request.php(272): yii\base\Application->getUrlManager()
+#17 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Application.php(82): yii\web\Request->resolve()
+#18 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#19 /home/ijhwkoqg/callcenter.dronebolivia.com/index.php(11): yii\base\Application->run()
+#20 {main}
+
+Next yii\db\Exception: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ijhwkoqg_pancha.cache' doesn't exist
+The SQL being executed was: SELECT `data` FROM `cache` WHERE `id` = '358c789d4ea52a4fb0f1887494f884d0' AND (`expire` = 0 OR `expire` >1595791687) in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Schema.php:664
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(1295): yii\db\Schema->convertException(Object(PDOException), 'SELECT `data` F...')
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT `data` F...')
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/db/Command.php(425): yii\db\Command->queryInternal('fetchColumn', 0)
+#3 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/caching/DbCache.php(136): yii\db\Command->queryScalar()
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/caching/Cache.php(134): yii\caching\DbCache->getValue('358c789d4ea52a4...')
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/UrlManager.php(296): yii\caching\Cache->get('358c789d4ea52a4...')
+#6 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/UrlManager.php(229): yii\web\UrlManager->getBuiltRulesFromCache(Array)
+#7 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/UrlManager.php(191): yii\web\UrlManager->buildRules(Array)
+#8 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\web\UrlManager->init()
+#9 [internal function]: yii\base\BaseObject->__construct(Array)
+#10 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/di/Container.php(384): ReflectionClass->newInstanceArgs(Array)
+#11 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/di/Container.php(156): yii\di\Container->build('yii\\web\\UrlMana...', Array, Array)
+#12 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/BaseYii.php(349): yii\di\Container->get('yii\\web\\UrlMana...', Array, Array)
+#13 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/di/ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#14 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('urlManager', true)
+#15 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Application.php(571): yii\base\Module->get('urlManager')
+#16 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Request.php(272): yii\base\Application->getUrlManager()
+#17 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Application.php(82): yii\web\Request->resolve()
+#18 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#19 /home/ijhwkoqg/callcenter.dronebolivia.com/index.php(11): yii\base\Application->run()
+#20 {main}
+Additional Information:
+Array
+(
+    [0] => 42S02
+    [1] => 1146
+    [2] => Table 'ijhwkoqg_pancha.cache' doesn't exist
+)
+
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/bin:/usr/bin',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'es-419,es;q=0.9,es-ES;q=0.8,en;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_COOKIE' => 'PHPSESSID=0303cd6299140033eae8a53a92c8c210',
+    'HTTP_HOST' => 'callcenter.dronebolivia.com',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36 Edg/84.0.522.44',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'DOCUMENT_ROOT' => '/home/ijhwkoqg/callcenter.dronebolivia.com',
+    'REMOTE_ADDR' => '132.251.253.178',
+    'REMOTE_PORT' => '65391',
+    'SERVER_ADDR' => '66.225.241.73',
+    'SERVER_NAME' => 'callcenter.dronebolivia.com',
+    'SERVER_ADMIN' => 'webmaster@callcenter.dronebolivia.com',
+    'SERVER_PORT' => '80',
+    'REQUEST_SCHEME' => 'http',
+    'REQUEST_URI' => '/',
+    'SCRIPT_FILENAME' => '/home/ijhwkoqg/callcenter.dronebolivia.com/index.php',
+    'QUERY_STRING' => '',
+    'SCRIPT_URI' => 'http://callcenter.dronebolivia.com/',
+    'SCRIPT_URL' => '/',
+    'SCRIPT_NAME' => '/index.php',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SOFTWARE' => 'LiteSpeed',
+    'REQUEST_METHOD' => 'GET',
+    'X-LSCACHE' => 'on',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1595791687.3766729831695556640625,
+    'REQUEST_TIME' => 1595791687,
+    'argv' => [],
+    'argc' => 0,
+]
+[27-Jul-2020 19:16:46 America/La_Paz] An Error occurred while handling another error:
+yii\web\ForbiddenHttpException: Login Requerido in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/User.php:454
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(156): yii\web\User->loginRequired()
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(140): yii\filters\AccessControl->denyAccess(Object(yii\web\User))
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\AccessControl->beforeAction(Object(yii\web\ErrorAction))
+#3 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#6 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\web\ErrorAction))
+#7 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\web\ErrorAction))
+#8 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('error', Array)
+#9 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/ErrorHandler.php(108): yii\base\Module->runAction('site/error')
+#10 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\web\BadRequestHttpException))
+#11 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\BadRequestHttpException))
+#12 {main}
+Previous exception:
+yii\web\BadRequestHttpException: Incapaz de verificar los datos enviados. in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Controller.php:166
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/controllers/UserController.php(63): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(155): app\controllers\UserController->beforeAction(Object(yii\base\InlineAction))
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('login', Array)
+#3 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('admin/user/logi...', Array)
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/index.php(11): yii\base\Application->run()
+#6 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/bin:/usr/bin',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'es-419,es;q=0.9,es-ES;q=0.8,en;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded',
+    'CONTENT_LENGTH' => '165',
+    'HTTP_HOST' => 'callcenter.dronebolivia.com',
+    'HTTP_REFERER' => 'http://callcenter.dronebolivia.com/admin/user/login',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36 Edg/84.0.522.44',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_ORIGIN' => 'http://callcenter.dronebolivia.com',
+    'DOCUMENT_ROOT' => '/home/ijhwkoqg/callcenter.dronebolivia.com',
+    'REMOTE_ADDR' => '132.251.253.178',
+    'REMOTE_PORT' => '63334',
+    'SERVER_ADDR' => '66.225.241.73',
+    'SERVER_NAME' => 'callcenter.dronebolivia.com',
+    'SERVER_ADMIN' => 'webmaster@callcenter.dronebolivia.com',
+    'SERVER_PORT' => '80',
+    'REQUEST_SCHEME' => 'http',
+    'REQUEST_URI' => '/admin/user/login',
+    'REDIRECT_URL' => '/admin/user/login',
+    'REDIRECT_STATUS' => '200',
+    'SCRIPT_FILENAME' => '/home/ijhwkoqg/callcenter.dronebolivia.com/index.php',
+    'QUERY_STRING' => '',
+    'SCRIPT_URI' => 'http://callcenter.dronebolivia.com/admin/user/login',
+    'SCRIPT_URL' => '/admin/user/login',
+    'SCRIPT_NAME' => '/index.php',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SOFTWARE' => 'LiteSpeed',
+    'REQUEST_METHOD' => 'POST',
+    'X-LSCACHE' => 'on',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1595891806.5139510631561279296875,
+    'REQUEST_TIME' => 1595891806,
+    'argv' => [],
+    'argc' => 0,
+]
+[27-Jul-2020 19:16:54 America/La_Paz] An Error occurred while handling another error:
+yii\web\ForbiddenHttpException: Login Requerido in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/User.php:454
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(156): yii\web\User->loginRequired()
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(140): yii\filters\AccessControl->denyAccess(Object(yii\web\User))
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\AccessControl->beforeAction(Object(yii\web\ErrorAction))
+#3 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#6 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\web\ErrorAction))
+#7 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\web\ErrorAction))
+#8 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('error', Array)
+#9 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/ErrorHandler.php(108): yii\base\Module->runAction('site/error')
+#10 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\web\BadRequestHttpException))
+#11 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\BadRequestHttpException))
+#12 {main}
+Previous exception:
+yii\web\BadRequestHttpException: Incapaz de verificar los datos enviados. in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Controller.php:166
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/controllers/UserController.php(63): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(155): app\controllers\UserController->beforeAction(Object(yii\base\InlineAction))
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('login', Array)
+#3 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('admin/user/logi...', Array)
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/index.php(11): yii\base\Application->run()
+#6 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/bin:/usr/bin',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'es-419,es;q=0.9,es-ES;q=0.8,en;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded',
+    'CONTENT_LENGTH' => '165',
+    'HTTP_HOST' => 'callcenter.dronebolivia.com',
+    'HTTP_REFERER' => 'http://callcenter.dronebolivia.com/admin/user/login',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36 Edg/84.0.522.44',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_ORIGIN' => 'http://callcenter.dronebolivia.com',
+    'DOCUMENT_ROOT' => '/home/ijhwkoqg/callcenter.dronebolivia.com',
+    'REMOTE_ADDR' => '132.251.253.178',
+    'REMOTE_PORT' => '63334',
+    'SERVER_ADDR' => '66.225.241.73',
+    'SERVER_NAME' => 'callcenter.dronebolivia.com',
+    'SERVER_ADMIN' => 'webmaster@callcenter.dronebolivia.com',
+    'SERVER_PORT' => '80',
+    'REQUEST_SCHEME' => 'http',
+    'REQUEST_URI' => '/admin/user/login',
+    'REDIRECT_URL' => '/admin/user/login',
+    'REDIRECT_STATUS' => '200',
+    'SCRIPT_FILENAME' => '/home/ijhwkoqg/callcenter.dronebolivia.com/index.php',
+    'QUERY_STRING' => '',
+    'SCRIPT_URI' => 'http://callcenter.dronebolivia.com/admin/user/login',
+    'SCRIPT_URL' => '/admin/user/login',
+    'SCRIPT_NAME' => '/index.php',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SOFTWARE' => 'LiteSpeed',
+    'REQUEST_METHOD' => 'POST',
+    'X-LSCACHE' => 'on',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1595891814.8896191120147705078125,
+    'REQUEST_TIME' => 1595891814,
+    'argv' => [],
+    'argc' => 0,
+]
+[27-Jul-2020 19:17:03 America/La_Paz] An Error occurred while handling another error:
+yii\web\ForbiddenHttpException: Login Requerido in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/User.php:454
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(156): yii\web\User->loginRequired()
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(140): yii\filters\AccessControl->denyAccess(Object(yii\web\User))
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\AccessControl->beforeAction(Object(yii\web\ErrorAction))
+#3 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#6 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\web\ErrorAction))
+#7 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\web\ErrorAction))
+#8 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('error', Array)
+#9 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/ErrorHandler.php(108): yii\base\Module->runAction('site/error')
+#10 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\web\BadRequestHttpException))
+#11 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\BadRequestHttpException))
+#12 {main}
+Previous exception:
+yii\web\BadRequestHttpException: Incapaz de verificar los datos enviados. in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Controller.php:166
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/controllers/UserController.php(63): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(155): app\controllers\UserController->beforeAction(Object(yii\base\InlineAction))
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('login', Array)
+#3 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('admin/user/logi...', Array)
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/index.php(11): yii\base\Application->run()
+#6 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/bin:/usr/bin',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'es-419,es;q=0.9,es-ES;q=0.8,en;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded',
+    'CONTENT_LENGTH' => '165',
+    'HTTP_HOST' => 'callcenter.dronebolivia.com',
+    'HTTP_REFERER' => 'http://callcenter.dronebolivia.com/admin/user/login',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36 Edg/84.0.522.44',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_ORIGIN' => 'http://callcenter.dronebolivia.com',
+    'DOCUMENT_ROOT' => '/home/ijhwkoqg/callcenter.dronebolivia.com',
+    'REMOTE_ADDR' => '132.251.253.178',
+    'REMOTE_PORT' => '63334',
+    'SERVER_ADDR' => '66.225.241.73',
+    'SERVER_NAME' => 'callcenter.dronebolivia.com',
+    'SERVER_ADMIN' => 'webmaster@callcenter.dronebolivia.com',
+    'SERVER_PORT' => '80',
+    'REQUEST_SCHEME' => 'http',
+    'REQUEST_URI' => '/admin/user/login',
+    'REDIRECT_URL' => '/admin/user/login',
+    'REDIRECT_STATUS' => '200',
+    'SCRIPT_FILENAME' => '/home/ijhwkoqg/callcenter.dronebolivia.com/index.php',
+    'QUERY_STRING' => '',
+    'SCRIPT_URI' => 'http://callcenter.dronebolivia.com/admin/user/login',
+    'SCRIPT_URL' => '/admin/user/login',
+    'SCRIPT_NAME' => '/index.php',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SOFTWARE' => 'LiteSpeed',
+    'REQUEST_METHOD' => 'POST',
+    'X-LSCACHE' => 'on',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1595891823.1537749767303466796875,
+    'REQUEST_TIME' => 1595891823,
+    'argv' => [],
+    'argc' => 0,
+]
+[27-Jul-2020 19:24:43 America/La_Paz] An Error occurred while handling another error:
+yii\web\ForbiddenHttpException: Login Requerido in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/User.php:454
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(156): yii\web\User->loginRequired()
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(140): yii\filters\AccessControl->denyAccess(Object(yii\web\User))
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\AccessControl->beforeAction(Object(yii\web\ErrorAction))
+#3 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#6 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\web\ErrorAction))
+#7 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\web\ErrorAction))
+#8 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('error', Array)
+#9 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/ErrorHandler.php(108): yii\base\Module->runAction('site/error')
+#10 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\web\BadRequestHttpException))
+#11 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\BadRequestHttpException))
+#12 {main}
+Previous exception:
+yii\web\BadRequestHttpException: Incapaz de verificar los datos enviados. in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Controller.php:166
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/controllers/UserController.php(63): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(155): app\controllers\UserController->beforeAction(Object(yii\base\InlineAction))
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('login', Array)
+#3 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('admin/user/logi...', Array)
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/index.php(11): yii\base\Application->run()
+#6 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/bin:/usr/bin',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'es-419,es;q=0.9,es-ES;q=0.8,en;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded',
+    'CONTENT_LENGTH' => '165',
+    'HTTP_HOST' => 'callcenter.dronebolivia.com',
+    'HTTP_REFERER' => 'http://callcenter.dronebolivia.com/admin/user/login',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36 Edg/84.0.522.44',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_ORIGIN' => 'http://callcenter.dronebolivia.com',
+    'DOCUMENT_ROOT' => '/home/ijhwkoqg/callcenter.dronebolivia.com',
+    'REMOTE_ADDR' => '132.251.253.178',
+    'REMOTE_PORT' => '63565',
+    'SERVER_ADDR' => '66.225.241.73',
+    'SERVER_NAME' => 'callcenter.dronebolivia.com',
+    'SERVER_ADMIN' => 'webmaster@callcenter.dronebolivia.com',
+    'SERVER_PORT' => '80',
+    'REQUEST_SCHEME' => 'http',
+    'REQUEST_URI' => '/admin/user/login',
+    'REDIRECT_URL' => '/admin/user/login',
+    'REDIRECT_STATUS' => '200',
+    'SCRIPT_FILENAME' => '/home/ijhwkoqg/callcenter.dronebolivia.com/index.php',
+    'QUERY_STRING' => '',
+    'SCRIPT_URI' => 'http://callcenter.dronebolivia.com/admin/user/login',
+    'SCRIPT_URL' => '/admin/user/login',
+    'SCRIPT_NAME' => '/index.php',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SOFTWARE' => 'LiteSpeed',
+    'REQUEST_METHOD' => 'POST',
+    'X-LSCACHE' => 'on',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1595892283.8120610713958740234375,
+    'REQUEST_TIME' => 1595892283,
+    'argv' => [],
+    'argc' => 0,
+]
+[27-Jul-2020 19:27:36 America/La_Paz] An Error occurred while handling another error:
+yii\web\ForbiddenHttpException: Login Requerido in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/User.php:454
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(156): yii\web\User->loginRequired()
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(140): yii\filters\AccessControl->denyAccess(Object(yii\web\User))
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\AccessControl->beforeAction(Object(yii\web\ErrorAction))
+#3 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#6 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\web\ErrorAction))
+#7 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\web\ErrorAction))
+#8 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('error', Array)
+#9 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/ErrorHandler.php(108): yii\base\Module->runAction('site/error')
+#10 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\web\BadRequestHttpException))
+#11 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\BadRequestHttpException))
+#12 {main}
+Previous exception:
+yii\web\BadRequestHttpException: Incapaz de verificar los datos enviados. in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Controller.php:166
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/controllers/UserController.php(63): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(155): app\controllers\UserController->beforeAction(Object(yii\base\InlineAction))
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('login', Array)
+#3 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('admin/user/logi...', Array)
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/index.php(11): yii\base\Application->run()
+#6 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/bin:/usr/bin',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'es-419,es;q=0.9,es-ES;q=0.8,en;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded',
+    'CONTENT_LENGTH' => '165',
+    'HTTP_HOST' => 'callcenter.dronebolivia.com',
+    'HTTP_REFERER' => 'http://callcenter.dronebolivia.com/admin/user/login',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36 Edg/84.0.522.44',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_ORIGIN' => 'http://callcenter.dronebolivia.com',
+    'DOCUMENT_ROOT' => '/home/ijhwkoqg/callcenter.dronebolivia.com',
+    'REMOTE_ADDR' => '132.251.253.178',
+    'REMOTE_PORT' => '63647',
+    'SERVER_ADDR' => '66.225.241.73',
+    'SERVER_NAME' => 'callcenter.dronebolivia.com',
+    'SERVER_ADMIN' => 'webmaster@callcenter.dronebolivia.com',
+    'SERVER_PORT' => '80',
+    'REQUEST_SCHEME' => 'http',
+    'REQUEST_URI' => '/admin/user/login',
+    'REDIRECT_URL' => '/admin/user/login',
+    'REDIRECT_STATUS' => '200',
+    'SCRIPT_FILENAME' => '/home/ijhwkoqg/callcenter.dronebolivia.com/index.php',
+    'QUERY_STRING' => '',
+    'SCRIPT_URI' => 'http://callcenter.dronebolivia.com/admin/user/login',
+    'SCRIPT_URL' => '/admin/user/login',
+    'SCRIPT_NAME' => '/index.php',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SOFTWARE' => 'LiteSpeed',
+    'REQUEST_METHOD' => 'POST',
+    'X-LSCACHE' => 'on',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1595892456.8535139560699462890625,
+    'REQUEST_TIME' => 1595892456,
+    'argv' => [],
+    'argc' => 0,
+]
+[27-Jul-2020 19:27:59 America/La_Paz] An Error occurred while handling another error:
+yii\web\ForbiddenHttpException: Login Requerido in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/User.php:454
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(156): yii\web\User->loginRequired()
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(140): yii\filters\AccessControl->denyAccess(Object(yii\web\User))
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\AccessControl->beforeAction(Object(yii\web\ErrorAction))
+#3 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#6 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\web\ErrorAction))
+#7 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\web\ErrorAction))
+#8 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('error', Array)
+#9 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/ErrorHandler.php(108): yii\base\Module->runAction('site/error')
+#10 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\web\BadRequestHttpException))
+#11 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\BadRequestHttpException))
+#12 {main}
+Previous exception:
+yii\web\BadRequestHttpException: Incapaz de verificar los datos enviados. in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Controller.php:166
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/controllers/UserController.php(63): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(155): app\controllers\UserController->beforeAction(Object(yii\base\InlineAction))
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('login', Array)
+#3 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('admin/user/logi...', Array)
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/index.php(11): yii\base\Application->run()
+#6 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/bin:/usr/bin',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'es-419,es;q=0.9,es-ES;q=0.8,en;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded',
+    'CONTENT_LENGTH' => '165',
+    'HTTP_HOST' => 'callcenter.dronebolivia.com',
+    'HTTP_REFERER' => 'http://callcenter.dronebolivia.com/admin/user/login',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36 Edg/84.0.522.44',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_ORIGIN' => 'http://callcenter.dronebolivia.com',
+    'DOCUMENT_ROOT' => '/home/ijhwkoqg/callcenter.dronebolivia.com',
+    'REMOTE_ADDR' => '132.251.253.178',
+    'REMOTE_PORT' => '63657',
+    'SERVER_ADDR' => '66.225.241.73',
+    'SERVER_NAME' => 'callcenter.dronebolivia.com',
+    'SERVER_ADMIN' => 'webmaster@callcenter.dronebolivia.com',
+    'SERVER_PORT' => '80',
+    'REQUEST_SCHEME' => 'http',
+    'REQUEST_URI' => '/admin/user/login',
+    'REDIRECT_URL' => '/admin/user/login',
+    'REDIRECT_STATUS' => '200',
+    'SCRIPT_FILENAME' => '/home/ijhwkoqg/callcenter.dronebolivia.com/index.php',
+    'QUERY_STRING' => '',
+    'SCRIPT_URI' => 'http://callcenter.dronebolivia.com/admin/user/login',
+    'SCRIPT_URL' => '/admin/user/login',
+    'SCRIPT_NAME' => '/index.php',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SOFTWARE' => 'LiteSpeed',
+    'REQUEST_METHOD' => 'POST',
+    'X-LSCACHE' => 'on',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1595892479.1245930194854736328125,
+    'REQUEST_TIME' => 1595892479,
+    'argv' => [],
+    'argc' => 0,
+]
+[02-Aug-2020 20:50:07 America/La_Paz] An Error occurred while handling another error:
+yii\web\ForbiddenHttpException: Login Requerido in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/User.php:454
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(156): yii\web\User->loginRequired()
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(140): yii\filters\AccessControl->denyAccess(Object(yii\web\User))
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\AccessControl->beforeAction(Object(yii\web\ErrorAction))
+#3 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#6 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\web\ErrorAction))
+#7 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\web\ErrorAction))
+#8 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('error', Array)
+#9 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/ErrorHandler.php(108): yii\base\Module->runAction('site/error')
+#10 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\web\BadRequestHttpException))
+#11 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\BadRequestHttpException))
+#12 {main}
+Previous exception:
+yii\web\BadRequestHttpException: Incapaz de verificar los datos enviados. in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Controller.php:166
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/controllers/UserController.php(63): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(155): app\controllers\UserController->beforeAction(Object(yii\base\InlineAction))
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('login', Array)
+#3 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('admin/user/logi...', Array)
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/index.php(11): yii\base\Application->run()
+#6 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/bin:/usr/bin',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'es-419,es;q=0.9,es-ES;q=0.8,en;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded',
+    'CONTENT_LENGTH' => '174',
+    'HTTP_COOKIE' => 'PHPSESSID=a6bf67f865b130dc313e9aa3711339e6; _csrf=47f27d2e9eabf4f2c00e675e4e7abdc6b7b3688e04097059fd3b63a5eb041e9da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22waUWvLIdG7sDJziWmTsPxRe1ji2RDbWS%22%3B%7D',
+    'HTTP_HOST' => 'callcenter.dronebolivia.com',
+    'HTTP_REFERER' => 'http://callcenter.dronebolivia.com/admin/user/login',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36 Edg/84.0.522.52',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_ORIGIN' => 'http://callcenter.dronebolivia.com',
+    'DOCUMENT_ROOT' => '/home/ijhwkoqg/callcenter.dronebolivia.com',
+    'REMOTE_ADDR' => '200.58.77.44',
+    'REMOTE_PORT' => '51006',
+    'SERVER_ADDR' => '66.225.241.73',
+    'SERVER_NAME' => 'callcenter.dronebolivia.com',
+    'SERVER_ADMIN' => 'webmaster@callcenter.dronebolivia.com',
+    'SERVER_PORT' => '80',
+    'REQUEST_SCHEME' => 'http',
+    'REQUEST_URI' => '/admin/user/login',
+    'REDIRECT_URL' => '/admin/user/login',
+    'REDIRECT_STATUS' => '200',
+    'SCRIPT_FILENAME' => '/home/ijhwkoqg/callcenter.dronebolivia.com/index.php',
+    'QUERY_STRING' => '',
+    'SCRIPT_URI' => 'http://callcenter.dronebolivia.com/admin/user/login',
+    'SCRIPT_URL' => '/admin/user/login',
+    'SCRIPT_NAME' => '/index.php',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SOFTWARE' => 'LiteSpeed',
+    'REQUEST_METHOD' => 'POST',
+    'X-LSCACHE' => 'on',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1596415807.7899320125579833984375,
+    'REQUEST_TIME' => 1596415807,
+    'argv' => [],
+    'argc' => 0,
+]
+[05-Aug-2020 18:20:50 America/La_Paz] An Error occurred while handling another error:
+yii\web\ForbiddenHttpException: Login Requerido in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/User.php:454
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(156): yii\web\User->loginRequired()
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(140): yii\filters\AccessControl->denyAccess(Object(yii\web\User))
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\AccessControl->beforeAction(Object(yii\web\ErrorAction))
+#3 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#6 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\web\ErrorAction))
+#7 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\web\ErrorAction))
+#8 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('error', Array)
+#9 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/ErrorHandler.php(108): yii\base\Module->runAction('site/error')
+#10 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\web\BadRequestHttpException))
+#11 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\BadRequestHttpException))
+#12 {main}
+Previous exception:
+yii\web\BadRequestHttpException: Incapaz de verificar los datos enviados. in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Controller.php:166
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/controllers/UserController.php(63): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(155): app\controllers\UserController->beforeAction(Object(yii\base\InlineAction))
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('login', Array)
+#3 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('admin/user/logi...', Array)
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/index.php(11): yii\base\Application->run()
+#6 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/bin:/usr/bin',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'es-419,es;q=0.9,es-ES;q=0.8,en;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded',
+    'CONTENT_LENGTH' => '165',
+    'HTTP_HOST' => 'callcenter.dronebolivia.com',
+    'HTTP_REFERER' => 'http://callcenter.dronebolivia.com/admin/user/login',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36 Edg/84.0.522.52',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_ORIGIN' => 'http://callcenter.dronebolivia.com',
+    'DOCUMENT_ROOT' => '/home/ijhwkoqg/callcenter.dronebolivia.com',
+    'REMOTE_ADDR' => '181.177.132.42',
+    'REMOTE_PORT' => '50105',
+    'SERVER_ADDR' => '66.225.241.73',
+    'SERVER_NAME' => 'callcenter.dronebolivia.com',
+    'SERVER_ADMIN' => 'webmaster@callcenter.dronebolivia.com',
+    'SERVER_PORT' => '80',
+    'REQUEST_SCHEME' => 'http',
+    'REQUEST_URI' => '/admin/user/login',
+    'REDIRECT_URL' => '/admin/user/login',
+    'REDIRECT_STATUS' => '200',
+    'SCRIPT_FILENAME' => '/home/ijhwkoqg/callcenter.dronebolivia.com/index.php',
+    'QUERY_STRING' => '',
+    'SCRIPT_URI' => 'http://callcenter.dronebolivia.com/admin/user/login',
+    'SCRIPT_URL' => '/admin/user/login',
+    'SCRIPT_NAME' => '/index.php',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SOFTWARE' => 'LiteSpeed',
+    'REQUEST_METHOD' => 'POST',
+    'X-LSCACHE' => 'on',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1596666049.9976580142974853515625,
+    'REQUEST_TIME' => 1596666049,
+    'argv' => [],
+    'argc' => 0,
+]
+[05-Aug-2020 18:21:14 America/La_Paz] An Error occurred while handling another error:
+yii\web\ForbiddenHttpException: Login Requerido in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/User.php:454
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(156): yii\web\User->loginRequired()
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/filters/AccessControl.php(140): yii\filters\AccessControl->denyAccess(Object(yii\web\User))
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\AccessControl->beforeAction(Object(yii\web\ErrorAction))
+#3 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#6 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\web\ErrorAction))
+#7 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\web\ErrorAction))
+#8 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('error', Array)
+#9 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/ErrorHandler.php(108): yii\base\Module->runAction('site/error')
+#10 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\web\BadRequestHttpException))
+#11 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\BadRequestHttpException))
+#12 {main}
+Previous exception:
+yii\web\BadRequestHttpException: Incapaz de verificar los datos enviados. in /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Controller.php:166
+Stack trace:
+#0 /home/ijhwkoqg/callcenter.dronebolivia.com/app/controllers/UserController.php(63): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#1 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Controller.php(155): app\controllers\UserController->beforeAction(Object(yii\base\InlineAction))
+#2 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('login', Array)
+#3 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('admin/user/logi...', Array)
+#4 /home/ijhwkoqg/callcenter.dronebolivia.com/app/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#5 /home/ijhwkoqg/callcenter.dronebolivia.com/index.php(11): yii\base\Application->run()
+#6 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/bin:/usr/bin',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'es-419,es;q=0.9,es-ES;q=0.8,en;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded',
+    'CONTENT_LENGTH' => '165',
+    'HTTP_HOST' => 'callcenter.dronebolivia.com',
+    'HTTP_REFERER' => 'http://callcenter.dronebolivia.com/admin/user/login',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36 Edg/84.0.522.52',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_ORIGIN' => 'http://callcenter.dronebolivia.com',
+    'DOCUMENT_ROOT' => '/home/ijhwkoqg/callcenter.dronebolivia.com',
+    'REMOTE_ADDR' => '181.177.132.42',
+    'REMOTE_PORT' => '50116',
+    'SERVER_ADDR' => '66.225.241.73',
+    'SERVER_NAME' => 'callcenter.dronebolivia.com',
+    'SERVER_ADMIN' => 'webmaster@callcenter.dronebolivia.com',
+    'SERVER_PORT' => '80',
+    'REQUEST_SCHEME' => 'http',
+    'REQUEST_URI' => '/admin/user/login',
+    'REDIRECT_URL' => '/admin/user/login',
+    'REDIRECT_STATUS' => '200',
+    'SCRIPT_FILENAME' => '/home/ijhwkoqg/callcenter.dronebolivia.com/index.php',
+    'QUERY_STRING' => '',
+    'SCRIPT_URI' => 'http://callcenter.dronebolivia.com/admin/user/login',
+    'SCRIPT_URL' => '/admin/user/login',
+    'SCRIPT_NAME' => '/index.php',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SOFTWARE' => 'LiteSpeed',
+    'REQUEST_METHOD' => 'POST',
+    'X-LSCACHE' => 'on',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1596666068.627708911895751953125,
+    'REQUEST_TIME' => 1596666068,
+    'argv' => [],
+    'argc' => 0,
+]
