@@ -2,6 +2,11 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use app\assets\PrecioAsset;
+/* @var $this yii\web\View */
+/* @var $model app\models\Pedidodelivery */
+/* @var $form yii\widgets\ActiveForm */
+PrecioAsset::register($this);
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Preciodelivery */
@@ -11,6 +16,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Preciodeliveries', 'url' => ['inde
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
+<input type="hidden" id="model_id" value="<?=$model->id?>">
 <div class="preciodelivery-view">
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-centered">
@@ -19,15 +25,17 @@ $this->params['breadcrumbs'][] = $this->title;
                     <h4><?= Html::encode($this->title) ?></h4>
                     <hr>
 
-                <?= DetailView::widget([
+                    <?= DetailView::widget([
                         'model' => $model,
                         'attributes' => [
                             'nombre',
-            'descripcion',
-            'precio',
-            'estado',
+                            'descripcion',
+                            'precio',
+                            'estado',
                         ],
                     ]) ?>
+
+                    <div id="map"></div>
 
                      <div class="form-group text-right">
                         <?= Html::a( "<i class='material-icons'>clear</i> ".'Cerrar', ['index'], ['class' => 'btn btn-simple', 'title'=>'Cerrar',]) ?>
@@ -38,3 +46,10 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </div>
+
+
+<?php 
+// $this->registerJsFile('/js/preciodelivery/view.js', [
+//     'depends' => [\yii\web\JqueryAsset::className()],
+// ]); 
+?> 
