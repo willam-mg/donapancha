@@ -9,6 +9,7 @@ use app\models\PrecioCoordinates;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 
 /**
  * PreciodeliveryController implements the CRUD actions for Preciodelivery model.
@@ -65,14 +66,40 @@ class PreciodeliveryController extends Controller
      */
     public function actionCreate()
     {
+        $request = Yii::$app->request;
         $model = new Preciodelivery();
+        $model->estado = 'Activo';
+        $lngs = [];
+        $lats = [];
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($request->isPost && $model->load($request->post())) {
+            $transaction = $model->getDb()->beginTransaction();
+            try {
+                $model->save();
+                $lats = $request->post('lats');
+                $lngs = $request->post('lngs');
+                if ($lats){
+                    foreach ($lats as $index => $lat) {
+                        $precioCordinates  = new PrecioCoordinates();
+                        $precioCordinates->precio_delivery_id = $model->id;
+                        $precioCordinates->lat = $lat;
+                        $precioCordinates->lng = $lngs[$index];
+                        $precioCordinates->save();
+                    }
+                }
+                $transaction->commit();
+                return $this->redirect(['view', 'id' => $model->id]);
+            } catch (\Throwable $th) {
+                $transaction->rollBack();
+                \Yii::$app->session->setFlash('warning', $th->getMessage());
+            }
+            
         }
 
         return $this->render('create', [
             'model' => $model,
+            'lngs' => $lngs,
+            'lats' => $lats,
         ]);
     }
 
@@ -85,14 +112,41 @@ class PreciodeliveryController extends Controller
      */
     public function actionUpdate($id)
     {
+        $request = Yii::$app->request;
         $model = $this->findModel($id);
+        $lngs = ArrayHelper::getColumn($model->cordenadas,'lng');
+        $lats = ArrayHelper::getColumn($model->cordenadas,'lat');
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $transaction = $model->getDb()->beginTransaction();
+            try {
+                $model->save();
+                $lats = $request->post('lats');
+                $lngs = $request->post('lngs');
+                foreach ($model->cordenadas as $key => $cord) {
+                    $cord->delete();
+                }
+                if ($lats){
+                    foreach ($lats as $index => $lat) {
+                        $precioCordinates  = new PrecioCoordinates();
+                        $precioCordinates->precio_delivery_id = $model->id;
+                        $precioCordinates->lat = $lat;
+                        $precioCordinates->lng = $lngs[$index];
+                        $precioCordinates->save();
+                    }
+                }
+                $transaction->commit();
+                return $this->redirect(['view', 'id' => $model->id]);
+            } catch (\Throwable $th) {
+                $transaction->rollBack();
+                \Yii::$app->session->setFlash('warning', $th->getMessage());
+            }
         }
 
         return $this->render('update', [
             'model' => $model,
+            'lngs' => $lngs,
+            'lats' => $lats,
         ]);
     }
 

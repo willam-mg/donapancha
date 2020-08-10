@@ -170,8 +170,11 @@ class PedidodeliveryController extends Controller
                 if ( !$model->latitude && !$model->longitude  ){
                     throw new \Exception( 'Url mapa invalido o pocicion no seleccionada' );
                 }
-
-                $model->save();
+                $precioDelivery = Preciodelivery::findOne($model->precio_delivery_id);
+                $model->precio_delivery = floatval($precioDelivery->precio);
+                if ( !$model->save() ){
+                    throw new \Exception( ErrorsComponent::formatJustString($model->errors));
+                }
 
                 if ( !$cliente->save() ){
                     throw new \Exception( ErrorsComponent::formatJustString($cliente->errors) );
@@ -187,7 +190,6 @@ class PedidodeliveryController extends Controller
                     $detalle->pedido_delivery_id = $model->id;
                     $detalle->save();
                 }
-               
                 $transaction->commit();
                 Yii::$app->session->setFlash('success', 'Pedido registrado');
                 return $this->redirect(['view', 'id' => $model->id]);

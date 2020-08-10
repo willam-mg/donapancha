@@ -89,14 +89,14 @@ function initMap(){
     if (latitude && longitude){
         let position = new google.maps.LatLng(latitude, longitude)
         map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 12,
+            zoom: 15,
             center: { lat: latitude, lng: longitude},
             mapTypeId: "terrain"
         });
         addMarker(position);
     }else{
         map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 12,
+            zoom: 15,
             center: { lat: -17.408744, lng: -66.153893 },
             mapTypeId: "terrain"
         });
@@ -105,11 +105,11 @@ function initMap(){
     
 
     // Define the LatLng coordinates for the polygon.
-    var triangleCoords = [
-        { lat: 25.774, lng: -80.19 },
-        { lat: 18.466, lng: -66.118 },
-        { lat: 32.321, lng: -64.757 }
-    ];
+    // var triangleCoords = [
+    //     { lat: 25.774, lng: -80.19 },
+    //     { lat: 18.466, lng: -66.118 },
+    //     { lat: 32.321, lng: -64.757 }
+    // ];
     
     preciosDelivery.forEach((item, i)=>{
         // Construct the polygon.
@@ -129,7 +129,7 @@ function initMap(){
         bermudaTriangle.setMap(map);
 
         // Add a listener for the click event.
-        bermudaTriangle.addListener("click", showArrays);
+        // bermudaTriangle.addListener("click", showArrays);
         polygonesArray.push(bermudaTriangle);
     });
 
@@ -138,12 +138,17 @@ function initMap(){
 
 
 
-
-    map.addListener('click', function (mapsMouseEvent) {
-        if (!latitude && !longitude) {
-            addMarker(mapsMouseEvent.latLng);
-        }
+    // map.center = preciosDelivery[0].cordinates;
+    console.log(parseFloat(preciosDelivery[0].cordinates[0].latitude))
+    map.setCenter({ 
+        lat: parseFloat(preciosDelivery[0].cordinates[0].lat), 
+        lng: parseFloat(preciosDelivery[0].cordinates[0].lng)
     });
+    // map.addListener('click', function (mapsMouseEvent) {
+    //     if (!latitude && !longitude) {
+    //         addMarker(mapsMouseEvent.latLng);
+    //     }
+    // });
 }
 
 function showArrays(event) {

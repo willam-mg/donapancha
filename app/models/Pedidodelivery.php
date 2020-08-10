@@ -60,6 +60,7 @@ class Pedidodelivery extends \yii\db\ActiveRecord
             [['url_mapa'], 'string', 'max' => 400],
             [['direccion', 'instrucciones'], 'string', 'max' => 400],
             [['facturado'], 'boolean'],
+            [['precio_delivery'], 'number'],
         ];
     }
 
@@ -88,6 +89,7 @@ class Pedidodelivery extends \yii\db\ActiveRecord
             'strEstado' => 'Estado',
             'url_mapa' => 'Url mapa',
             'facturado' => 'Facturado',
+            'precio_delivery' => 'Precio delivery',
         ];
     }
 
