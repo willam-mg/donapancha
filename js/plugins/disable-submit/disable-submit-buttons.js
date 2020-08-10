@@ -36,6 +36,7 @@ $.fn.extend({
 });
 
 $('form.disable-submit-buttons').on('beforeValidate', function (event) {
+  $('.modal-dialog').find('.btn-warning')[0].disabled = true;
   $('#loading').css('display', 'block');
   $(this).disableSubmitButtons();
 }).on('afterValidate', function (event, messages, errors) {

@@ -6,6 +6,9 @@ use kartik\form\ActiveForm;
 use kartik\file\FileInput;
 use kartik\switchinput\SwitchInput;
 use kartik\date\DatePicker;
+use kartik\select2\Select2;
+use yii\helpers\ArrayHelper;
+use app\models\Sucursaldelivery;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Preciodelivery */
@@ -27,6 +30,15 @@ use kartik\date\DatePicker;
     <?= $form->field($model, 'precio')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'estado')->dropDownList([ 'Activo' => 'Activo', 'Inactivo' => 'Inactivo', ], ['prompt' => '']) ?>
+
+    <?= $form->field($model, 'sucursal_id')->widget(Select2::classname(), [
+        'data' => ArrayHelper::map(Sucursaldelivery::find()->andFilterWhere(['<>', 'id', 1])->all(), 'id', 'nombre'),
+            'options' => ['placeholder' => 'Seleccione una sucursal'],
+            'pluginOptions' => [
+                'allowClear' => true
+            ],
+        ]
+    )?>
 
     
     <div class="panel panel-default">

@@ -64,7 +64,7 @@ function eliminar(index) {
 //    });
 
 //     function enviarFormulario(){
-//         if( window.confirm("¢Ä Desea realizar la venta ?") ){
+//         if( window.confirm("ï¿½ï¿½ï¿½ Desea realizar la venta ?") ){
 //             valid = true;
 //             $("#w0").submit();
 //         }else{

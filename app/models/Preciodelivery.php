@@ -31,11 +31,12 @@ class Preciodelivery extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['estado', 'nombre', 'precio', 'estado'], 'required'],
+            [['estado', 'nombre', 'precio', 'estado', 'sucursal_id'], 'required'],
             [['estado'], 'string'],
             [['nombre'], 'string', 'max' => 200],
             [['descripcion'], 'string', 'max' => 3000],
             [['precio'], 'string', 'max' => 50],
+            [['sucursal_id'], 'integer'],
         ];
     }
 
@@ -50,6 +51,7 @@ class Preciodelivery extends \yii\db\ActiveRecord
             'descripcion' => 'Descripcion',
             'precio' => 'Precio',
             'estado' => 'Estado',
+            'sucursal_id' => 'Sucursal',
         ];
     }
 
@@ -64,6 +66,11 @@ class Preciodelivery extends \yii\db\ActiveRecord
     public function getCordenadas()
     {
         return $this->hasMany(PrecioCoordinates::className(), ['precio_delivery_id' => 'id']);
+    }
+    
+    public function getSucursal()
+    {
+        return $this->hasOne(Sucursaldelivery::className(), ['id' => 'sucursal_id']);
     }
 
     public function getNombrePrecio(){

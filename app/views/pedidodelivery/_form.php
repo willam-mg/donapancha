@@ -254,8 +254,7 @@ Maps1Asset::register($this);
         </div>
 
 
-        <div class="row">
-                                                    
+        <div class="row">                    
             <div class="col-md-6">
                 <?= $form->field($model, 'sucursal_delivery_id')->widget(Select2::classname(), [
                     'data' => ArrayHelper::map(Sucursaldelivery::find()->andFilterWhere(['<>', 'id', 1])->all(), 'id', 'nombre'),
@@ -285,7 +284,7 @@ Maps1Asset::register($this);
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                <?= $form->field($model, 'fecha_entrega', ['labelSpan'=>3])->hint('Año - Mes - Dia')->widget(DatePicker::classname(), [
+                <?= $form->field($model, 'fecha_entrega', ['labelSpan'=>3])->hint(Html::encode('A帽o').' - Mes - Dia')->widget(DatePicker::classname(), [
                     'options' => ['placeholder' => 'Seleccione la fecha', 'autocomplete'=>'off'],
                     // 'value' => date('Y-m-d'),
                     'removeButton' => false,

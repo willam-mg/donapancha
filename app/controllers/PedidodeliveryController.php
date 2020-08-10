@@ -161,9 +161,9 @@ class PedidodeliveryController extends Controller
                     $cliente->longitude = $model->longitude;
                     $cliente->zoom = $model->zoom;
                 // }
-                if ( !$model->sucursal_delivery_id ){
-                    throw new \Exception( 'La sucural es requerida' );
-                }
+                // if ( !$model->sucursal_delivery_id ){
+                //     throw new \Exception( 'La sucural es requerida' );
+                // }
                 if ( !$model->validate() ){
                     throw new \Exception( ErrorsComponent::formatJustString($model->errors) );
                 }
@@ -172,6 +172,9 @@ class PedidodeliveryController extends Controller
                 }
                 $precioDelivery = Preciodelivery::findOne($model->precio_delivery_id);
                 $model->precio_delivery = floatval($precioDelivery->precio);
+                if (!$model->sucursal_delivery_id){
+                    $model->sucursal_delivery_id = $precioDelivery->sucursal_id;
+                }
                 if ( !$model->save() ){
                     throw new \Exception( ErrorsComponent::formatJustString($model->errors));
                 }
