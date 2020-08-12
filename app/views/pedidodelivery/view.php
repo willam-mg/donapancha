@@ -114,6 +114,15 @@ $this->params['breadcrumbs'][] = $this->title;
                                         ]);
                                     } 
                                     ?>
+
+                                    <?php
+                                    if (\Yii::$app->user->can(\Yii::$app->user->identity::ROLE_ADMINISTRADOR)){
+                                        echo Html::a( "<i class='material-icons'>access_time</i> ".'Modificar hora entrega', ['/pedidodelivery/modificar-hora', 'id' => $model->id], [
+                                            'class' => 'btn btn-round btn-warning btn-lg', 
+                                            'title'=>'Modificar hora entrega',
+                                        ]);
+                                    } 
+                                    ?>
                                     <?php
                                     // Html::a( "<i class='material-icons'>done</i> ".'Pedido Entregado', ['cambiar-estado', 'id' => $model->id], [
                                     //     'class' => $model->estado == \app\models\Pedidodelivery::ESTADO_ASIGNADO?'btn btn-success':'btn btn-success disabled', 

@@ -425,4 +425,15 @@ class PedidodeliveryController extends Controller
         $precioDelivery = Preciodelivery::findOne($id);
         return $precioDelivery;
     }
+
+    public function actionModificarHora($id){
+        $request = \Yii::$app->request;
+        $model = $this->findModel($id);
+        if ( $request->isPost && $model->load($request->post()) && $model->save() ){
+            return $this->redirect(['view', 'id'=>$model->id]);
+        }
+        return $this->render('_hora_entrega', [
+            'model'=>$model,
+        ]);
+    }
 }

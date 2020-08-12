@@ -10,6 +10,7 @@ ALTER TABLE `horario` ADD `hora_pickup` INT NOT NULL DEFAULT '0' AFTER `atendien
 
 
 -- agregar permiso al rol administrador para acceder a /horario/*
+-- agregar permiso al rol administrador para acceder a /pedidodelivery/modificar-hora
 
 -- registrar en horario el primer registro para controlar las hoaras de atencion
 INSERT INTO `horario` (`id`, `inicio`, `fin`, `atendiendo`, `hora_pickup`, `hora_entrega_inmediata`, `hora_entrega_programada`) VALUES
