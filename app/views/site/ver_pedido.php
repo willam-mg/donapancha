@@ -1,3 +1,4 @@
+
 <?php
 
 use yii\helpers\Html;
@@ -70,60 +71,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                     
                                 ],
                             ]) ?>
-
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                    <a href="<?=Url::to('https://wa.me/591'.$model->telefono),'?text=El%20Pedido%20fue%20enviado.%20'?>" target="_blank" title="enviar un mensaje">
-                                        <img style="width: 300px" src="/images/1101.png"/>
-                                    </a>
-                                    <br>
-                                    <div class="form-group">
-                                        <label>Compartir url</label>
-                                        <input type="text" class="form-control" id="url_copiar" value="<?=Url::base(true).Url::to(['/site/ver-pedido', 'id'=>$model->id])?>" disabled>
-                                        <a href="#" class="btn btn-info btn-round" title="Copiar enlace" onclick="copiar('url_copiar')">
-                                            <i class="material-icons">content_copy</i>
-                                            Copiar
-                                        </a>
-                                    </div>
-
-
-                                    <!-- <a href="<?=Url::to(['/site/ver-pedido', 'id'=>$model->id])?>" target="_blank" title="Compartir enlace">
-                                        Compartir enlace
-                                    </a> -->
-                                </div>
-                            </div>
                         </div>
                         <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
-                            
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right">
-                                    <?php
-                                    if ( !$model->sucursal_delivery_id || !$model->precio_delivery_id ){
-                                        echo Html::a( "<i class='material-icons'>edit_location</i> ".'Sucursal y precio', ['/pedidodelivery/asignar-sucursalprecio', 'pe' => $model->id], [
-                                            'class' => $model->sucursal_delivery_id && $model->precio_delivery_id?'btn btn-round btn-danger btn-lg disabled':'btn btn-round btn-danger btn-lg', 
-                                            'title'=>'Asignar sucursal y precio delivery',
-                                        ]);
-                                    } 
-                                    ?>
-                                    <?php
-                                    if (\Yii::$app->user->can(\Yii::$app->user->identity::ROLE_SUCURSAL)){
-                                        echo Html::a( "<i class='material-icons'>two_wheeler</i> ".'Asignar moto', ['/asignacion-moto/create', 'pe' => $model->id], [
-                                            'class' => $model->estado == \app\models\Pedidodelivery::ESTADO_EN_ESPERA?'btn btn-round btn-success btn-lg':'btn btn-round btn-success btn-lg disabled', 
-                                            'disabled' => $model->estado == \app\models\Pedidodelivery::ESTADO_EN_ESPERA?false:'disabled', 
-                                            'title'=>'cambiar de estado de pedido',
-                                        ]);
-                                    } 
-                                    ?>
-                                    <?php
-                                    // Html::a( "<i class='material-icons'>done</i> ".'Pedido Entregado', ['cambiar-estado', 'id' => $model->id], [
-                                    //     'class' => $model->estado == \app\models\Pedidodelivery::ESTADO_ASIGNADO?'btn btn-success':'btn btn-success disabled', 
-                                    //     'disabled' => $model->estado == \app\models\Pedidodelivery::ESTADO_ASIGNADO?false:true, 
-                                    //     'data-confirm' => 'Esta seguro de cambiar el estado de este pedido?', 
-                                    //     'title'=>'cambiar de estado de pedido',
-                                    // ]) 
-                                    ?>
-                                </div>
-                            </div>
                             
                             <div class="row">
                                 <div class="col-md-12">
@@ -251,26 +200,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
                         </div>
                     </div>
-                    
-                    
-                    
 
-
-
-
-
-                    
-                    
-
-                     <div class="form-group text-right">
-                        <?= Html::a( "<i class='material-icons'>clear</i> ".'Cerrar', ['index'], ['class' => 'btn btn-simple', 'title'=>'Cerrar',]) ?>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<?php $this->registerJsFile('/js/pedidodelivery/view.js', [
-    'depends' => [\yii\web\JqueryAsset::className()],
-]); ?> 

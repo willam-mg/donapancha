@@ -17,6 +17,7 @@ use app\models\Contacto;
 use app\models\Servicio;
 use app\models\Team;
 use app\models\FuiLona;
+use app\models\Pedidodelivery;
 // use app\models\ContactForm;
 // use app\models\AsistenciaSeminario;
 // use app\models\Estudiante;
@@ -53,6 +54,7 @@ class SiteController extends Controller
                     ],
                 ],
                 'except'=>[
+                    'ver-pedido'
                 ]
             ],
             'verbs' => [
@@ -109,5 +111,17 @@ class SiteController extends Controller
     public function actionError(){
         // $this->layout = 'website';
         return $this->render('error');
+    }
+
+    public function actionVerPedido($id){
+        $this->layout = '/pedido';
+        $model = Pedidodelivery::findOne($id);
+        if (!$model) {
+            throw new NotFoundHttpException('El pedido no existe');
+        }
+
+        return $this->render('ver_pedido', [
+            'model' => $model,
+        ]);
     }
 }
