@@ -11,8 +11,8 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="pedidodelivery-create">
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-centered">
-            <div class="card">
+        <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10 col-centered">
+            <div class="card" style="margin-top:0">
                 <div class="card-content">
                     <?= $this->render('_form', [
                         'model' => $model,

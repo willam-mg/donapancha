@@ -149,13 +149,15 @@ class PedidodeliveryController extends Controller
                 $cliente->zona = $model->zona;
                 $cliente->direccion = $model->direccion;
 
-                $horaActual = Carbon::now();
-                $horaEnd = Carbon::parse($model->hora_entrega);
-                // $difHors = $horaActual->diffInMinutes($horaEnd);
-                $idTipoPedidoProgramado = 3;
+                // $horaActual = Carbon::now();
+                // $horaEnd = Carbon::parse($model->hora_entrega);
+                // // $difHors = $horaActual->diffInMinutes($horaEnd);
+                // $idTipoPedidoProgramado = 3;
                 
-                $entre = strtotime($model->fecha_entrega.' '.$model->hora_entrega);
-                $ho = strtotime(Carbon::now());
+                // $entre = strtotime($model->fecha_entrega.' '.$model->hora_entrega);
+                // $ho = strtotime(Carbon::now());
+
+
                 // if ($difHors < $minutos || $entre < $ho ){
                 //     throw new \Exception( 'La hora debe ser mas de '.$minutos.' minutos de la hora actual' );
                 // }
@@ -188,18 +190,22 @@ class PedidodeliveryController extends Controller
                 $model->precio_delivery = floatval($precioDelivery->precio);
 
                 // tipo de pedido
+                $horario = \app\models\Horario::findOne(1);
                 if($model->tipo_pedido_id == 1){
                     if (!$model->sucursal_delivery_id){
                         throw new \Exception( 'seleccione la sucursal' );
                     }
+                    $horaEntrega = Carbon::parse($model->hora_entrega);
+                    $model->hora_entrega = $horaEntrega->addMinutes($horario->hora_pickup)->format('H:i');
                 }
                 if($model->tipo_pedido_id == 2){
                     $model->sucursal_delivery_id = $precioDelivery->sucursal_id;
-                    $addMinutes = \app\models\Horario::findOne(1)->hora_entrega_inmediata;
-                    $model->hora_entrega = Carbon::now()->addMinutes($addMinutes)->format('H:i');
+                    $model->hora_entrega = Carbon::now()->addMinutes($horario->hora_entrega_inmediata)->format('H:i');
                 }
                 if($model->tipo_pedido_id == 3){
                     $model->sucursal_delivery_id = $precioDelivery->sucursal_id;
+                    $horaEntrega = Carbon::parse($model->hora_entrega);
+                    $model->hora_entrega = $horaEntrega->addMinutes($horario->hora_entrega_programada)->format('H:i');
                 }
 
                 

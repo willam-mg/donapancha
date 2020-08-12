@@ -57,4 +57,17 @@ class Tipopedido extends \yii\db\ActiveRecord
     {
         return $this->hasMany(PedidoDelivery::className(), ['tipo_pedido_id' => 'id']);
     }
+
+    public function getNombrehora(){
+        $horario = Horario::findOne(1);
+        if ($this->id == 1){
+            return $this->nombre.' +'.$horario->hora_pickup.' minutos';
+        }
+        if ($this->id == 2){
+            return $this->nombre.' +'.$horario->hora_entrega_inmediata.' minutos';
+        }
+        if ($this->id == 3){
+            return $this->nombre.' +'.$horario->hora_entrega_programada.' minutos';
+        }
+    }
 }

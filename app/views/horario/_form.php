@@ -61,11 +61,11 @@ use kartik\time\TimePicker;
             ]) ?>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <?= $form->field($model, 'hora_pickup')->textInput(['type'=>'number']) ?>
+            <?= $form->field($model, 'hora_pickup')->hint('Minutos')->textInput(['type'=>'number']) ?>
 
-            <?= $form->field($model, 'hora_entrega_inmediata')->textInput(['type'=>'number']) ?>
+            <?= $form->field($model, 'hora_entrega_inmediata')->hint('Minutos')->textInput(['type'=>'number']) ?>
 
-            <?= $form->field($model, 'hora_entrega_programada')->textInput(['type'=>'number']) ?>
+            <?= $form->field($model, 'hora_entrega_programada')->hint('Minutos')->textInput(['type'=>'number']) ?>
         </div>
     </div>
     

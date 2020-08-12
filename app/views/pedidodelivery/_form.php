@@ -76,7 +76,7 @@ Maps1Asset::register($this);
 
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                <?= $form->field($model, 'tipo_pedido_id')->radioList( ArrayHelper::map(Tipopedido::find()->all(), 'id', 'nombre') ) ?>
+                <?= $form->field($model, 'tipo_pedido_id')->radioList( ArrayHelper::map(Tipopedido::find()->all(), 'id', 'nombrehora') ) ?>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" id="showHora">
                 <?=$form->field($model, 'hora_entrega')->hint('Formato 24 horas')->widget(TimePicker::classname(), [
@@ -114,9 +114,6 @@ Maps1Asset::register($this);
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Mapa
-                    </div>
                     <div class="panel-body">
                         <input type="hidden" id="path_create" value="<?=Url::to(['/pedidodelivery/create'])?>">
                         <input type="hidden" id="id_cliente" value="<?=$model->cliente_id?>">
@@ -157,14 +154,7 @@ Maps1Asset::register($this);
                         <input type="hidden" name="Pedidodelivery[ubicacion][longitude]" id="longitude" value="<?=$model->longitude?>">
                         <input type="hidden" id="precio_delivery_id" class="form-control" name="Pedidodelivery[precio_delivery_id]" value="<?=$model->precio_delivery_id?>">
 
-                        <!-- <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                            </div>
-                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right" style="padding-top:20px">
-                            </div>
-                        </div> -->
                         <div id="map"></div>
-                        
                         
                     </div>
                 </div>
@@ -188,8 +178,6 @@ Maps1Asset::register($this);
                             'pluginOptions' => [
                                 'allowClear' => true,
                                 'escapeMarkup' => new JsExpression('function (markup) { return markup; }'),
-                                // 'templateResult' => new JsExpression('formatTemplateResult'),
-                                // 'templateSelection' => new JsExpression('formatSelection'),
                             ],
                         ]); ?>
                     </div>
