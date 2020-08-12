@@ -133,6 +133,7 @@ MaterialAsset::register($this);
 	                            ['icon'=>'format_list_numbered', 'label' => ' Categoria de productos', 'url' => ['/categoriaproducto'], 'color'=>'text-default'],
 	                            ['icon'=>'fastfood', 'label' => ' Productos', 'url' => ['/producto'], 'color'=>'text-default'],
 	                            // ['icon'=>'transfer_within_a_station', 'label' => ' Tipo de pedidos', 'url' => ['/tipopedido'], 'color'=>'text-default'],
+	                            ['icon'=>'access_time', 'label' => 'Horario', 'url' => ['/horario/update', 'id'=>1], 'color'=>'text-default'],
 	                            ['icon'=>'view_carousel', 'label' => 'Slider Web', 'url' => ['/slider'], 'color'=>'text-default'],
 	                            ['icon'=>'store_mall_directory', 'label' => ' Sucursales', 'url' => ['/sucursaldelivery'], 'color'=>'text-default'],
 	                           ['icon'=>'two_wheeler', 'label' => 'Delivery precios', 'url' => ['/preciodelivery'], 'color'=>'text-default'],

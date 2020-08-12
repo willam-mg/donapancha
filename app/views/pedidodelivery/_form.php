@@ -55,12 +55,6 @@ Maps1Asset::register($this);
                             'style'=>'border:1px solid #4caf50'
                         ]) ?>
                     </div>
-                    <!-- <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                        <?= $form->field($model, 'razon_social')->textInput(['maxlength' => true,'placeholder'=>'Introducir la razon social o nombre']) ?>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                        <?= $form->field($model, 'nit')->textInput(['maxlength' => true,'placeholder'=>'Introducir el NIT (Opcional)']) ?>
-                    </div> -->
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                         <?= $form->field($model, 'telefono')->textInput(['maxlength' => true,'placeholder'=>'Introducir un telefono de referencia']) ?>
                     </div>
@@ -77,62 +71,100 @@ Maps1Asset::register($this);
             </div>
         </div>
         
+
+
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <?= $form->field($model, 'tipo_pedido_id')->radioList( ArrayHelper::map(Tipopedido::find()->all(), 'id', 'nombre') ) ?>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" id="showHora">
+                <?=$form->field($model, 'hora_entrega')->hint('Formato 24 horas')->widget(TimePicker::classname(), [
+                    'pluginOptions' => [
+                        'showSeconds' => false,
+                        'showMeridian' => false,
+                        'minuteStep' => 1,
+                        'secondStep' => 5,
+                        // 'template' => false
+                    ],
+                    'addonOptions' => [
+                        'asButton' => false,
+                        // 'buttonOptions' => ['class' => 'btn btn-primary']
+                    ],
+                    'options'=>[
+                        'readonly' => false,
+                        'autocomplete'=>'off',
+                    ]
+                ])?>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" id="showSucursal">
+                <?= $form->field($model, 'sucursal_delivery_id')->widget(Select2::classname(), [
+                    'data' => ArrayHelper::map(Sucursaldelivery::find()->andFilterWhere(['<>', 'id', 1])->all(), 'id', 'nombre'),
+                        'options' => ['placeholder' => 'Seleccione una sucursal'],
+                        'pluginOptions' => [
+                            'allowClear' => true
+                        ],
+                    ]
+                )?>
+            </div>
+        </div>
+
+
+
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Mapa
-                        <!-- <ul id="myTab" class="nav nav-tabs" role="tablist">
-                            <li role="presentation">
-                                <a href="#tapUrlMapa" aria-controls="home" role="tab" data-toggle="tab">Url mapa</a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#tapMapa" aria-controls="profile" role="tab" data-toggle="tab" onclick="onTapMapa()">Mapa</a>
-                            </li>
-                        </ul> -->
                     </div>
                     <div class="panel-body">
                         <input type="hidden" id="path_create" value="<?=Url::to(['/pedidodelivery/create'])?>">
                         <input type="hidden" id="id_cliente" value="<?=$model->cliente_id?>">
+                        <table style="width:100%">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <?= $form->field($model, 'url_mapa')->textInput([
+                                            'maxlength' => true,
+                                            'placeholder'=>'Url del mapa google'
+                                        ]) ?>
+                                    </td>
+                                    <td style="width:50px;padding-top:30px">
+                                        <a class="btn btn-info btn-sm btn-round" href="#" onclick="sendUrlMap()">
+                                            <i class="material-icons">refresh</i>
+                                            Aplicar
+                                        </a>
+                                    </td>
+                                    <td style="width:50px;padding-top:30px">
+                                        <a class="btn btn-round btn-just-icon btn-sm btn-white" href="#" onclick="clearCordinates()" title="Quitar marcador">
+                                            <i class="material-icons text-danger">delete</i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
                         <div class="row">
-                            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-                                <?= $form->field($model, 'url_mapa')->textInput([
-                                    'maxlength' => true,
-                                    'placeholder'=>'Url del mapa google'
-                                ]) ?>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                
                             </div>
-                            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                                <div class="form-group" style="padding-top:20px">
-                                    <a class="btn btn-info" href="#" onclick="sendUrlMap()">
-                                        <i class="material-icons">refresh</i>
-                                        Aplicar
-                                    </a>
-                                </div>
+                            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                                
                             </div>
                         </div>
 
                         <input type="hidden" name="Pedidodelivery[ubicacion][latitude]" id="latitude" value="<?=$model->latitude?>">
                         <input type="hidden" name="Pedidodelivery[ubicacion][longitude]" id="longitude" value="<?=$model->longitude?>">
+                        <input type="hidden" id="precio_delivery_id" class="form-control" name="Pedidodelivery[precio_delivery_id]" value="<?=$model->precio_delivery_id?>">
 
-                        <div id="map"></div>
-                        
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                <input type="hidden" id="precio_delivery_id" class="form-control" name="Pedidodelivery[precio_delivery_id]" value="<?=$model->precio_delivery_id?>">
-                                <div class="form-group">
-                                    <label for="precio">Precio delivery</label>
-                                    
-                                </div>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right" style="padding-top:20px">
-                                <a class="btn btn-round btn-white" href="#" onclick="clearCordinates()">
-                                    <i class="material-icons text-danger">delete</i>
-                                    <span class="text-danger">
-                                        Quitar markador
-                                    </span>
-                                </a>
                             </div>
-                        </div>
+                        </div> -->
+                        <div id="map"></div>
+                        
                         
                     </div>
                 </div>
@@ -250,68 +282,6 @@ Maps1Asset::register($this);
                 <h3 align="center" class="display-1">
                     Total mas el delivery: <strong id="total_mas_delivery">00.00 Bs.</strong>
                 </h3>
-            </div>
-        </div>
-
-
-        <div class="row">                    
-            <div class="col-md-6">
-                <?= $form->field($model, 'sucursal_delivery_id')->widget(Select2::classname(), [
-                    'data' => ArrayHelper::map(Sucursaldelivery::find()->andFilterWhere(['<>', 'id', 1])->all(), 'id', 'nombre'),
-                        'options' => ['placeholder' => 'Seleccione una sucursal'],
-                        'pluginOptions' => [
-                            'allowClear' => true
-                        ],
-                    ]
-                )?>
-            </div>
-
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                <?= $form->field($model, 'tipo_pedido_id')->widget(Select2::classname(), [
-                    'data' => ArrayHelper::map(Tipopedido::find()->all(), 'id', 'nombre'),
-                    'options' => ['placeholder' => 'Seleccione el tipó de pedido'],
-                        'pluginOptions' => [
-                            'allowClear' => true
-                        ],
-                    ]
-                ) ?>
-            </div>
-            
-        </div>
-
-        
-        <div class="row">
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            </div>
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                <?= $form->field($model, 'fecha_entrega', ['labelSpan'=>3])->hint(Html::encode('Año').' - Mes - Dia')->widget(DatePicker::classname(), [
-                    'options' => ['placeholder' => 'Seleccione la fecha', 'autocomplete'=>'off'],
-                    // 'value' => date('Y-m-d'),
-                    'removeButton' => false,
-                    'pluginOptions' => [
-                        'autoclose'=>true,
-                        'format' => 'yyyy-mm-dd'
-                    ]
-                ]) ?>
-            </div>
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                <?=$form->field($model, 'hora_entrega')->hint('Formato 24 horas')->widget(TimePicker::classname(), [
-                    'pluginOptions' => [
-                        'showSeconds' => false,
-                        'showMeridian' => false,
-                        'minuteStep' => 1,
-                        'secondStep' => 5,
-                        // 'template' => false
-                    ],
-                    'addonOptions' => [
-                        'asButton' => false,
-                        // 'buttonOptions' => ['class' => 'btn btn-primary']
-                    ],
-                    'options'=>[
-                        'readonly' => false,
-                        'autocomplete'=>'off',
-                    ]
-                ])?>
             </div>
         </div>
         

@@ -190,7 +190,41 @@ function infoCliente() {
     });
 }
 
+function mostrarMapa(ti = null){
+    let tval = $('input[name="Pedidodelivery[tipo_pedido_id]"]:checked').val();
+    let tipo = ti;
+    if(tval){
+        tipo = tval;
+    }
+    if (tipo == 1){
+        clearCordinates();
+        $('#showSucursal').css('display', 'block');
+        $('#showHora').css('display', 'block');
+    }
+    if (tipo == 2){
+        $('#showSucursal').css('display', 'none');
+        $('#showHora').css('display', 'none');
+    }
+    if (tipo == 3){
+        $('#showSucursal').css('display', 'none');
+        $('#showHora').css('display', 'block');
+    }
+}   
+
+$('#pedidodelivery-tipo-pedido-id--0').on('click', function(){
+    // console.log($('input[name="Pedidodelivery[tipo_pedido_id]"]:checked').val());
+    mostrarMapa(1);
+});
+$('#pedidodelivery-tipo-pedido-id--1').on('click', function(){
+    mostrarMapa(2);
+});
+$('#pedidodelivery-tipo-pedido-id--2').on('click', function(){
+    // console.log($('input[name="Pedidodelivery[tipo_pedido_id]"]:checked').val());
+    mostrarMapa(3);
+});
+
 
 $(document).ready(function () {
   calcularTotal();
+  mostrarMapa();
 });

@@ -214,14 +214,18 @@ function showArrays(event) {
     // infoWindow.open(map);
     let latitude = parseFloat($('#latitude').val());
     let longitude = parseFloat($('#longitude').val());
-    if (latitude && longitude) {
+    tipoPedidoId = parseInt($('input[name="Pedidodelivery[tipo_pedido_id]"]:checked').val());
+    if (latitude && longitude || tipoPedidoId == 1) {
         defolutColor();
         this.setOptions({
             fillColor:"#ffff00"
         });
         getPrecioDelivery(this.zIndex);
     }else{
-        addMarker(event.latLng);
+        
+        if (tipoPedidoId != 1 ){
+            addMarker(event.latLng);
+        }
     }
 }
 
@@ -257,6 +261,9 @@ function sendUrlMap(){
     let zona = $('#pedidodelivery-zona').val();
     let direccion = $('#pedidodelivery-direccion').val();
     let instrucciones = $('#pedidodelivery-instrucciones').val();
+    let tipoPedido = $('input[name="Pedidodelivery[tipo_pedido_id]"]:checked').val();
+    let hora = $('#pedidodelivery-hora_entrega').val();
+    let sucrusal = $('#pedidodelivery-sucursal_delivery_id').val();
 
     let url = $('#pedidodelivery-url_mapa').val();
     let urlEnviar = "";
@@ -279,6 +286,15 @@ function sendUrlMap(){
     }
     if (instrucciones != '') {
         urlEnviar += `&ins=${instrucciones}`;
+    }
+    if (tipoPedido != '') {
+        urlEnviar += `&tip=${tipoPedido}`;
+    }
+    if (hora != '') {
+        urlEnviar += `&hor=${hora}`;
+    }
+    if (sucrusal != '') {
+        urlEnviar += `&suc=${sucrusal}`;
     }
     window.location.href = urlEnviar;
 

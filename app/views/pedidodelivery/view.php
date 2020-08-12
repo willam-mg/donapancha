@@ -136,7 +136,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                         // $map->backgroundColor = 'red';
 
                                         // Display the map -finally :)
-                                        echo $map->display();
+                                        if ( $model->tipo_pedido_id != 1){
+                                            echo $map->display();
+                                        }
                                     ?>
                                     
                                 </div>

@@ -72,10 +72,11 @@ class PedidodeliveryController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate($cl = null, $ur = null, $tl = null, $zn = null, $di = null, $ins = null)
+    public function actionCreate($cl = null, $ur = null, $tl = null, $zn = null, $di = null, $ins = null, $tip= null, $hor = null, $suc = null)
     {
         $request = Yii::$app->request;
         $model = new Pedidodelivery();
+        $model->tipo_pedido_id = 1;
         $minutos = 45;
         $cliente = Cliente::findOne($cl);
         if ($cliente){
@@ -122,6 +123,16 @@ class PedidodeliveryController extends Controller
             $model->instrucciones = $ins;
         }
         
+        if ( $tip != null ){
+            $model->tipo_pedido_id = $tip;
+        }
+        if ( $hor != null ){
+            $model->hora_entrega = $hor;
+        }
+        if ( $suc != null ){
+            $model->sucursal_delivery_id = $suc;
+        }
+        
         
         
         if ( $request->isPost && $model->load($request->post()) ) {
@@ -152,6 +163,7 @@ class PedidodeliveryController extends Controller
                 // if ($model->url_mapa){
                     
                 // }else{
+                if ( $model->tipo_pedido_id != 1){
                     $model->latitude = $request->post('Pedidodelivery')['ubicacion']['latitude'];
                     $model->longitude = $request->post('Pedidodelivery')['ubicacion']['longitude'];
                     $zoom = 12;
@@ -160,21 +172,37 @@ class PedidodeliveryController extends Controller
                     $cliente->latitude = $model->latitude;
                     $cliente->longitude = $model->longitude;
                     $cliente->zoom = $model->zoom;
+                }
                 // }
                 // if ( !$model->sucursal_delivery_id ){
                 //     throw new \Exception( 'La sucural es requerida' );
                 // }
+
                 if ( !$model->validate() ){
                     throw new \Exception( ErrorsComponent::formatJustString($model->errors) );
                 }
-                if ( !$model->latitude && !$model->longitude  ){
+                if ( !$model->latitude && !$model->longitude  && $model->tipo_pedido_id != 1){
                     throw new \Exception( 'Url mapa invalido o pocicion no seleccionada' );
                 }
                 $precioDelivery = Preciodelivery::findOne($model->precio_delivery_id);
                 $model->precio_delivery = floatval($precioDelivery->precio);
-                if (!$model->sucursal_delivery_id){
+
+                // tipo de pedido
+                if($model->tipo_pedido_id == 1){
+                    if (!$model->sucursal_delivery_id){
+                        throw new \Exception( 'seleccione la sucursal' );
+                    }
+                }
+                if($model->tipo_pedido_id == 2){
+                    $model->sucursal_delivery_id = $precioDelivery->sucursal_id;
+                    $addMinutes = \app\models\Horario::findOne(1)->hora_entrega_inmediata;
+                    $model->hora_entrega = Carbon::now()->addMinutes($addMinutes)->format('H:i');
+                }
+                if($model->tipo_pedido_id == 3){
                     $model->sucursal_delivery_id = $precioDelivery->sucursal_id;
                 }
+
+                
                 if ( !$model->save() ){
                     throw new \Exception( ErrorsComponent::formatJustString($model->errors));
                 }
@@ -198,6 +226,7 @@ class PedidodeliveryController extends Controller
                 return $this->redirect(['view', 'id' => $model->id]);
             } catch (\Throwable $e) {
                 $transaction->rollBack();
+                return print_r($e->getMessage());
                 Yii::$app->session->setFlash('warning', $e->getMessage() );
             }
         }
