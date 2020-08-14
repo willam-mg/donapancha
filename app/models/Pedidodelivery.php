@@ -90,6 +90,7 @@ class Pedidodelivery extends \yii\db\ActiveRecord
             'url_mapa' => 'Url mapa',
             'facturado' => 'Facturado',
             'precio_delivery' => 'Precio delivery',
+            'strTipo' => 'Tipo',
         ];
     }
 
@@ -191,5 +192,12 @@ class Pedidodelivery extends \yii\db\ActiveRecord
         }else{
             return 1;
         }
+    }
+
+    public function getStrTipo(){
+        if ($this->tipo == 1){
+            return 'Envio';
+        }
+        return 'Recojo';
     }
 }

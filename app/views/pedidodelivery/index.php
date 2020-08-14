@@ -52,51 +52,16 @@ $this->params['breadcrumbs'][] = $this->title;
                             'columns' => [
                                 ['class' => 'yii\grid\SerialColumn'],
 
-                                [
-                                    'class' => 'kartik\grid\ActionColumn',
-                                    'urlCreator' => function($action, $model, $key, $index) { 
-                                            return Url::to([$action,'id'=>$key]);
-                                    },
-                                    // 'contentOptions'=>[
-                                    //     'key'=>'Facturado',
-                                    // ],
-                                    'width'=>'200px',
-                                    'template'=>'{facturado} {completar}',
-                                    'buttons'=>[
-                                        'facturado' => function ($url, $model, $key) {
-                                            $label = "";
-                                            $aria = "";
-                                            if ($model->facturado == 0){
-                                                $aria = "Sin factura";
-                                                $label = '<span class="label label-danger">Sin factura</span>';
-                                            }else{
-                                                $aria = "Con factura";
-                                                $label = '<span class="label label-warning">Con factura</span>';
-                                            }
-                                            return Html::a($label, ['/pedidodelivery/facturado', 'id'=>$model->id], [
-                                                // 'class'=>'btn btn-danger btn-round btn-just-icon', 
-                                                'aria-label'=>$aria.', clic para cambiar',
-                                                'title'=>$aria.', clic para cambiar',
-                                                'data-confirm'=>'¢Ä Cambiar estado de la factura ?',
-                                                // 'data-method'=>'get'
-                                            ]);
-                                        },
-                                        'completar' => function ($url, $model, $key) {
-                                            if ( !$model->sucursal_delivery_id || !$model->precio_delivery_id ){
-                                                return Html::a('<span class="label label-info">Completar</span>', ['/pedidodelivery/asignar-sucursalprecio', 'pe'=>$model->id], [
-                                                    'aria-label'=>'Completar informacion',
-                                                    'title'=>'Completar informacion',
-                                                ]);
-                                            }
-                                            return null;
-                                        },
-                                    ]
-                                ], 
+                                
                                 //'razon_social',
                                 //'nit',
                                 //'zona',
                                 //'direccion',
                                 // 'sucursal_delivery_id',
+                                [
+                                    'attribute'=>'strTipo',
+                                    'width'=>'60px'
+                                ],
                                 'fecha_entrega',
                                 [
                                     'attribute' => 'sucursal_delivery_id',
@@ -152,8 +117,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'urlCreator' => function($action, $model, $key, $index) { 
                                             return Url::to([$action,'id'=>$key]);
                                     },
-                                    'width'=>'120px',
-                                    'template'=>'{view} {delete}',
+                                    'width'=>'250px',
+                                    'template'=>'{view} {delete} {facturado} {completar}',
                                     'buttons'=>[
                                         'view' => function ($url, $model, $key) {
                                             return Html::a('<i class="material-icons">description</i>', $url, [
@@ -181,6 +146,36 @@ $this->params['breadcrumbs'][] = $this->title;
                                                     'data-method'=>'post'
                                                 ]);
                                             }
+                                        },
+                                        'facturado' => function ($url, $model, $key) {
+                                            $label = "";
+                                            $aria = "";
+                                            if ($model->facturado == 0){
+                                                $aria = "Sin factura";
+                                                $label = '<span class="label label-danger">Sin factura</span>';
+                                            }else{
+                                                $aria = "Con factura";
+                                                $label = '<span class="label label-warning">Con factura</span>';
+                                            }
+                                            return Html::a($label, ['/pedidodelivery/facturado', 'id'=>$model->id], [
+                                                // 'class'=>'btn btn-danger btn-round btn-just-icon', 
+                                                'aria-label'=>$aria.', clic para cambiar',
+                                                'title'=>$aria.', clic para cambiar',
+                                                'data-confirm'=>'ï¿½ï¿½ï¿½ Cambiar estado de la factura ?',
+                                                // 'data-method'=>'get'
+                                            ]);
+                                        },
+                                        'completar' => function ($url, $model, $key) {
+                                            // si es de tipo envio delivery
+                                            if ( !$model->tipo == 1 ){
+                                                if ( !$model->sucursal_delivery_id || !$model->precio_delivery_id ){
+                                                    return Html::a('<span class="label label-info">Completar</span>', ['/pedidodelivery/asignar-sucursalprecio', 'pe'=>$model->id], [
+                                                        'aria-label'=>'Completar informacion',
+                                                        'title'=>'Completar informacion',
+                                                    ]);
+                                                }
+                                            }
+                                            return null;
                                         },
                                     ]
                                 ],
