@@ -126,7 +126,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             [
                                 'attribute' => 'sucursal_delivery_id',
                                 'value' => function($model){
-                                    return $model->sucursalDelivery->nombrecompleto;
+                                    return $model->sucursalDelivery?$model->sucursalDelivery->nombrecompleto:null;
                                 },
                             ],
                             'telefono',

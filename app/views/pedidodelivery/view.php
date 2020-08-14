@@ -41,6 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?= DetailView::widget([
                                 'model' => $model,
                                 'attributes' => [
+                                    'strTipo',
                                     'cliente.razon_social',
                                     'cliente.nit',
                                     'telefono',
@@ -54,7 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     
                                     [
                                     'attribute'=>'precio_delivery_id',
-                                    'value'=> $model->precioDelivery?$model->precioDelivery->precio:'No seleccionado'
+                                    'value'=> $model->precio_delivery .' Bs.'
                                     ],    
                                     [
                                     'attribute'=>'sucursal_delivery_id',
@@ -108,12 +109,15 @@ $this->params['breadcrumbs'][] = $this->title;
                                     } 
                                     ?>
                                     <?php
-                                    if (\Yii::$app->user->can(\Yii::$app->user->identity::ROLE_SUCURSAL)){
-                                        echo Html::a( "<i class='material-icons'>two_wheeler</i> ".'Asignar moto', ['/asignacion-moto/create', 'pe' => $model->id], [
-                                            'class' => $model->estado == \app\models\Pedidodelivery::ESTADO_EN_ESPERA?'btn btn-round btn-success btn-lg':'btn btn-round btn-success btn-lg disabled', 
-                                            'disabled' => $model->estado == \app\models\Pedidodelivery::ESTADO_EN_ESPERA?false:'disabled', 
-                                            'title'=>'cambiar de estado de pedido',
-                                        ]);
+                                    if ( $model->tipo == 1 ){//si es delivery entoces
+
+                                        if (\Yii::$app->user->can(\Yii::$app->user->identity::ROLE_SUCURSAL)){
+                                            echo Html::a( "<i class='material-icons'>two_wheeler</i> ".'Asignar moto', ['/asignacion-moto/create', 'pe' => $model->id], [
+                                                'class' => $model->estado == \app\models\Pedidodelivery::ESTADO_EN_ESPERA?'btn btn-round btn-success btn-lg':'btn btn-round btn-success btn-lg disabled', 
+                                                'disabled' => $model->estado == \app\models\Pedidodelivery::ESTADO_EN_ESPERA?false:'disabled', 
+                                                'title'=>'cambiar de estado de pedido',
+                                            ]);
+                                        } 
                                     } 
                                     ?>
 
