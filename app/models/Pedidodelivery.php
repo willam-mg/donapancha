@@ -50,7 +50,7 @@ class Pedidodelivery extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['precio_delivery_id', 'tipo_pedido_id', 'cliente_id', 'fecha_entrega', 'hora_entrega'], 'required'],
+            [['tipo_pedido_id', 'cliente_id', 'fecha_entrega', 'hora_entrega'], 'required'],
             [['precio_delivery_id', 'sucursal_delivery_id', 'tipo_pedido_id', 'estado', 'cliente_id'], 'integer'],
             [['razon_social', 'nit', 'telefono', 'zona', 'latitude', 'longitude', 'zoom'], 'string', 'max' => 45],
             [['precio_delivery_id'], 'exist', 'skipOnError' => true, 'targetClass' => Preciodelivery::className(), 'targetAttribute' => ['precio_delivery_id' => 'id']],
@@ -178,5 +178,18 @@ class Pedidodelivery extends \yii\db\ActiveRecord
             return $this->cliente->razon_social.' | '.$this->zona.' | '.$this->fecha_entrega.' | '.$this->hora_entrega;
         }
         return $this->zona.' | '.$this->fecha_entrega.' | '.$this->hora_entrega;
+    }
+
+    /**
+     * tipo de pedido
+     * 1 : envio por delivery
+     * 2 : recojo de sucursal
+     */
+    public function getTipo(){
+        if (!$this->precio_delivery_id){
+            return 2;
+        }else{
+            return 1;
+        }
     }
 }

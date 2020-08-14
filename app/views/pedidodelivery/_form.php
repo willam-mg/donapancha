@@ -111,7 +111,7 @@ Maps1Asset::register($this);
 
 
 
-        <div class="row">
+        <div class="row" id="showMapa">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
@@ -158,10 +158,6 @@ Maps1Asset::register($this);
                         
                     </div>
                 </div>
-
-
-
-
             </div>
         </div>
         

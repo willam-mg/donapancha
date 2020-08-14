@@ -17,4 +17,4 @@ INSERT INTO `horario` (`id`, `inicio`, `fin`, `atendiendo`, `hora_pickup`, `hora
 (1, '13:23:00', '13:23:00', 1, 0, 0, 0);
 
 -- incremetnar la longitud de lacolumnadireccion de pedidodelivery
-ALTER TABLE `pedido_delivery` CHANGE `direccion` `direccion` VARCHAR(500) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL;
+ALTER TABLE `pedido_delivery` CHANGE `direccion` `direccion` VARCHAR(1000) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL;

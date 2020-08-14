@@ -200,14 +200,17 @@ function mostrarMapa(ti = null){
         clearCordinates();
         $('#showSucursal').css('display', 'block');
         $('#showHora').css('display', 'block');
+        $('#showMapa').css('display', 'none');
     }
     if (tipo == 2){
         $('#showSucursal').css('display', 'none');
         $('#showHora').css('display', 'none');
+        $('#showMapa').css('display', 'block');
     }
     if (tipo == 3){
         $('#showSucursal').css('display', 'none');
         $('#showHora').css('display', 'block');
+        $('#showMapa').css('display', 'block');
     }
 }   
 

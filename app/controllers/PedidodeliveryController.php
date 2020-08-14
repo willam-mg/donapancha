@@ -186,8 +186,8 @@ class PedidodeliveryController extends Controller
                 if ( !$model->latitude && !$model->longitude  && $model->tipo_pedido_id != 1){
                     throw new \Exception( 'Url mapa invalido o pocicion no seleccionada' );
                 }
-                $precioDelivery = Preciodelivery::findOne($model->precio_delivery_id);
-                $model->precio_delivery = floatval($precioDelivery->precio);
+
+
 
                 // tipo de pedido
                 $horario = \app\models\Horario::findOne(1);
@@ -198,6 +198,15 @@ class PedidodeliveryController extends Controller
                     $horaEntrega = Carbon::parse($model->hora_entrega);
                     $model->hora_entrega = $horaEntrega->addMinutes($horario->hora_pickup)->format('H:i');
                 }
+
+                if ($model->tipo_pedido_id == 2 || $model->tipo_pedido_id == 3 ){
+                    $precioDelivery = Preciodelivery::findOne($model->precio_delivery_id);
+                    if (!$precioDelivery){
+                        throw new \Exception( 'Seleccione el precio delivery' );
+                    }
+                    $model->precio_delivery = floatval($precioDelivery->precio);
+                }
+
                 if($model->tipo_pedido_id == 2){
                     $model->sucursal_delivery_id = $precioDelivery->sucursal_id;
                     $model->hora_entrega = Carbon::now()->addMinutes($horario->hora_entrega_inmediata)->format('H:i');
