@@ -68,7 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'fecha_entrega',
                                     'hora_entrega',
                                     'strEstado',
-                                    
+                                    'strTipoPago',
                                 ],
                             ]) ?>
 

@@ -18,3 +18,12 @@ INSERT INTO `horario` (`id`, `inicio`, `fin`, `atendiendo`, `hora_pickup`, `hora
 
 -- incremetnar la longitud de lacolumnadireccion de pedidodelivery
 ALTER TABLE `pedido_delivery` CHANGE `direccion` `direccion` VARCHAR(1000) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL;
+
+-- anadir una columna origien para distingir pedidos de la web  de la palataforma web
+ALTER TABLE `pedido_delivery` ADD `origen` INT NULL DEFAULT '1' AFTER `precio_delivery`;
+
+-- agregar columna para registrar el dato de tipo de pago
+ALTER TABLE `pedido_delivery` ADD `tipo_pago` INT NULL DEFAULT '1' AFTER `origen`;
+
+-- aumentar la longitud de la columna instrucciones 
+ALTER TABLE `pedido_delivery` CHANGE `instrucciones` `instrucciones` VARCHAR(1000) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL;

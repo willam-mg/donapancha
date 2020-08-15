@@ -61,6 +61,8 @@ class Pedidodelivery extends \yii\db\ActiveRecord
             [['direccion', 'instrucciones'], 'string', 'max' => 400],
             [['facturado'], 'boolean'],
             [['precio_delivery'], 'number'],
+            [['origen'], 'integer'],
+            [['tipo_pago'], 'integer'],
         ];
     }
 
@@ -91,6 +93,9 @@ class Pedidodelivery extends \yii\db\ActiveRecord
             'facturado' => 'Facturado',
             'precio_delivery' => 'Precio delivery',
             'strTipo' => 'Tipo',
+            'origen' => 'Origen',
+            'tipo_pago' => 'Tipo de pago',
+            'strTipoPago' => 'Tipo de pago',
         ];
     }
 
@@ -187,7 +192,8 @@ class Pedidodelivery extends \yii\db\ActiveRecord
      * 2 : recojo de sucursal
      */
     public function getTipo(){
-        if (!$this->precio_delivery_id){
+        // if (!$this->precio_delivery_id && $this->origen != 1){
+        if ($this->tipo_pedido_id == 1){
             return 2;
         }else{
             return 1;
@@ -199,5 +205,14 @@ class Pedidodelivery extends \yii\db\ActiveRecord
             return 'Envio';
         }
         return 'Recojo';
+    }
+
+    public function getStrTipoPago(){
+        if ($this->tipo_pago == 1){
+            return 'Contra entrega';
+        }
+        if ($this->tipo_pago == 2){
+            return 'Tarjeta';
+        }
     }
 }
