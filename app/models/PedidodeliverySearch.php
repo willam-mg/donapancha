@@ -76,6 +76,7 @@ class PedidodeliverySearch extends Pedidodelivery
             'estado' => $this->estado,
             'sucursal_delivery_id' => $sucursal,
             'fecha_entrega' => $this->fecha_entrega,
+            'is_temp' => 0,
         ]);
 
         $query->andFilterWhere(['like', 'telefono', $this->telefono]);

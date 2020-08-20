@@ -65,7 +65,7 @@ Maps1Asset::register($this);
                         <?= $form->field($model, 'direccion')->textInput(['maxlength' => true,'placeholder'=>'Introducir la descripción del domicilio']) ?>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                        <?= $form->field($model, 'instrucciones')->textArea(['maxlength' => true,'placeholder'=>'Introducir alguna instrucción (Opcional)']) ?>
+                        <?= $form->field($model, 'instrucciones')->textArea(['maxlength' => true,'placeholder'=>'Introducir alguna instrucción ejemplo: No Pierna (Opcional)']) ?>
                     </div>
                 </div>
             </div>
@@ -278,7 +278,8 @@ Maps1Asset::register($this);
             ]) ?>
             <?= Html::submitButton( "<i class='material-icons'>save</i> ".'Registrar Pedido', [
                 'class' => 'btn btn-round btn-lg btn-success',
-                'data-confirm'=>'Registrar pedido?'
+                'onclick'=>'this.onclick=function(){this.disabled = true}',
+                // 'data-confirm'=>'Registrar pedido?'
             ]) ?>
         </div>
 

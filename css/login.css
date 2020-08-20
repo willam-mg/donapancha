@@ -4,8 +4,8 @@
   align-items: center;
   justify-content: left;
   height: 100vh;
-  background-color: #342f2b;
-  background: url(../images/login.jpg) no-repeat;
+  /*background-color: #342f2b;*/
+  /*background: url(../images/login.jpg) no-repeat;*/
   background-position: center; }
 
 /* line 13, scss/login.scss */

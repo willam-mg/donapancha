@@ -97,9 +97,9 @@ MaterialAsset::register($this);
     <div class="wrapper">
         <input type="hidden" id="path" value="<?=Yii::getAlias('@imageUrl').'/'?>">
 
-        <div class="sidebar hidden-print" data-color="green" data-image="<?=Url::to(['@web/images/sidebar.jpg'])?>">
+        <div class="sidebar hidden-print" data-color="green">
             <div class="logo text-center">
-                <?= Html::a(Html::img('@web/images/logo-sidebar.png', ['alt' => 'logo', 'width'=>'230px', 'height'=>'117px']).'', ['/site'], ['class' => 'simple-text']) ?>
+                <?= Html::a(Html::img('@web/images/logo-03.png', ['alt' => 'logo', 'width'=>'200px']).'', ['/site'], ['class' => 'simple-text']) ?>
             </div>
 
             <div class="sidebar-wrapper">

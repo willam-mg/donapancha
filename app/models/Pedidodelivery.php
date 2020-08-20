@@ -63,6 +63,7 @@ class Pedidodelivery extends \yii\db\ActiveRecord
             [['precio_delivery'], 'number'],
             [['origen'], 'integer'],
             [['tipo_pago'], 'integer'],
+            [['is_temp'], 'integer'],
         ];
     }
 
@@ -96,6 +97,7 @@ class Pedidodelivery extends \yii\db\ActiveRecord
             'origen' => 'Origen',
             'tipo_pago' => 'Tipo de pago',
             'strTipoPago' => 'Tipo de pago',
+            'is_temp' => 'Es temporal',
         ];
     }
 
