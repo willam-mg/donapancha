@@ -241,7 +241,6 @@ class PedidodeliveryController extends Controller
                 return $this->redirect(['view', 'id' => $model->id]);
             } catch (\Throwable $e) {
                 $transaction->rollBack();
-                return print_r($e->getMessage());
                 Yii::$app->session->setFlash('warning', $e->getMessage() );
             }
         }
