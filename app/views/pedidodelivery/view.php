@@ -99,7 +99,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right">
                                     <?php
-                                    if ( !$model->tipo == 2 ){//si es delivery
+                                    if ( $model->tipo == 1 ){//si es delivery
                                         if ( !$model->sucursal_delivery_id || !$model->precio_delivery_id ){
                                             echo Html::a( "<i class='material-icons'>edit_location</i> ".'Sucursal y precio', ['/pedidodelivery/asignar-sucursalprecio', 'pe' => $model->id], [
                                                 'class' => $model->sucursal_delivery_id && $model->precio_delivery_id?'btn btn-round btn-danger btn-lg disabled':'btn btn-round btn-danger btn-lg', 

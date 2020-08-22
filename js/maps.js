@@ -93,23 +93,24 @@ function initMap(){
     preciosDelivery.forEach((item, i)=>{
         // Construct the polygon.
         // console.log('creando poligono', item);
-        
-        var bermudaTriangle = new google.maps.Polygon({
-            paths: item.cordinates,
-            // strokeColor: "#FF0000",
-            strokeColor: "#35080636",
-            strokeOpacity: 0.8,
-            strokeWeight: 3,
-            // fillColor: "#FF0000",
-            fillColor: "#bf292380",
-            fillOpacity: 0.35,
-            zIndex: item.id,            
-        });
-        bermudaTriangle.setMap(map);
-
-        // Add a listener for the click event.
-        bermudaTriangle.addListener("click", showArrays);
-        polygonesArray.push(bermudaTriangle);
+        if (item.estado == 'Activo') {
+            var bermudaTriangle = new google.maps.Polygon({
+                paths: item.cordinates,
+                // strokeColor: "#FF0000",
+                strokeColor: "#35080636",
+                strokeOpacity: 0.8,
+                strokeWeight: 3,
+                // fillColor: "#FF0000",
+                fillColor: "#bf292380",
+                fillOpacity: 0.35,
+                zIndex: item.id,            
+            });
+            bermudaTriangle.setMap(map);
+    
+            // Add a listener for the click event.
+            bermudaTriangle.addListener("click", showArrays);
+            polygonesArray.push(bermudaTriangle);
+        }
     });
 
 

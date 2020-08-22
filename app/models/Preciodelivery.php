@@ -17,6 +17,8 @@ use Yii;
  */
 class Preciodelivery extends \yii\db\ActiveRecord
 {
+    const STATUS_ACTIVO = 'Activo';
+    
     /**
      * {@inheritdoc}
      */

@@ -409,10 +409,12 @@ class PedidodeliveryController extends Controller
 
     public function actionGetCordenadas(){
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        $precios = Preciodelivery::find()->all();
+        $precios = Preciodelivery::find()
+            ->all();
         return ArrayHelper::toArray($precios, [
             Preciodelivery::className() => [
                 'id',
+                'estado',
                 'cordinates'=>function($model){
                     return ArrayHelper::toArray($model->cordenadas, [
                         PrecioCoordinates::className() => [
