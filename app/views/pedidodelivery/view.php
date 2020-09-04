@@ -97,12 +97,32 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
                             
                             <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <?php
+                                    if (\Yii::$app->user->can(\Yii::$app->user->identity::ROLE_CALL_CENTER)){
+                                        echo Html::a( "<i class='material-icons'>monetization_on</i> ".'Modificar precio delivery', ['/pedidodelivery/modificar-precio', 'pe' => $model->id], [
+                                            'class' =>'btn btn-round', 
+                                            'style' =>'background:#005f96', 
+                                            'title'=>'Modificar el precio delivery',
+                                        ]);
+                                        echo Html::a( "<i class='material-icons'>radio_button_checked</i> ".'Modificar Estado', ['/pedidodelivery/modificar-estado', 'pe' => $model->id], [
+                                            'class' =>'btn btn-round', 
+                                            'style' =>'background:#00a1ff', 
+                                            'title'=>'Modificar el estado del pedido',
+                                        ]);
+                                    } 
+                                    ?>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right">
                                     <?php
                                     if ( $model->tipo == 1 ){//si es delivery
-                                        if ( !$model->sucursal_delivery_id || !$model->precio_delivery_id ){
+                                        // if ( !$model->sucursal_delivery_id || !$model->precio_delivery_id ){
+                                        if (\Yii::$app->user->can(\Yii::$app->user->identity::ROLE_CALL_CENTER)){
                                             echo Html::a( "<i class='material-icons'>edit_location</i> ".'Sucursal y precio', ['/pedidodelivery/asignar-sucursalprecio', 'pe' => $model->id], [
-                                                'class' => $model->sucursal_delivery_id && $model->precio_delivery_id?'btn btn-round btn-danger btn-lg disabled':'btn btn-round btn-danger btn-lg', 
+                                                'class' =>'btn btn-round btn-danger btn-lg', 
                                                 'title'=>'Asignar sucursal y precio delivery',
                                             ]);
                                         } 

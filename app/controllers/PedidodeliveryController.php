@@ -389,6 +389,10 @@ class PedidodeliveryController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $transaction = $model->getDb()->beginTransaction();
             try {
+                $precioDelivery = Preciodelivery::findOne($model->precio_delivery_id);
+                if ($precioDelivery){
+                    $model->precio_delivery = floatval($precioDelivery->precio);
+                }
                 if ( !$model->save() ){
                     throw new \Exception( ErrorsComponent::formatJustString($model->errors) );
                 }
@@ -401,6 +405,61 @@ class PedidodeliveryController extends Controller
         }
 
         return $this->render('asignar_sucursal_precio', [
+            'model' => $model,
+            'precio_pedido' => $precio_pedido,
+        ]);
+    }
+    
+    public function actionModificarPrecio($pe){
+        $model = Pedidodelivery::findOne($pe);
+        $precio_pedido = 0;
+        if ($model->precioDelivery !== null){
+            $precio_pedido = $model->precioDelivery->precio;
+        }
+        if ($model->load(Yii::$app->request->post())) {
+            $transaction = $model->getDb()->beginTransaction();
+            try {
+                if(!$model->precio_delivery){
+                    throw new \Exception( 'El precio es obligatorio' );
+                }
+                if ( !$model->save() ){
+                    throw new \Exception( ErrorsComponent::formatJustString($model->errors) );
+                }
+                $transaction->commit();
+                return $this->redirect(['/pedidodelivery/view', 'id' => $model->id]);
+            } catch (\Throwable $e) {
+                $transaction->rollBack();
+                Yii::$app->session->setFlash('warning', $e->getMessage() );
+            }
+        }
+
+        return $this->render('modificar_precio', [
+            'model' => $model,
+            'precio_pedido' => $precio_pedido,
+        ]);
+    }
+    
+    public function actionModificarEstado($pe){
+        $model = Pedidodelivery::findOne($pe);
+        $precio_pedido = 0;
+        if ($model->precioDelivery !== null){
+            $precio_pedido = $model->precioDelivery->precio;
+        }
+        if ($model->load(Yii::$app->request->post())) {
+            $transaction = $model->getDb()->beginTransaction();
+            try {
+                if ( !$model->save() ){
+                    throw new \Exception( ErrorsComponent::formatJustString($model->errors) );
+                }
+                $transaction->commit();
+                return $this->redirect(['/pedidodelivery/view', 'id' => $model->id]);
+            } catch (\Throwable $e) {
+                $transaction->rollBack();
+                Yii::$app->session->setFlash('warning', $e->getMessage() );
+            }
+        }
+
+        return $this->render('modificar_estado', [
             'model' => $model,
             'precio_pedido' => $precio_pedido,
         ]);
