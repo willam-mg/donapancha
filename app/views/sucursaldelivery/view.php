@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use app\assets\SucursalAsset;
+SucursalAsset::register($this);
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Sucursaldelivery */
@@ -11,6 +13,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Sucursaldeliveries', 'url' => ['in
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
+<input id="isView" type="hidden" value="1">
 <div class="sucursaldelivery-view">
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-centered">
@@ -19,7 +22,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     <h4><?= Html::encode($this->title) ?></h4>
                     <hr>
 
-                <?= DetailView::widget([
+                    <input type="hidden" id="sucursaldelivery-latitude" value="<?=$model->latitude?>">
+                    <input type="hidden" id="sucursaldelivery-longitude" value="<?=$model->longitude?>">
+
+                    <?= DetailView::widget([
                         'model' => $model,
                         'attributes' => [
                             'nombre',
@@ -28,6 +34,8 @@ $this->params['breadcrumbs'][] = $this->title;
                             'estado',
                         ],
                     ]) ?>
+
+                    <div id="map"></div>
 
                      <div class="form-group text-right">
                         <?= Html::a( "<i class='material-icons'>clear</i> ".'Cerrar', ['index'], ['class' => 'btn btn-simple', 'title'=>'Cerrar',]) ?>

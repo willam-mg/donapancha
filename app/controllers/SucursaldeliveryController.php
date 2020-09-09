@@ -8,6 +8,7 @@ use app\models\SucursaldeliverySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\components\errors\ErrorsComponent;
 
 /**
  * SucursaldeliveryController implements the CRUD actions for Sucursaldelivery model.
@@ -86,8 +87,20 @@ class SucursaldeliveryController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $transaction = $model->getDb()->beginTransaction();
+            try {
+                if ( !$model->save() ){
+                    throw new \Exception( ErrorsComponent::formatJustString($model->errors));
+                }
+                $transaction->commit();
+                Yii::$app->session->setFlash('success', 'Guardado');
+                return $this->redirect(['view', 'id' => $model->id]);
+            } catch (\Throwable $e) {
+                $transaction->rollBack();
+                Yii::$app->session->setFlash('warning', $e->getMessage() );
+            }
+            
         }
 
         return $this->render('update', [
