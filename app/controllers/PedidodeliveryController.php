@@ -76,6 +76,7 @@ class PedidodeliveryController extends Controller
     {
         $request = Yii::$app->request;
         $model = new Pedidodelivery();
+        $model->origen = Pedidodelivery::ORIGEN_CALLCENTER;
         $model->tipo_pedido_id = 1;
         $minutos = 45;
         $cliente = Cliente::findOne($cl);

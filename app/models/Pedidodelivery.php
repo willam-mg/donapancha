@@ -33,6 +33,10 @@ class Pedidodelivery extends \yii\db\ActiveRecord
     const ESTADO_ASIGNADO = 1;
     const ESTADO_TERMINADO = 2;
 
+    const ORIGEN_CALLCENTER = 1;
+    const ORIGEN_WEB = 2;
+    const ORIGEN_MOBIL = 3;
+
     public $ubicacion;
     public $cantidad = 1;
 
@@ -64,6 +68,7 @@ class Pedidodelivery extends \yii\db\ActiveRecord
             [['origen'], 'integer'],
             [['tipo_pago'], 'integer'],
             [['is_temp'], 'integer'],
+            [['descuento'], 'number'],
         ];
     }
 
@@ -98,6 +103,7 @@ class Pedidodelivery extends \yii\db\ActiveRecord
             'tipo_pago' => 'Tipo de pago',
             'strTipoPago' => 'Tipo de pago',
             'is_temp' => 'Es temporal',
+            'descuento' => 'Descuento',
         ];
     }
 
@@ -154,12 +160,32 @@ class Pedidodelivery extends \yii\db\ActiveRecord
         return $this->hasMany(PedidoDeliveryDetalle::className(), ['pedido_delivery_id' => 'id']);
     }
 
+    /**
+     * suma los precios de la lista de prodictos.
+     */
     public function getTotal(){
         $suma = 0;
         foreach ($this->detalle as $key => $det) {
             $suma+=$det->subtotal;
         }
         return $suma;
+    }
+
+    /**
+     * suma el total de los productos mas el delivery
+     * menos el descuento si tiene.
+     */
+    public function getTotalPedido(){
+        $totalProductos = $this->total;
+        $delviery = $this->precio_delivery;
+        $horario = Horario::findOne(1);
+        $totalPedido = $totalProductos + $delviery;
+
+        $descuento = $totalPedido * $this->descuento;
+        if ($this->origen == self::ORIGEN_MOBIL){
+            $totalPedido = $totalProductos + $delviery - $descuento;
+        }
+        return $totalPedido;
     }
 
     public function getStrEstado(){

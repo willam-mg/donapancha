@@ -144,20 +144,20 @@ $this->params['breadcrumbs'][] = $this->title;
                                                             ?>
                                                         </td>
                                                         <td><?=$detalle->producto->producto?></td>
-                                                        <td><?=$detalle->producto->costo?></td>
+                                                        <td><?=$detalle->producto->costo?> Bs. </td>
                                                         <td><?=$detalle->cantidad?></td>
-                                                        <td><?=$detalle->subtotal?></td>
+                                                        <td><?=$detalle->subtotal?> Bs.</td>
                                                     </tr>
                                                 <?php } ?>
                                             </tbody>
                                             <tfoot>
                                                 <tr>
                                                     <td colspan="4" class="text-right">
-                                                        <b>Total</b>
+                                                        <!-- <b>Total</b> -->
                                                     </td>
                                                     <td>
                                                         <b>
-                                                            <?=$model->total?>
+                                                            <?=$model->total?> Bs.
                                                         </b>
                                                     </td>
                                                 </tr>
@@ -196,7 +196,66 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </div>
                             </div>
                             
-                            
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <h4>Total</h4>
+                                    <table style="width:100%">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <b>
+                                                        <i>
+                                                            Detalle: <br>
+                                                            <?=$model->total?> Bs.
+                                                        </i>
+                                                    </b>
+                                                </td>
+                                                <td class="text-center">
+                                                    <i class="material-icons">add</i>
+                                                </td>
+                                                <td>
+                                                    <b>
+                                                        <i>
+                                                            Precio delivery: <br>
+                                                            <?=$model->precio_delivery?> Bs.
+                                                        </i>
+                                                    </b>
+                                                </td>
+                                                <?php if($model->descuento != 0){ ?>
+                                                    <?php  
+                                                    $totalPedido = $model->total + $model->precio_delivery;
+                                                    $descuento = $totalPedido * $model->descuento;
+                                                    ?>
+
+                                                    <td class="text-center">
+                                                        <i class="material-icons">minimize</i> <br>
+                                                    </td>
+                                                    <td>
+                                                        <b>
+                                                            <i>
+                                                                Descuento: <br>
+                                                                <?=$descuento?> Bs.
+                                                            </i>
+                                                        </b>
+                                                    </td>
+                                                <?php } ?>
+                                                <td class="text-center">
+                                                    <i class="material-icons">minimize</i> <br>
+                                                    <i class="material-icons" style="top: -20px;position: relative;">minimize</i>
+                                                </td>
+                                                <td>
+                                                    <b>
+                                                        <i>
+                                                            Total: <br>
+                                                            <?=$model->totalPedido?> Bs.
+                                                        </i>
+                                                    </b>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
 
                         </div>
                     </div>

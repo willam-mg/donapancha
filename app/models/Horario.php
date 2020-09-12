@@ -34,6 +34,7 @@ class Horario extends \yii\db\ActiveRecord
             [['inicio', 'fin'], 'required'],
             [['inicio', 'fin'], 'safe'],
             [['atendiendo', 'hora_pickup', 'hora_entrega_inmediata', 'hora_entrega_programada'], 'integer'],
+            [['descuento_app_movil'], 'number'],
         ];
     }
 
@@ -50,6 +51,7 @@ class Horario extends \yii\db\ActiveRecord
             'hora_pickup' => 'Hora Pickup',
             'hora_entrega_inmediata' => 'Hora Entrega Inmediata',
             'hora_entrega_programada' => 'Hora Entrega Programada',
+            'descuento_app_movil' => 'Descuento para clientes que usan la app mobil (%)',
         ];
     }
 }

@@ -66,6 +66,12 @@ use kartik\time\TimePicker;
             <?= $form->field($model, 'hora_entrega_inmediata')->hint('Minutos')->textInput(['type'=>'number']) ?>
 
             <?= $form->field($model, 'hora_entrega_programada')->hint('Minutos')->textInput(['type'=>'number']) ?>
+
+            <?= $form->field($model, 'descuento_app_movil')->hint('min 0 max 100')->textInput([
+                'type'=>'number',
+                'min'=>0,
+                'max'=>100,
+            ]) ?>
         </div>
     </div>
     
