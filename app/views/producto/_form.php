@@ -36,6 +36,12 @@ use kartik\dialog\Dialog;
     <?= $form->field($model, 'detalle')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'costo')->textInput(['maxlength' => true]) ?>
+    
+    <?= $form->field($model, 'descuento')->hint('min 0 max 100')->textInput([
+        'type' => 'number',
+        'min' => 0,
+        'max' => 100,
+    ]) ?>
 
     <?= $form->field($model, 'estado')->dropDownList([ 'Activo' => 'Activo', 'Inactivo' => 'Inactivo', ], ['prompt' => '']) ?>
 

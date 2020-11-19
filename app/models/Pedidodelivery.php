@@ -179,11 +179,13 @@ class Pedidodelivery extends \yii\db\ActiveRecord
         $totalProductos = $this->total;
         $delviery = $this->precio_delivery;
         $horario = Horario::findOne(1);
-        $totalPedido = $totalProductos + $delviery;
+        // $totalPedido = $totalProductos + $delviery;
+        $totalPedido = $totalProductos;
 
         $descuento = $totalPedido * $this->descuento;
         if ($this->origen == self::ORIGEN_MOBIL){
-            $totalPedido = $totalProductos + $delviery - $descuento;
+            // $totalPedido = $totalProductos + $delviery - $descuento;
+            $totalPedido = $totalProductos - $descuento;
         }
         return $totalPedido;
     }

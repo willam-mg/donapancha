@@ -207,7 +207,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                                     <th style="color: white">Foto</th>
                                                     <th style="color: white">Producto</th>
                                                     <th style="color: white">Precio</th>
-                                                    <th style="color: white">cantidad</th>
+                                                    <th style="color: white">Cantidad</th>
+                                                    <th style="color: white">Descuento</th>
                                                     <th style="color: white">Subtotal</th>
                                                 </tr>
                                             </thead>
@@ -232,13 +233,21 @@ $this->params['breadcrumbs'][] = $this->title;
                                                         <td><?=$detalle->producto->producto?></td>
                                                         <td><?=$detalle->producto->costo?> Bs.</td>
                                                         <td><?=$detalle->cantidad?></td>
+                                                        <?php  
+                                                        if ($detalle->descuento != 0){ 
+                                                        $subtotal = $detalle->producto->costo * $detalle->cantidad;
+                                                        ?>
+                                                            <td><?=$subtotal * $detalle->descuento?></td>
+                                                        <?php }else{
+                                                            echo '<td>0 Bs.</td>';
+                                                        } ?>
                                                         <td><?=$detalle->subtotal?> Bs.</td>
                                                     </tr>
                                                 <?php } ?>
                                             </tbody>
                                             <tfoot>
                                                 <tr>
-                                                    <td colspan="4" class="text-right">
+                                                    <td colspan="5" class="text-right">
                                                         <!-- <b>Total</b> -->
                                                     </td>
                                                     <td>
@@ -309,7 +318,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 </td>
                                                 <?php if($model->descuento != 0){ ?>
                                                     <?php  
-                                                    $totalPedido = $model->total + $model->precio_delivery;
+                                                    // $totalPedido = $model->total + $model->precio_delivery;
+                                                    $totalPedido = $model->total;
                                                     $descuento = $totalPedido * $model->descuento;
                                                     ?>
 
