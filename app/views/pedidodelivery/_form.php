@@ -99,7 +99,7 @@ Maps1Asset::register($this);
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" id="showSucursal">
                 <?= $form->field($model, 'sucursal_delivery_id')->widget(Select2::classname(), [
-                    'data' => ArrayHelper::map(Sucursaldelivery::find()->andFilterWhere(['<>', 'id', 1])->all(), 'id', 'nombre'),
+                    'data' => ArrayHelper::map(Sucursaldelivery::find()->where(['estado' => 'Activo'])->andFilterWhere(['<>', 'id', 1])->all(), 'id', 'nombre'),
                         'options' => ['placeholder' => 'Seleccione una sucursal'],
                         'pluginOptions' => [
                             'allowClear' => true

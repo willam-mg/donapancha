@@ -21,7 +21,7 @@ use yii\helpers\Url;
     <?= $form->field($model, 'descripcion')->textArea(['rows' => 2]) ?>
 
     <?=$form->field($model, 'foto')
-        ->hint('Dimencion 500 x 600 px - tamaño maximo 8 MB')
+        ->hint('Dimencion 1600 x 800 px - .JPG')
         ->widget(FileInput::classname(), [
             'showMessage'=>false,
             'options' => [

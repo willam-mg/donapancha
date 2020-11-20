@@ -32,7 +32,6 @@ class PedidoDeliveryDetalle extends \yii\db\ActiveRecord
             [['pedido_delivery_id', 'producto_id', 'cantidad'], 'required'],
             [['pedido_delivery_id', 'producto_id', 'cantidad'], 'integer'],
             [['observacion'], 'string', 'max' => 200],
-            [['descuento'], 'number'],
         ];
     }
 
@@ -47,7 +46,6 @@ class PedidoDeliveryDetalle extends \yii\db\ActiveRecord
             'producto_id' => 'Producto ID',
             'cantidad' => 'Cantidad',
             'observacion' => 'Observacion',
-            'descuento' => 'Descuento',
         ];
     }
 
@@ -68,10 +66,6 @@ class PedidoDeliveryDetalle extends \yii\db\ActiveRecord
     }
 
     public function getSubtotal(){
-        $subtotal = $this->producto->costo * $this->cantidad;
-        if ($this->descuento != 0){
-            return $subtotal - ($subtotal * $this->descuento);
-        }
-        return $subtotal;
+        return $this->producto->costo * $this->cantidad;
     }
 }

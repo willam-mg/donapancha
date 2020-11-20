@@ -78,6 +78,7 @@ class PedidodeliveryController extends Controller
         $model = new Pedidodelivery();
         $model->origen = Pedidodelivery::ORIGEN_CALLCENTER;
         $model->tipo_pedido_id = 1;
+        $model->user_id = Yii::$app->user->identity->id;
         $minutos = 45;
         $cliente = Cliente::findOne($cl);
         if ($cliente){
@@ -86,7 +87,7 @@ class PedidodeliveryController extends Controller
             $model->zona = $cliente->zona;
             $model->direccion = $cliente->direccion;
         }
-        $productos = Producto::find()->all();
+        $productos = Producto::find()->where(['estado' => 'Activo'])->all();
         $model->fecha_entrega = Carbon::now()->format('Y-m-d');
         $model->hora_entrega = Carbon::now()->format('H:i');
         $clientes = Cliente::find()->all();
@@ -465,6 +466,7 @@ class PedidodeliveryController extends Controller
             'precio_pedido' => $precio_pedido,
         ]);
     }
+
 
     public function actionGetCordenadas(){
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;

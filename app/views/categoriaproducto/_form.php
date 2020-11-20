@@ -22,6 +22,31 @@ use kartik\date\DatePicker;
     <?= $form->field($model, 'nombre')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'producto')->textInput(['maxlength' => true]) ?>
+    
+    <?=$form->field($model, 'foto')
+        ->widget(FileInput::classname(), [
+            'showMessage'=>false,
+            'options' => [
+                'multiple' => false, 
+                'accept' => 'image/*',
+                'value'=>$model->foto,
+            ],
+            'pluginOptions' => [
+                'previewFileType' => 'image',
+                'initialPreview'=>[
+                    !$model->isNewRecord && $model->foto?Url::base(true).Url::to('@web/uploads'.\app\models\Categoriaproducto::PATH.$model->foto):'',
+                ],
+                'overwriteInitial'=>true,
+                'initialCaption'=>$model->foto,
+                'initialPreviewAsData'=>true,
+                'showPreview' => true,
+                'showCaption' => true,
+                'showRemove' => false,
+                'showUpload' => false,
+                'maxFileSize'=>8000
+            ]
+        ]
+    )?>
 
     <?= $form->field($model, 'estado')->dropDownList([ 'Activo' => 'Activo', 'Inactivo' => 'Inactivo', ], ['prompt' => '']) ?>
 

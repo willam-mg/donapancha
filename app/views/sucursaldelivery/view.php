@@ -22,10 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <h4><?= Html::encode($this->title) ?></h4>
                     <hr>
 
-                    <input type="hidden" id="sucursaldelivery-latitude" value="<?=$model->latitude?>">
-                    <input type="hidden" id="sucursaldelivery-longitude" value="<?=$model->longitude?>">
-
-                    <?= DetailView::widget([
+                <?= DetailView::widget([
                         'model' => $model,
                         'attributes' => [
                             'nombre',
@@ -34,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             'estado',
                         ],
                     ]) ?>
-
+                    
                     <div id="map"></div>
 
                      <div class="form-group text-right">

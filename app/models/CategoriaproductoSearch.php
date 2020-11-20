@@ -18,7 +18,7 @@ class CategoriaproductoSearch extends Categoriaproducto
     {
         return [
             [['id'], 'integer'],
-            [['nombre', 'producto', 'estado'], 'safe'],
+            [['nombre', 'producto','foto', 'estado'], 'safe'],
         ];
     }
 
@@ -63,6 +63,7 @@ class CategoriaproductoSearch extends Categoriaproducto
 
         $query->andFilterWhere(['like', 'nombre', $this->nombre])
             ->andFilterWhere(['like', 'producto', $this->producto])
+            ->andFilterWhere(['like', 'foto', $this->foto])
             ->andFilterWhere(['like', 'estado', $this->estado]);
 
         return $dataProvider;

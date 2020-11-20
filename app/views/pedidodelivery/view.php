@@ -41,7 +41,9 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?= DetailView::widget([
                                 'model' => $model,
                                 'attributes' => [
+                                    
                                     'strTipo',
+                                    'tipoPedido.nombre:text:Tipo pedido',
                                     'cliente.razon_social',
                                     'cliente.nit',
                                     'telefono',
@@ -51,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     // 'longitude',
                                     // 'zoom',
                                     'instrucciones',
-                                    // 'producto_id',
+                                    'user.username',
                     
                                     [
                                     'attribute'=>'precio_delivery_id',
@@ -95,7 +97,6 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
-                            
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                     <?php
@@ -105,16 +106,15 @@ $this->params['breadcrumbs'][] = $this->title;
                                             'style' =>'background:#005f96', 
                                             'title'=>'Modificar el precio delivery',
                                         ]);
-                                        echo Html::a( "<i class='material-icons'>radio_button_checked</i> ".'Modificar Estado', ['/pedidodelivery/modificar-estado', 'pe' => $model->id], [
-                                            'class' =>'btn btn-round', 
-                                            'style' =>'background:#00a1ff', 
-                                            'title'=>'Modificar el estado del pedido',
-                                        ]);
+                                        // echo Html::a( "<i class='material-icons'>radio_button_checked</i> ".'Modificar Estado', ['/pedidodelivery/modificar-estado', 'pe' => $model->id], [
+                                        //     'class' =>'btn btn-round', 
+                                        //     'style' =>'background:#00a1ff', 
+                                        //     'title'=>'Modificar el estado del pedido',
+                                        // ]);
                                     } 
                                     ?>
                                 </div>
                             </div>
-                            
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right">
                                     <?php
@@ -207,8 +207,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                     <th style="color: white">Foto</th>
                                                     <th style="color: white">Producto</th>
                                                     <th style="color: white">Precio</th>
-                                                    <th style="color: white">Cantidad</th>
-                                                    <th style="color: white">Descuento</th>
+                                                    <th style="color: white">cantidad</th>
                                                     <th style="color: white">Subtotal</th>
                                                 </tr>
                                             </thead>
@@ -233,22 +232,14 @@ $this->params['breadcrumbs'][] = $this->title;
                                                         <td><?=$detalle->producto->producto?></td>
                                                         <td><?=$detalle->producto->costo?> Bs.</td>
                                                         <td><?=$detalle->cantidad?></td>
-                                                        <?php  
-                                                        if ($detalle->descuento != 0){ 
-                                                        $subtotal = $detalle->producto->costo * $detalle->cantidad;
-                                                        ?>
-                                                            <td><?=$subtotal * $detalle->descuento?></td>
-                                                        <?php }else{
-                                                            echo '<td>0 Bs.</td>';
-                                                        } ?>
                                                         <td><?=$detalle->subtotal?> Bs.</td>
                                                     </tr>
                                                 <?php } ?>
                                             </tbody>
                                             <tfoot>
                                                 <tr>
-                                                    <td colspan="5" class="text-right">
-                                                        <!-- <b>Total</b> -->
+                                                    <td colspan="4" class="text-right">
+                                                        <!--<b>Total</b>-->
                                                     </td>
                                                     <td>
                                                         <b>
@@ -305,20 +296,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                                         </i>
                                                     </b>
                                                 </td>
-                                                <td class="text-center">
-                                                    <i class="material-icons">add</i>
-                                                </td>
-                                                <td>
-                                                    <b>
-                                                        <i>
-                                                            Precio delivery: <br>
-                                                            <?=$model->precio_delivery?> Bs.
-                                                        </i>
-                                                    </b>
-                                                </td>
+                                                
                                                 <?php if($model->descuento != 0){ ?>
                                                     <?php  
-                                                    // $totalPedido = $model->total + $model->precio_delivery;
                                                     $totalPedido = $model->total;
                                                     $descuento = $totalPedido * $model->descuento;
                                                     ?>
@@ -335,6 +315,21 @@ $this->params['breadcrumbs'][] = $this->title;
                                                         </b>
                                                     </td>
                                                 <?php } ?>
+                                                
+                                                
+                                                <td class="text-center">
+                                                    <i class="material-icons">add</i>
+                                                </td>
+                                                <td>
+                                                    <b>
+                                                        <i>
+                                                            Precio delivery: <br>
+                                                            <?=$model->precio_delivery?> Bs.
+                                                        </i>
+                                                    </b>
+                                                </td>
+                                                
+                                                
                                                 <td class="text-center">
                                                     <i class="material-icons">minimize</i> <br>
                                                     <i class="material-icons" style="top: -20px;position: relative;">minimize</i>
@@ -352,7 +347,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                     </table>
                                 </div>
                             </div>
-
+                            
+                            
 
                         </div>
                     </div>

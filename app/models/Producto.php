@@ -42,8 +42,8 @@ class Producto extends \yii\db\ActiveRecord
             [['producto'], 'string', 'max' => 200],
             [['detalle'], 'string', 'max' => 3000],
             [['costo'], 'string', 'max' => 50],
-            [['categoria_producto_id'], 'exist', 'skipOnError' => true, 'targetClass' => Categoriaproducto::className(), 'targetAttribute' => ['categoria_producto_id' => 'id']],
             [['descuento'], 'number'],
+            [['categoria_producto_id'], 'exist', 'skipOnError' => true, 'targetClass' => Categoriaproducto::className(), 'targetAttribute' => ['categoria_producto_id' => 'id']],
         ];
     }
 
@@ -59,7 +59,6 @@ class Producto extends \yii\db\ActiveRecord
             'costo' => 'Costo',
             'estado' => 'Estado',
             'categoria_producto_id' => 'Categoria Producto',
-            'descuento' => 'Descuento',
         ];
     }
 

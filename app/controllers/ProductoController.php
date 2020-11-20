@@ -65,7 +65,6 @@ class ProductoController extends Controller
     public function actionCreate()
     {
         $model = new Producto();
-        $model->descuento = 0;
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $transaction = $model->getDb()->beginTransaction();

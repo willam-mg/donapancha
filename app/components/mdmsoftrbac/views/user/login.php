@@ -44,9 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= Html::submitButton(Yii::t('rbac-admin', '<i class="material-icons">input</i> Ingresar'), ['class' => 'btn btn-success', 'name' => 'login-button']) ?>
             </div>
             <p style="color:#999">
-                <?php 
-                    echo Html::a('¿ Olvidaste tu contraseña ?', ['user/request-password-reset'], ['style'=>'color:#999;']); 
-                ?>.
+                
             </p>
             <?php ActiveForm::end(); ?>
 

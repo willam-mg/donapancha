@@ -36,12 +36,6 @@ $this->params['breadcrumbs'][] = $this->title;
                             'producto',
                             'detalle',
                             'costo',
-                            [
-                                'attribute'=>'descuento',
-                                'value'=>function($model){
-                                    return $model->descuento.' %';
-                                }
-                            ],
                             'estado',
                             'categoria_producto_id',
                         ],

@@ -8,7 +8,6 @@ use app\models\SucursaldeliverySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use app\components\errors\ErrorsComponent;
 
 /**
  * SucursaldeliveryController implements the CRUD actions for Sucursaldelivery model.

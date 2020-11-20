@@ -36,7 +36,7 @@ class Pedidodelivery extends \yii\db\ActiveRecord
     const ORIGEN_CALLCENTER = 1;
     const ORIGEN_WEB = 2;
     const ORIGEN_MOBIL = 3;
-
+    
     public $ubicacion;
     public $cantidad = 1;
 
@@ -151,6 +151,12 @@ class Pedidodelivery extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Cliente::className(), ['id' => 'cliente_id']);
     }
+    
+    
+    public function getUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
+    }
 
     /**
      * @return \yii\db\ActiveQuery
@@ -170,7 +176,7 @@ class Pedidodelivery extends \yii\db\ActiveRecord
         }
         return $suma;
     }
-
+    
     /**
      * suma el total de los productos mas el delivery
      * menos el descuento si tiene.
@@ -179,16 +185,15 @@ class Pedidodelivery extends \yii\db\ActiveRecord
         $totalProductos = $this->total;
         $delviery = $this->precio_delivery;
         $horario = Horario::findOne(1);
-        // $totalPedido = $totalProductos + $delviery;
         $totalPedido = $totalProductos;
 
         $descuento = $totalPedido * $this->descuento;
         if ($this->origen == self::ORIGEN_MOBIL){
-            // $totalPedido = $totalProductos + $delviery - $descuento;
             $totalPedido = $totalProductos - $descuento;
         }
-        return $totalPedido;
+        return $totalPedido + $delviery;
     }
+
 
     public function getStrEstado(){
         switch ($this->estado) {
@@ -232,9 +237,9 @@ class Pedidodelivery extends \yii\db\ActiveRecord
 
     public function getStrTipo(){
         if ($this->tipo == 1){
-            return 'Envio';
+            return 'Delivery';
         }
-        return 'Recojo';
+        return 'Pickup';
     }
 
     public function getStrTipoPago(){

@@ -52,6 +52,7 @@ class Horario extends \yii\db\ActiveRecord
             'hora_entrega_inmediata' => 'Hora Entrega Inmediata',
             'hora_entrega_programada' => 'Hora Entrega Programada',
             'descuento_app_movil' => 'Descuento para clientes que usan la app mobil (%)',
+
         ];
     }
 }

@@ -8,7 +8,7 @@ use app\models\CategoriaproductoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\web\UploadedFile;
 /**
  * CategoriaproductoController implements the CRUD actions for Categoriaproducto model.
  */
@@ -66,8 +66,24 @@ class CategoriaproductoController extends Controller
     {
         $model = new Categoriaproducto();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $transaction = $model->getDb()->beginTransaction();
+            try {
+                $model->save();
+                $image = UploadedFile::getInstance($model, 'foto');
+                    if ($image){
+                    $imageName = 'categoriaproducto_'.$model->id.date('ymdHis').'.'.$image->getExtension();
+                    $image->saveAs(\Yii::getAlias('@imagePath').Categoriaproducto::PATH.$imageName);
+                    $model->foto = $imageName;
+                }
+                $model->save();
+                $transaction->commit();
+                Yii::$app->session->setFlash('success', 'Se registro correctamente');
+                return $this->redirect(['view', 'id' => $model->id]);
+            } catch (\Throwable $e) {
+                $transaction->rollBack();
+                Yii::$app->session->setFlash('warning', $e->getMessage() );
+            }
         }
 
         return $this->render('create', [
@@ -86,8 +102,34 @@ class CategoriaproductoController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $auxFoto = $model->foto;
+        
+        if ($model->load(Yii::$app->request->post()) ) {
+            $transaction = $model->getDb()->beginTransaction();
+            try {
+                $model->foto = $auxFoto;
+                $model->save();
+                
+                $image = UploadedFile::getInstance($model, 'foto');
+                if ($image){
+                    if ( $model->foto != "" ){
+                        $imageExist = Yii::getAlias('@imagePath').Categoria::PATH.$model->foto;
+                        if ( file_exists($imageExist) ){
+                            unlink($imageExist);
+                        }
+                    }
+                    $imageName = 'categoriaproducto_'.$model->id.date('ymdHis').'.'.$image->getExtension();
+                    $image->saveAs(\Yii::getAlias('@imagePath').Categoriaproducto::PATH.$imageName);
+                    $model->foto = $imageName;
+                }
+                $model->save();
+                $transaction->commit();
+                Yii::$app->session->setFlash('success', 'Se actualizo correctamente');
+                return $this->redirect(['view', 'id' => $model->id]);
+            } catch (\Throwable $e) {
+                $transaction->rollBack();
+                Yii::$app->session->setFlash('warning', $e->getMessage() );
+            }
         }
 
         return $this->render('update', [

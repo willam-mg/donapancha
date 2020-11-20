@@ -7,7 +7,6 @@ use kartik\switchinput\SwitchInput;
 use kartik\date\DatePicker;
 use app\assets\SucursalAsset;
 SucursalAsset::register($this);
-
 /* @var $this yii\web\View */
 /* @var $model app\models\Sucursaldelivery */
 /* @var $form yii\widgets\ActiveForm */
@@ -20,7 +19,7 @@ SucursalAsset::register($this);
             'class' => 'disable-submit-buttons',
         ] 
     ]); ?>
-
+    
     <input id="isView" type="hidden" value="0">
 
     <?= $form->field($model, 'nombre')->textInput(['maxlength' => true]) ?>
@@ -28,9 +27,9 @@ SucursalAsset::register($this);
     <?= $form->field($model, 'ciudad')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'detalle')->textInput(['maxlength' => true]) ?>
-    
-    <?= $form->field($model, 'estado')->dropDownList([ 'Activo' => 'Activo', 'Inactivo' => 'Inactivo', ], ['prompt' => '']) ?>
 
+    <?= $form->field($model, 'estado')->dropDownList([ 'Activo' => 'Activo', 'Inactivo' => 'Inactivo', ], ['prompt' => '']) ?>
+    
     <?= $form->field($model, 'latitude')->label(false)->hiddenInput([
         'maxlength' => true,
     ]) ?>

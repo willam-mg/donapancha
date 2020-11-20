@@ -11,8 +11,6 @@ use Yii;
  * @property string $nombre
  * @property string $detalle
  * @property string $estado
- * @property string $latitue
- * @property string $longitude
  *
  * @property PedidoDelivery[] $pedidoDeliveries
  */
@@ -53,7 +51,6 @@ class Sucursaldelivery extends \yii\db\ActiveRecord
             'ciudad' => 'Ciudad',
             'detalle' => 'Detalle',
             'estado' => 'Estado',
-            'estado' => 'Estado',
             'latitude' => 'Latitude',
             'longitude' => 'Longitude',
         ];
@@ -71,4 +68,3 @@ class Sucursaldelivery extends \yii\db\ActiveRecord
         return $this->ciudad.' '.$this->nombre;
     }
 }
- 

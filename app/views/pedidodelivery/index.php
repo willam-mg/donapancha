@@ -57,6 +57,11 @@ $this->params['breadcrumbs'][] = $this->title;
                                 //'nit',
                                 //'zona',
                                 //'direccion',
+                                [
+                                    'attribute'=>'user.username',
+                                    'label'=>'Pedido recepcionado por:'
+                                ],
+                                
                                 // 'sucursal_delivery_id',
                                 [
                                     'attribute'=>'strTipo',
@@ -65,7 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'fecha_entrega',
                                 [
                                     'attribute' => 'sucursal_delivery_id',
-                                    'contentOptions' => ['style' => 'width:300px'],
+                                    'contentOptions' => ['style' => 'width:200px'],
                                     'value' => function($model){
                                         if ($model->sucursalDelivery){
                                             return $model->sucursalDelivery->nombre;
@@ -86,6 +91,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'cliente.razon_social',
                                 [
                                     'attribute' => 'estado',
+                                    'contentOptions' => ['style' => 'width:100px'],
                                     'value' => function($model){
                                         return $model->strEstado;
                                     },
@@ -111,6 +117,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                 //'producto_id',
                                 //'precio_delivery_id',
                                 //'tipo_pedido_id',
+                              
+                                'tipoPedido.nombre:text:Tipo pedido',
+                                
+                                [
+                                    'attribute'=>'strTipoPago',
+                                    'label'=>'Tipo de Pago'
+                                ],
 
                                 [
                                     'class' => 'kartik\grid\ActionColumn',

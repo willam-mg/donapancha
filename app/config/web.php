@@ -218,7 +218,7 @@ $config = [
         'allowActions' => [
             //for dev enviroment
             'debug/*',
-            'admin/*',
+            //'admin/*',
 
             //for prod enviroment
             'admin/user/login',

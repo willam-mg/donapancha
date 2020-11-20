@@ -16,6 +16,7 @@ use Yii;
  */
 class Categoriaproducto extends \yii\db\ActiveRecord
 {
+    const PATH = '/categoriaproducto/';
     /**
      * {@inheritdoc}
      */
@@ -45,6 +46,7 @@ class Categoriaproducto extends \yii\db\ActiveRecord
             'id' => 'ID',
             'nombre' => 'Nombre',
             'producto' => 'Producto',
+            'foto' => 'Foto',
             'estado' => 'Estado',
         ];
     }
