@@ -137,6 +137,7 @@ MaterialAsset::register($this);
 	                            ['icon'=>'view_carousel', 'label' => 'Slider Web', 'url' => ['/slider'], 'color'=>'text-default'],
 	                            ['icon'=>'store_mall_directory', 'label' => ' Sucursales', 'url' => ['/sucursaldelivery'], 'color'=>'text-default'],
 	                           ['icon'=>'two_wheeler', 'label' => 'Delivery precios', 'url' => ['/preciodelivery'], 'color'=>'text-default'],
+                               ['icon'=>'notifications', 'label' => 'Notificaciones', 'url' => ['/mensaje'], 'color'=>'text-default'],
 	                        ], 
                         ]);
                         

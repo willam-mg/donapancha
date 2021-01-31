@@ -240,6 +240,10 @@ class PedidodeliveryController extends Controller
                 }
                 $transaction->commit();
                 Yii::$app->session->setFlash('success', 'Pedido registrado');
+                // notificar a las sucursales
+                if ( $model->sucursal_delivery_id != null){
+                    $resNotify = $this->notifyCallcenter();   
+                }
                 return $this->redirect(['view', 'id' => $model->id]);
             } catch (\Throwable $e) {
                 $transaction->rollBack();
@@ -399,6 +403,9 @@ class PedidodeliveryController extends Controller
                     throw new \Exception( ErrorsComponent::formatJustString($model->errors) );
                 }
                 $transaction->commit();
+                if ( $model->sucursal_delivery_id != null){
+                    $resNotify = $this->notifyCallcenter();   
+                }
                 return $this->redirect(['/pedidodelivery/view', 'id' => $model->id]);
             } catch (\Throwable $e) {
                 $transaction->rollBack();
@@ -507,5 +514,18 @@ class PedidodeliveryController extends Controller
         return $this->render('_hora_entrega', [
             'model'=>$model,
         ]);
+    }
+    
+    private function notifyCallcenter(){
+        $url = 'https://server.testing.dronebolivia.com/pedidos';
+        $crl = curl_init();
+        
+        curl_setopt($crl, CURLOPT_URL, $url);
+        curl_setopt($crl, CURLOPT_FRESH_CONNECT, true);
+        curl_setopt($crl, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($crl);
+        
+        curl_close($crl);
+        return $response;
     }
 }

@@ -36,6 +36,12 @@ $this->params['breadcrumbs'][] = $this->title;
                             <button class="btn btn-round btn-success" type="button" onclick="document.location.reload();">Actualizar Pedidos</button>
                         </div>
                     </div>
+                    
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 text-center">
+                            <h4 id="message"></h4>
+                        </div>
+                    </div>
 
                         
                         <?= $this->render('_search', ['model' => $searchModel]) ?>
@@ -207,3 +213,12 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </div>
+
+
+<audio id="sonido">
+    <source src="/sound/pedido.wav" type="audio/wav">
+</audio>
+
+<?php $this->registerJsFile('https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.1/socket.io.js'); ?> 
+
+<?php $this->registerJsFile('/js/socket_delivery.js'); ?> 

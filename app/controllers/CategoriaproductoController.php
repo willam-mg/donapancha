@@ -113,7 +113,7 @@ class CategoriaproductoController extends Controller
                 $image = UploadedFile::getInstance($model, 'foto');
                 if ($image){
                     if ( $model->foto != "" ){
-                        $imageExist = Yii::getAlias('@imagePath').Categoria::PATH.$model->foto;
+                        $imageExist = Yii::getAlias('@imagePath').Categoriaproducto::PATH.$model->foto;
                         if ( file_exists($imageExist) ){
                             unlink($imageExist);
                         }
