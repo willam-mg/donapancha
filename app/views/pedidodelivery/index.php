@@ -125,7 +125,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 //'tipo_pedido_id',
                               
                                 'tipoPedido.nombre:text:Tipo pedido',
-                                
+                                'strOrigen',
                                 [
                                     'attribute'=>'strTipoPago',
                                     'label'=>'Tipo de Pago'

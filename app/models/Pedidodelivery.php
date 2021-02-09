@@ -104,6 +104,7 @@ class Pedidodelivery extends \yii\db\ActiveRecord
             'strTipoPago' => 'Tipo de pago',
             'is_temp' => 'Es temporal',
             'descuento' => 'Descuento',
+            'strOrigen' => 'Origen',
         ];
     }
 
@@ -249,5 +250,17 @@ class Pedidodelivery extends \yii\db\ActiveRecord
         if ($this->tipo_pago == 2){
             return 'Tarjeta';
         }
+    }
+
+    public function getStrOrigen(){
+        if ($this->origen == self::ORIGEN_CALLCENTER) {
+            return 'Call center';
+        }
+        if ($this->origen == self::ORIGEN_WEB) {
+            return 'Web';
+        }
+        if ($this->origen == self::ORIGEN_MOBIL) {
+            return 'App mobile';
+        }   
     }
 }

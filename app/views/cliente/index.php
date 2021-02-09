@@ -46,6 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'zona',
                                 'direccion',
                                 'razon_social',
+                                'hasAcount',
                                 //'zoom',
                                 //'foto',
                                 //'latitude',
