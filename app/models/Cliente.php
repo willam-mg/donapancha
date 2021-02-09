@@ -44,6 +44,8 @@ class Cliente extends \yii\db\ActiveRecord
             [['direccion'], 'string', 'max' => 500],
             [['zoom'], 'string', 'max' => 45],
             [['foto'], 'string', 'max' => 200],
+            // [['telefono'], 'unique'],
+            [['is_duplicated'], 'integer'], // attr temporal para elimnar numeros duplicados 1= duplicado, 2 = el que se quedo con el telefono, 3 = el se quedo con el id en el telefono y debe ser actualizado.
         ];
     }
 

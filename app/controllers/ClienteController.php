@@ -133,4 +133,178 @@ class ClienteController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+    /**
+     * modificar los telefonos para borar los telefonos duplicados
+     */
+    public function actionTempDuplicados() {
+        set_time_limit(3000);
+        $transaction = \Yii::$app->db->beginTransaction();
+        try {
+            $clientes = Cliente::find()->where([
+                'is_duplicated'=>1
+            ])->limit(10000)->all();
+
+            $clientesDuplicados = [];
+            foreach ($clientes as $key => $cliente) {
+                $findDuplicados = Cliente::find()
+                    ->where([
+                        'telefono'=>$cliente->telefono,
+                    ])
+                    ->all();
+                $idIndice = 0;
+                $cliente->is_duplicated = 0;
+                $cliente->save();
+                if ( count($findDuplicados) > 1 ) {
+                    $auxTelefono = $cliente->telefono;
+                    // poniendo el id al telefono a todos
+                    foreach ($findDuplicados as $key => $duplicado) {
+                        $duplicado->telefono = strval($duplicado->id);
+                        $duplicado->is_duplicated = 3;
+                        if ( !$duplicado->save() ) {
+                            throw new \Exception(\app\components\errors\ErrorsComponent::formatJustString($duplicado->errors));
+                        }
+                    }
+
+                    // poniendo el telefono al cliente que tiene usuario
+                    $conUserFinded = false;
+                    foreach ($findDuplicados as $key => $duplicado) {
+                        if ($duplicado->user) {
+                            $conUserFinded = true;
+                            $duplicado->telefono = strval($auxTelefono);
+                            $duplicado->is_duplicated = 2;
+                            if ( !$duplicado->save() ) {
+                                throw new \Exception(\app\components\errors\ErrorsComponent::formatJustString($duplicado->errors));
+                            }
+                        }
+                    }
+
+                    // poninedo el telefono al primero de los duplicados
+                    if ($conUserFinded == false) {
+                        foreach ($findDuplicados as $key => $duplicado) {
+                            if ( $key == 0 ) {
+                                $duplicado->telefono = strval($auxTelefono);
+                                $duplicado->is_duplicated = 2;
+                                if ( !$duplicado->save() ) {
+                                    throw new \Exception(\app\components\errors\ErrorsComponent::formatJustString($duplicado->errors));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            $transaction->commit();
+            return 'Query success';
+        } catch (\Throwable $e) {
+            $transaction->rollBack();
+            throw new \Exception( 'Query falled '.$e->getMessage() );
+        }
+
+        return false;
+    }
+
+    /**
+     * mostrar los clientes duplicados
+     */
+    public function actionTempMostrar($showClientes = null) {
+        $transaction = \Yii::$app->db->beginTransaction();
+        try {
+            $clientes = Cliente::find()
+                ->where([
+                    'is_duplicated'=>1,
+                ])
+                ->limit(1000)->all();
+            if ($showClientes != null) {
+                $clientes = $showClientes;
+            }
+            echo '<table><tbody>';
+            echo '<thead><tr>
+                    <td>Razon social</td>
+                    <td>Cant duplicados</td>
+                    <td>Cuenta</td>
+                </tr></thead>';
+            foreach ($clientes as $key => $cliente) {
+                $findDuplicados = Cliente::find()
+                ->where([
+                    'telefono'=>$cliente->telefono,
+                    ])
+                    ->all();
+                echo '<tr>';
+                    echo '<td>'.$cliente->razon_social.'</td>';
+                    echo '<td>'.count($findDuplicados).'</td>';
+                    echo '<td>'.$cliente->hasAcount.'</td>';
+                echo '</tr>';
+            }
+            echo '</table></tbody>';
+            
+            $transaction->commit();
+        } catch (\Throwable $e) {
+            $transaction->rollBack();
+            throw new \Exception( 'Query falled '.$e->getMessage() );
+        }
+
+        return false;
+    }
+
+    public function actionTempDuplicadosRestantes() {
+        $clientes = Cliente::find()
+            ->where([
+                'is_duplicated'=>2
+            ])
+            ->limit(1000)->all();
+
+        $clientesDuplicados = [];
+        foreach ($clientes as $key => $cliente) {
+            $findDuplicados = Cliente::find()
+                ->where([
+                    'telefono'=>$cliente->telefono,
+                ])
+                ->all();
+            $auxTelefono = $cliente->telefono;
+            if ( count($findDuplicados) > 1 ) {
+                // $cliente
+                // poniendo el id al telefono a todos
+                foreach ($findDuplicados as $key => $duplicado) {
+                    $duplicado->telefono = strval($duplicado->id);
+                    $duplicado->is_duplicated = 3;
+                    if ( !$duplicado->save() ) {
+                        throw new \Exception(\app\components\errors\ErrorsComponent::formatJustString($duplicado->errors));
+                    }
+                }
+                // eliminando los duplicados restantes
+                foreach ($findDuplicados as $key => $duplicado) {
+                    if ( $key == 0 ) {
+                        $duplicado->telefono = strval($auxTelefono);
+                        $duplicado->is_duplicated = 2;
+                        if ( !$duplicado->save() ) {
+                            throw new \Exception(\app\components\errors\ErrorsComponent::formatJustString($duplicado->errors));
+                        }
+                    }
+                }
+                // array_push($clientesDuplicados, $cliente);
+            }
+        }
+        // return $this->actionTempMostrar($clientesDuplicados);
+    }
+
+    public function actionTempMostrarRestantes() {
+        $clientes = Cliente::find()->where([
+                'is_duplicated'=>2
+            ])->limit(1000)->all();
+
+        $clientesDuplicados = [];
+        foreach ($clientes as $key => $cliente) {
+            $findDuplicados = Cliente::find()
+                ->where([
+                    'telefono'=>$cliente->telefono,
+                ])
+                ->all();
+
+            if ( count($findDuplicados) > 1 ) {
+                array_push($clientesDuplicados, $cliente);
+            }
+        }
+        return $this->actionTempMostrar($clientesDuplicados);
+    }
 }
