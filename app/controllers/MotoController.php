@@ -7,6 +7,7 @@ use app\models\Moto;
 use app\models\MotoSearch;
 use app\models\AppUser;
 use app\models\Pedidodelivery;
+use app\models\Cliente;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -108,6 +109,14 @@ class MotoController extends Controller
                 if (!$user->save()){
                     throw new \Exception(\app\components\errors\ErrorsComponent::formatJustString($user->errors));
                 }
+
+                // creando su cliente
+                $cliente = new Cliente();
+                $cliente->telefono = $model->telefono;
+                $cliente->razon_social = $model->nombre;
+                $cliente->save();
+                $user->cliente_id = $cliente->id;
+                $user->save();
 
                 $transaction->commit();
                 return $this->redirect(['view', 'id' => $model->id]);
