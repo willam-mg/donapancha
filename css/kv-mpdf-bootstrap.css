@@ -6697,3 +6697,21 @@ button.close {
  .bg-grey{
     background-color: #dddddd;
 }
+
+
+/* RULES ADD FOR REPORTE MOTOS */
+.wraper-page-termic{
+    width: 80mm;
+    height: auto;
+    font-size: 8pt;
+    padding: 0;
+}
+.table-termic{
+    font-size: 8pt;
+}
+.table-termic > tbody > tr > td{
+    padding: 2px !important;
+}
+.full-width{
+    width: 100%;
+}
