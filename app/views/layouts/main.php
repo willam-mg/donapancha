@@ -148,6 +148,7 @@ MaterialAsset::register($this);
 	                            ['icon'=>'notes', 'label' => 'Pedidos en espera', 'url' => ['/reporte-espera'] , 'color'=>'text-default'],
 	                            ['icon'=>'notes', 'label' => 'Pedidos asignados', 'url' => ['/reporte-asignados'] , 'color'=>'text-default'],
 	                            ['icon'=>'notes', 'label' => 'Pedidos entregados', 'url' => ['/reporte-entregados'] , 'color'=>'text-default'],
+	                            ['icon'=>'notes', 'label' => 'Reporte motos', 'url' => ['/reporte-motos'] , 'color'=>'text-default'],
 	                        ], 
                         ]);
 

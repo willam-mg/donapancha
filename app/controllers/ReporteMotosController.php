@@ -36,7 +36,7 @@ class ReporteMotosController extends \yii\web\Controller
         ]);
         $query
             ->andFilterWhere([
-                'fecha_entrega'=>$model->fecha,
+                'fecha'=>$model->fecha,
                 'moto_id'=>$model->moto_id,
             ])
             ->andFilterWhere([])
@@ -51,21 +51,32 @@ class ReporteMotosController extends \yii\web\Controller
         ]);
     }
 
-    public function actionExportPdf($param_moto_id, $fecha) {
+    private function sumarCountDetalles($asignaciones) {
+        $cont = 0;
+        foreach ($asignaciones as $key => $asignacion) {
+            $cont += count($asignacion->pedido->detalle);
+        }
+        return $cont;
+    }
+
+    public function actionExportPdf($param_moto_id = null, $fecha = null) {
         $request = \Yii::$app->request;
+        // if (!$param_moto_id) {
+        //     \Yii::$app->session->setFlash('info', 'Seleccione una moto' );
+        //     return $this->redirect(['index']);
+        // }
         $moto = Moto::findOne($param_moto_id);
 
         $query = AsignacionMoto::find();
+
         $pedidos = new ActiveDataProvider([
             'query' => $query,
             'pagination' => false,
         ]);
-        $query
-            ->andFilterWhere([
-                'fecha_entrega'=>$fecha,
+        $query->andFilterWhere([
+                'fecha'=>$fecha,
                 'moto_id'=>$moto?$moto->id:null,
             ])
-            ->andFilterWhere([])
             ->all();
         
         $content = $this->renderPartial('print_pdf', [
@@ -74,7 +85,7 @@ class ReporteMotosController extends \yii\web\Controller
             'fecha'=>$fecha,
         ]);
         // return $content;
-        $height = 60 + (16 * count($pedidos->models));
+        $height = 60 + (16 * $pedidos->count) + (15 * $this->sumarCountDetalles($pedidos->models) );
         // return $height;
         // $pdf = new Pdf('utf-8', array(190,236));
         $pdf = new Pdf([

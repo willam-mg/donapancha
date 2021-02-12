@@ -90,7 +90,9 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?php ActiveForm::end(); ?>
                         </div>
                     </div>
-
+<!-- // <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-right">
+                                //     <b>{export} </b>
+                                // </div> -->
                     <?=GridView::widget([
                         'id'=>'crud-datatable-pjax',
                         'dataProvider' => $pedidos,
@@ -99,16 +101,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     {summary}
                                 </div>
-                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-right">
-                                    <b>{export} </b>
-                                </div>
                             </div>
                             <div class="clearfix"></div>
                                 {items}
                                 {pager}
                         ',
                         'columns' => [
-                            // 'moto.nombrecompleto',
+                            'moto.nombrecompleto',
                             [
                                 'label' => 'sucursal',
                                 'value' => function($model){
@@ -138,6 +137,12 @@ $this->params['breadcrumbs'][] = $this->title;
                             ],
                             'pedido.precioDelivery.nombrePrecio:text:Precio delivery',
                             'pedido.strTipoPago:text:Tipo pago',
+                            [
+                                'label'=>'Total',
+                                'value'=>function($model) {
+                                    return $model->pedido->totalPedido. ' Bs.';
+                                }
+                            ]
                         ],
                         'pjax'=>true,
                         'bordered' => true,

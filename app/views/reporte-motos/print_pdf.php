@@ -52,54 +52,161 @@ $this->params['breadcrumbs'][] = $this->title;
         <h4>No se selecciono una moto</h4>
         <h4>Fecha: <?=$fecha?></h4>
     <?php } ?>
-
-    <?=GridView::widget([
-        'id'=>'crud-datatable-pjax',
-        'dataProvider' => $pedidos,
-        'layout'=>'
-            {items}
-        ',
-        'columns' => [
-            [
-                'label' => 'sucursal',
-                'value' => function($model){
-                    if ($model->pedido) {
-                        if ($model->pedido->sucursalDelivery) {
-                            return $model->pedido->sucursalDelivery->nombrecompleto;
+    
+    <?php foreach ($pedidos->models as $key => $model) { ?>
+        
+        <table class="full-width table-termic space-bottom">
+            <tbody>
+                <tr>
+                    <td class="alignTop">
+                        <b> Sucursal: </b> <br>
+                        <?php 
+                            if ($model->pedido) {
+                                if ($model->pedido->sucursalDelivery) {
+                                    echo $model->pedido->sucursalDelivery->nombrecompleto;
+                                }
+                            }
+                        ?>
+                    </td>
+                    <td class="alignTop">
+                        <b> Hora: </b> <br>
+                        <?= $model->hora_despacho ?>
+                    </td>
+                    <td class="alignTop">
+                        <b> Estado: </b> <br>
+                        <?php
+                        if ($model->pedido) {
+                            echo $model->pedido->strEstado;
                         }
-                    }
-                    return null;
-                },
-            ],
-            [
-                'label'=>'Hora',
-                'value'=>function($model) {
-                    return $model->hora_despacho;
-                }
-            ],
-            [
-                'label' => 'Estado',
-                'value' => function($model){
-                    if ($model->pedido) {
-                        return $model->pedido->strEstado;
-                    }
-                    return null;
-                },
-            ],
-            'pedido.precioDelivery.nombrePrecio:text:P. delivery',
-            'pedido.strTipoPago:text:T. pago',
-        ],
-        'tableOptions'=>[
-            'class'=>'table-termic'
-        ],
-        'pjax'=>true,
-        'bordered' => true,
-        'striped' => false,
-        'hover' => false,
-        'condensed' => false,
-        'responsive' => true,          
-        'responsiveWrap' => false,                 
-        'resizableColumns' => false,     
-        'showPageSummary' => false,
-    ])?>
+                        ?>
+                    </td>
+                    <td class="alignTop">
+                        <b> P. delivery: </b> <br>
+                        <?php
+                        if ($model->pedido) {
+                            if ($model->pedido->precioDelivery) {
+                                echo $model->pedido->precioDelivery->nombrePrecio;
+                            }
+                        }
+                        ?>
+                    </td>
+                    <td class="alignTop">
+                        <b> T. pago: </b> <br>
+                        <?php
+                        if ($model->pedido) {
+                            echo $model->pedido->strTipoPago;
+                        }
+                        ?>
+                    </td>
+                    <td class="alignTop">
+                        <b> Total: </b> <br>
+                        <?php
+                        if ($model->pedido) {
+                            echo $model->pedido->totalPedido;
+                        }
+                        ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <b>
+                            Detalle:
+                        </b>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="alignTop">
+                        <b> Prod. </b> <br>
+                    </td>
+                    <td class="alignTop">
+                        <b> Prec. </b> <br>
+                    </td>
+                    <td class="alignTop">
+                        <b> Cnt. </b> <br>
+                    </td>
+                    <td colspan="2" class="alignTop">
+                        <b> Sub Tot. </b> <br>
+                    </td>
+                </tr>
+                <?php foreach ($model->pedido->detalle as $key => $detalle) { ?>
+                    <tr>
+                        <td colspan="2" class="alignTop">
+                            <?= $detalle->producto->producto ?>
+                        </td>
+                        <td class="alignTop">
+                            <?= $detalle->producto->costo ?> Bs.
+                        </td>
+                        <td class="alignTop">
+                            <?= $detalle->cantidad ?>
+                        </td>
+                        <td colspan="2" class="alignTop">
+                            <?= $detalle->subTotal ?> Bs.
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    <?php } ?>
+        <!-- <table class="full-width">
+            <tbody>
+                <tr>
+                    <td>
+                        Sucursal: <br>
+                        <?php 
+                        if ($model->pedido) {
+                            if ($model->pedido->sucursalDelivery) {
+                                echo $model->pedido->sucursalDelivery->nombrecompleto;
+                            }
+                        }
+                        ?>
+                    </td>
+                    <td>
+                        Hora: <br>
+                        <?= $model->hora_despacho ?>
+                    </td>
+                    <td>
+                        Estado:
+                        <?php
+                        if ($model->pedido) {
+                            echo $model->pedido->strEstado;
+                        }
+                        ?>
+                    </td>
+                    <td>
+                        P. delivery: <br>
+                        <?php
+                        if ($model->pedido) {
+                            if ($model->pedido->precioDelivery) {
+                                echo $model->pedido->precioDelivery->nombrePrecio;
+                            }
+                        }
+                        ?>
+                    </td>
+                    <td>
+                        T. pago: <br>
+                        <?php
+                        if ($model->pedido) {
+                            echo $model->pedido->strTipoPago;
+                        }
+                        ?>
+                    </td>
+                    <td>
+                        Total: <br>
+                        <?php
+                        if ($model->pedido) {
+                            echo $model->pedido->totalPedido;
+                        }
+                        ?>
+                    </td>
+                </tr>
+            </tbody>
+        </table> -->
+    
+
 </div>
+
+
+<!-- nombre producto
+cantidad 
+precio 
+subtotal -->
