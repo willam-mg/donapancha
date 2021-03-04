@@ -33,24 +33,42 @@ Maps1Asset::register($this);
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
-                        <?= $form->field($model, 'cliente_id')->widget(Select2::classname(), [
-                            'data' => ArrayHelper::map($clientes, 'id', 'nombrecompleto'),
-                                'options' => [
-                                    'placeholder' => 'Seleccione un cliente',
-                                    'style'=>'display:none',
-                                ],
-                                'pluginOptions' => [
-                                    'allowClear' => true
-                                ],
-                                'pluginEvents' => [
-                                    "change" => "function() { infoCliente(); }",
-                                ] 
-                            ]
-                        )?>
+                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                        <?= $form->field($model, 'cliente_id')->label(false)->hiddenInput([
+                            'maxlength' => true,
+                            'readonly'=>true
+                        ]) ?>
+
+                        <?php if ($model->cliente) { ?>
+                            <h4> 
+                                <b>
+                                    Cliente: 
+                                </b>
+                                <?=$model->cliente->razon_social?> -
+                                telf: <?=$model->cliente->telefono?> -
+                                Nit/Ci: <?=$model->cliente->nit?> 
+                            </h4>
+                        <?php } ?>
+
+                        <?php
+                        // $form->field($model, 'cliente_id')->widget(Select2::classname(), [
+                        //     'data' => ArrayHelper::map($clientes, 'id', 'nombrecompleto'),
+                        //         'options' => [
+                        //             'placeholder' => 'Seleccione un cliente',
+                        //             'style'=>'display:none',
+                        //         ],
+                        //         'pluginOptions' => [
+                        //             'allowClear' => true
+                        //         ],
+                        //         'pluginEvents' => [
+                        //             "change" => "function() { infoCliente(); }",
+                        //         ] 
+                        //     ]
+                        // )
+                        ?>
                     </div>
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 text-right" style="padding-top:20px">
-                        <?=  Html::a( "<i class='material-icons'>add</i> Nuevo Cliente", ['/cliente/create'], [
+                        <?=  Html::a( "<i class='material-icons'>done</i> Seleccionar Cliente", ['/pedidodelivery/select-cliente'], [
                             'class' => 'btn btn-round btn-simple',
                             'style'=>'border:1px solid #4caf50'
                         ]) ?>

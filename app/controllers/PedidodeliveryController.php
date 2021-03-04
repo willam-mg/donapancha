@@ -10,6 +10,7 @@ use app\models\PedidoDeliveryDetalle;
 use app\models\Cliente;
 use app\models\Preciodelivery;
 use app\models\PrecioCoordinates;
+use app\models\ClienteSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -74,6 +75,19 @@ class PedidodeliveryController extends Controller
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
+        ]);
+    }
+
+    public function actionSelectCliente($id = null) {
+        $searchModel = new ClienteSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->pagination = [
+            'defaultPageSize' => 5,
+        ];
+        return $this->render('select_cliente', [
+            'cliente_id'=>$id,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 

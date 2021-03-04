@@ -34,7 +34,7 @@ use kartik\dialog\Dialog;
     <?= $form->field($model, 'direccion')->textArea(['maxlength' => true]) ?>
     
     <div class="form-group text-right">
-        <?= Html::a( "<i class='material-icons'>clear</i> ".'Cerrar', ['/pedidodelivery/create'], [
+        <?= Html::a( "<i class='material-icons'>clear</i> ".'Cerrar', ['/pedidodelivery/select-cliente'], [
             'class' => 'btn btn-simple',
             'title'=>'Cerrar',
         ]) ?>

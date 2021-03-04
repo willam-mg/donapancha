@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <button class="btn btn-round btn-just-icon btn-white" type="button" onclick="document.location.reload();">
                                 <i class="material-icons">refresh</i>
                             </button>
-                            <?=  Html::a( "<i class='material-icons'>add</i> Nuevo " .'pedido', ['create'], ['class' => 'btn btn-round btn-success']) ?>
+                            <?=  Html::a( "<i class='material-icons'>add</i> Nuevo " .'pedido', ['select-cliente'], ['class' => 'btn btn-round btn-success']) ?>
                         </div>
                     </div>
                     

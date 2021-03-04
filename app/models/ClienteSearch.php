@@ -19,6 +19,7 @@ class ClienteSearch extends Cliente
         return [
             [['id'], 'integer'],
             [['nit', 'telefono', 'zona', 'direccion', 'razon_social', 'zoom', 'foto', 'latitude', 'longitude'], 'safe'],
+            [['nit', 'telefono', 'zona', 'direccion', 'razon_social'], 'filter', 'filter'=>'trim' ],
         ];
     }
 
