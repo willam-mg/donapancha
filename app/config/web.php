@@ -139,6 +139,7 @@ $config = [
                 'dosamigos\google\maps\MapAsset' => [
                     'options' => [
                         'key' => 'AIzaSyDZXohjARtsZVcjKt0qYHCB7jZqg0G3ePY',
+                        'async' => 'async',
                         // 'language' => 'es',
                         // 'version' => '3.1.18'
                     ]
@@ -148,7 +149,8 @@ $config = [
 
                 // ],
             ],
-            'forceCopy' => YII_ENV_DEV ? true : false,// for enviroment production it's in true
+            // 'forceCopy' => YII_ENV_DEV ? true : false,// for enviroment production it's in true
+            'appendTimestamp' => true,
         ],
         'session' => [
             'class' => 'yii\web\CacheSession',

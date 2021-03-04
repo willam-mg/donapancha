@@ -35,6 +35,16 @@ class PedidodeliveryController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+            [
+                'class' => 'yii\filters\HttpCache',
+                'only' => ['create', 'index'],
+                'lastModified' => function ($action, $params) {
+                    return time();
+                    // $q = new \yii\db\Query();
+                    // return $q->from('post')->max('updated_at');
+                },
+                // 'sessionCacheLimiter' => 'public',
+            ],
         ];
     }
 
@@ -90,7 +100,7 @@ class PedidodeliveryController extends Controller
         $productos = Producto::find()->where(['estado' => 'Activo'])->all();
         $model->fecha_entrega = Carbon::now()->format('Y-m-d');
         $model->hora_entrega = Carbon::now()->format('H:i');
-        $clientes = Cliente::find()->all();
+        $clientes = Cliente::find()->limit(10)->all();
 
         $reqProductos = [];
         $reqCantidades = [];
@@ -140,8 +150,8 @@ class PedidodeliveryController extends Controller
         if ( $request->isPost && $model->load($request->post()) ) {
             $transaction = $model->getDb()->beginTransaction();
             try {
-                $reqProductos = $request->post('idarticulo');
-                $reqCantidades = $request->post('cantidad');
+                $reqProductos = $request->post('idarticulo')? $request->post('idarticulo'): [];
+                $reqCantidades = $request->post('cantidad')? $request->post('cantidad'): [];
 
                 $cliente = Cliente::findOne($request->post('Pedidodelivery')['cliente_id']);
                 if ( !$cliente ){

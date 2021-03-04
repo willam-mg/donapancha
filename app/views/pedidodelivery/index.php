@@ -30,10 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
                             </h4>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 text-right pull-right">
+                            <button class="btn btn-round btn-just-icon btn-white" type="button" onclick="document.location.reload();">
+                                <i class="material-icons">refresh</i>
+                            </button>
                             <?=  Html::a( "<i class='material-icons'>add</i> Nuevo " .'pedido', ['create'], ['class' => 'btn btn-round btn-success']) ?>
-                        </div>
-                        <div>
-                            <button class="btn btn-round btn-success" type="button" onclick="document.location.reload();">Actualizar Pedidos</button>
                         </div>
                     </div>
                     

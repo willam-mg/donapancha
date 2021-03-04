@@ -13,7 +13,7 @@ use app\models\Sucursaldelivery;
 use app\models\Tipopedido;
 // use app\widgets\LocationInput;
 use yii\web\JsExpression;
-use kartik\dialog\Dialog;
+// use kartik\dialog\Dialog;
 use kartik\time\TimePicker;
 use app\assets\Maps1Asset;
 /* @var $this yii\web\View */
@@ -287,6 +287,11 @@ Maps1Asset::register($this);
 
 </div>
 
-<?php $this->registerJsFile('/js/pedidodelivery/_form.js', [
-    'depends' => [\yii\web\JqueryAsset::className()],
-]); ?> 
+<?php 
+// $this->registerJsFile('/js/pedidodelivery/_form.js', [
+//     'depends' => [\yii\web\JqueryAsset::className()],
+//     // 'jsOptions'=> [
+//     //     'async' => 'async',
+//     // ]
+// ]); 
+?> 

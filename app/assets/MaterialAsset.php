@@ -25,7 +25,8 @@ class MaterialAsset extends AssetBundle
         'css/site.min.css',
         //css del template creative team minificado __________
         'css/material-dashboard.min.css',
-        'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons'
+        'css/iconfont/material-icons.css',
+        // 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons'
     ];
     
     public $js = [

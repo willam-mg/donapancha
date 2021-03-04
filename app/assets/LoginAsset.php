@@ -22,13 +22,11 @@ class LoginAsset extends AssetBundle
     public $css = [
         'css/login.min.css',
         'css/material-dashboard.min.css',
-        'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons'
+        'css/iconfont/material-icons.css',
     ];
     public $js = [
         YII_ENV_DEV ? 'js/material.min.js' : 'js/material.min.js',
-        YII_ENV_DEV ? 'js/bootstrap-notify.js' : 'js/bootstrap-notify.min.js',
         YII_ENV_DEV ? 'js/material-dashboard.js' : 'js/material-dashboard.min.js',
-        // YII_ENV_DEV ? 'js/superfish.js' : 'js/superfish.min.js',
         'js/plugins/disable-submit/disable-submit-buttons.js' 
     ];
 

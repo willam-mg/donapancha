@@ -25,7 +25,8 @@ class Maps1Asset extends AssetBundle
     ];
 
     public $js = [
-        'js/create_maps.js'
+        'js/create_maps.js',
+        'js/pedidodelivery/_form.js'
     ];
 
     public $depends = [
@@ -34,6 +35,8 @@ class Maps1Asset extends AssetBundle
     ];
 
     public $jsOptions = [
-        'position' => \yii\web\View::POS_HEAD
+        'position' => \yii\web\View::POS_HEAD,
+        'async' => 'async',
+
     ];
 }

@@ -19,7 +19,7 @@ use app\assets\Maps1Asset;
 /* @var $this yii\web\View */
 /* @var $model app\models\Pedidodelivery */
 /* @var $form yii\widgets\ActiveForm */
-Maps1Asset::register($this);
+// Maps1Asset::register($this);
 
 $this->title = 'Modificar pedido ' . $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Pedidodeliveries', 'url' => ['index']];
