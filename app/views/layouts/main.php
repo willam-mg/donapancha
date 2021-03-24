@@ -138,7 +138,7 @@ MaterialAsset::register($this);
 	                    ]);    
                         
                         array_push($menu, [
-	                        'icon'=>'rate_review', 'label' => 'Nuevo Pedido', 'url' => ['/pedidodelivery/create'], 'color'=>'text-default'
+	                        'icon'=>'rate_review', 'label' => 'Nuevo Pedido', 'url' => ['/pedidodelivery/select-cliente'], 'color'=>'text-default'
 	                    ]);    
 
 	                    array_push($menu, [

@@ -97,7 +97,7 @@ function initMap(){
     if (latitude && longitude){
         let position = new google.maps.LatLng(latitude, longitude)
         map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 12,
+            zoom: 10,
             center: { lat: latitude, lng: longitude},
             mapTypeId: "terrain"
         });
@@ -105,7 +105,8 @@ function initMap(){
     }else{
         map = new google.maps.Map(document.getElementById("map"), {
             zoom: 12,
-            center: { lat: -17.408744, lng: -66.153893 },
+            // center: { lat: -17.408744, lng: -66.153893 }, // para cochabamba
+            center: { lat: -16.52425154922268, lng: -68.0807103182344 }, // para la paz
             mapTypeId: "terrain"
         });
     }

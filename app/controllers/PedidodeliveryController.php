@@ -36,16 +36,16 @@ class PedidodeliveryController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
-            [
-                'class' => 'yii\filters\HttpCache',
-                'only' => ['create', 'index'],
-                'lastModified' => function ($action, $params) {
-                    return time();
-                    // $q = new \yii\db\Query();
-                    // return $q->from('post')->max('updated_at');
-                },
-                // 'sessionCacheLimiter' => 'public',
-            ],
+            // [
+            //     'class' => 'yii\filters\HttpCache',
+            //     'only' => ['create'],
+            //     'lastModified' => function ($action, $params) {
+            //         return time();
+            //         // $q = new \yii\db\Query();
+            //         // return $q->from('post')->max('updated_at');
+            //     },
+            //     // 'sessionCacheLimiter' => 'public',
+            // ],
         ];
     }
 

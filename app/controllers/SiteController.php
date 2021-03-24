@@ -99,7 +99,7 @@ class SiteController extends Controller
             return $this->render('index'); 
         }
         if ($rol == $user::ROLE_CALL_CENTER){
-            return $this->redirect('/pedidodelivery/create'); 
+            return $this->redirect('/pedidodelivery/select-cliente'); 
         }
         if ($rol == $user::ROLE_SUCURSAL){
             return $this->redirect('/pedidodelivery/index'); 

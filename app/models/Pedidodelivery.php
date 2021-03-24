@@ -105,6 +105,7 @@ class Pedidodelivery extends \yii\db\ActiveRecord
             'is_temp' => 'Es temporal',
             'descuento' => 'Descuento',
             'strOrigen' => 'Origen',
+            'strFacturado' => 'Factura',
         ];
     }
 
@@ -262,5 +263,9 @@ class Pedidodelivery extends \yii\db\ActiveRecord
         if ($this->origen == self::ORIGEN_MOBIL) {
             return 'App mobile';
         }   
+    }
+
+    public function getStrFacturado() {
+        return $this->facturado === 0?'Sin factura': 'Con factura';
     }
 }
