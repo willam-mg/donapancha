@@ -1,4 +1,4 @@
-let preciosDelivery = [];
+// let preciosDelivery = [];
 let polygonesArray = [];
 let marker;
 
@@ -211,5 +211,6 @@ class LatLng{
 $(document).ready(function () {
     console.log('cargo maps js');
     
-    cordenadasPrecio();
+    // cordenadasPrecio();
+    initMap();
 });

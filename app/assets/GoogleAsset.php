@@ -30,7 +30,7 @@ class GoogleAsset extends AssetBundle
 
     public $jsOptions = [
         'position' => \yii\web\View::POS_HEAD,
-        'async' => 'async',
+        // 'async' => 'async',
     ];
 
 }

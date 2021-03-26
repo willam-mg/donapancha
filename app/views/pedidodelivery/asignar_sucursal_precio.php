@@ -23,6 +23,10 @@ $this->title = 'Sucursal y precio delivery';
 $this->params['breadcrumbs'][] = ['label' => 'Pedidodeliveries', 'url' => ['view', 'id'=>$model->id]];
 $this->params['breadcrumbs'][] = $this->title;
 
+$this->registerJs(
+    "const preciosDelivery = ".json_encode($cordenadas).";",
+    \yii\web\View::POS_BEGIN
+);
 MapsAsset::register($this);
 // GoogleAsset::register($this);
 ?>

@@ -32,15 +32,14 @@ MaterialAsset::register($this);
 
 <head><meta charset="gb18030">
     <!--charset ?>">-->
+    <meta charset="UTF-8">
     <title>
         <?= Html::encode($this->title) ?>
     </title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
     <!-- favicon -->
-    <?php $this->registerLinkTag(['rel' => 'icon', 'sizes'=>'32x32', 'type' => 'image/png', 'href' => Url::to('/images/icons/').'favicon-32x32.png']); ?>
-    <?php $this->registerLinkTag(['rel' => 'icon', 'sizes'=>'96x96', 'type' => 'image/png', 'href' => Url::to('/images/icons/').'favicon-96x96.png']); ?>
-    <?php $this->registerLinkTag(['rel' => 'icon', 'sizes'=>'16x16', 'type' => 'image/png', 'href' => Url::to('/images/icons/').'favicon-16x16.png']); ?>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <?= Html::csrfMetaTags() ?>
     <?php $this->head() ?>
@@ -234,12 +233,7 @@ MaterialAsset::register($this);
 
             <div class="content">
                 <div class="container-fluid">
-                    <?=Dialog::widget([
-                        'libName' => 'krajeeDialogCust',
-                        'options' => [
-                        'closable' => true,
-                        ], 
-                    ])?>
+                    
                     <div class="hide-mobile">
                         <?= Breadcrumbs::widget([
                             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],

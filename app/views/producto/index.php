@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-centered">
             <div class="card card-stats">
                 <div class="card-header hide-mobile" data-background-color="red">
-                    <i class="material-icons">fastfood</i>
+                    <i class="material-icons">local_dining</i>
                 </div>
                 <div class="card-content">
                     <div class="row">

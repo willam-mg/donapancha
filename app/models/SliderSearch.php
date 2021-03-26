@@ -46,6 +46,10 @@ class SliderSearch extends Slider
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort'=> ['defaultOrder' => ['id'=>SORT_DESC]],
+            'pagination' => [
+                'defaultPageSize' => 5,
+            ],
         ]);
 
         $this->load($params);

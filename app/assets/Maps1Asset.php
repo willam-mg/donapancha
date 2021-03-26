@@ -20,9 +20,9 @@ class Maps1Asset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
 
-    public $css = [
-        'css/maps.css'
-    ];
+    // public $css = [
+    //     'css/maps.css'
+    // ];
 
     public $js = [
         'js/create_maps.js',
@@ -35,8 +35,9 @@ class Maps1Asset extends AssetBundle
     ];
 
     public $jsOptions = [
-        'position' => \yii\web\View::POS_HEAD,
-        'async' => 'async',
+        'position' => \yii\web\View::POS_END,
+        // 'position' => \yii\web\View::POS_READY,
+        // 'async' => 'async',
 
     ];
 }

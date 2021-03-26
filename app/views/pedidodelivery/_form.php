@@ -19,6 +19,11 @@ use app\assets\Maps1Asset;
 /* @var $this yii\web\View */
 /* @var $model app\models\Pedidodelivery */
 /* @var $form yii\widgets\ActiveForm */
+
+$this->registerJs(
+    "const preciosDelivery = ".json_encode($cordenadas).";",
+    \yii\web\View::POS_BEGIN
+);
 Maps1Asset::register($this);
 ?>
 
@@ -306,10 +311,20 @@ Maps1Asset::register($this);
 </div>
 
 <?php 
+// $this->registerJsFile('/js/create_maps.js', [
+//     'depends' => [\yii\web\JqueryAsset::className()],
+//     'position' => \yii\web\View::POS_END,
+//     'jsOptions'=> [
+//         // 'position' => \yii\web\View::POS_READY,
+//         // 'async' => 'async',
+//     ]
+// ]); 
 // $this->registerJsFile('/js/pedidodelivery/_form.js', [
 //     'depends' => [\yii\web\JqueryAsset::className()],
-//     // 'jsOptions'=> [
-//     //     'async' => 'async',
-//     // ]
+//     'position' => \yii\web\View::POS_END,
+//     'jsOptions'=> [
+//         // 'async' => 'async',
+//         // 'position' => \yii\web\View::POS_READY,
+//     ]
 // ]); 
 ?> 

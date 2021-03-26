@@ -1,6 +1,8 @@
-let preciosDelivery = [];
+// let preciosDelivery = [];
 let polygonesArray = [];
 let marker;
+
+console.log('preciosdelivery', preciosDelivery);
 
 function getPrecioDelivery(id){
     console.log('getpreciodelivery');
@@ -322,5 +324,6 @@ function sendUrlMap(){
 $(document).ready(function () {
     console.log('cargo create maps js');
     
-    cordenadasPrecio();
+    // cordenadasPrecio();
+    initMap();
 });

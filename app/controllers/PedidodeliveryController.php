@@ -36,16 +36,19 @@ class PedidodeliveryController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
-            // [
-            //     'class' => 'yii\filters\HttpCache',
-            //     'only' => ['create'],
-            //     'lastModified' => function ($action, $params) {
-            //         return time();
-            //         // $q = new \yii\db\Query();
-            //         // return $q->from('post')->max('updated_at');
-            //     },
-            //     // 'sessionCacheLimiter' => 'public',
-            // ],
+            [
+                'class' => 'yii\filters\HttpCache',
+                'only' => [
+                    'create',
+                    'select-cliente'
+                ],
+                'lastModified' => function ($action, $params) {
+                    return time();
+                    // $q = new \yii\db\Query();
+                    // return $q->from('post')->max('updated_at');
+                },
+                // 'sessionCacheLimiter' => 'public',
+            ],
         ];
     }
 
@@ -159,6 +162,27 @@ class PedidodeliveryController extends Controller
             $model->sucursal_delivery_id = $suc;
         }
         
+        // obteniendo las cordenadas
+        $precios = Preciodelivery::find()
+            ->all();
+        $cordenadas = ArrayHelper::toArray($precios, [
+            Preciodelivery::className() => [
+                'id',
+                'estado',
+                'cordinates'=>function($model){
+                    return ArrayHelper::toArray($model->cordenadas, [
+                        PrecioCoordinates::className() => [
+                            'lng'=>function($model){
+                                return (double)$model->lng;
+                            },
+                            'lat'=>function($model){
+                                return (double)$model->lat;
+                            },
+                        ],
+                    ]);
+                },
+            ],
+        ]);
         
         
         if ( $request->isPost && $model->load($request->post()) ) {
@@ -281,6 +305,7 @@ class PedidodeliveryController extends Controller
             'clientes' => $clientes,
             'reqProductos' => $reqProductos,
             'reqCantidades' => $reqCantidades,
+            'cordenadas' =>$cordenadas,
         ]);
     }
     
@@ -416,6 +441,28 @@ class PedidodeliveryController extends Controller
         if ($model->precioDelivery !== null){
             $precio_pedido = $model->precioDelivery->precio;
         }
+        // obteniendo las cordenadas
+        $precios = Preciodelivery::find()
+            ->all();
+        $cordenadas = ArrayHelper::toArray($precios, [
+            Preciodelivery::className() => [
+                'id',
+                'estado',
+                'cordinates'=>function($model){
+                    return ArrayHelper::toArray($model->cordenadas, [
+                        PrecioCoordinates::className() => [
+                            'lng'=>function($model){
+                                return (double)$model->lng;
+                            },
+                            'lat'=>function($model){
+                                return (double)$model->lat;
+                            },
+                        ],
+                    ]);
+                },
+            ],
+        ]);
+
         if ($model->load(Yii::$app->request->post())) {
             $transaction = $model->getDb()->beginTransaction();
             try {
@@ -440,6 +487,7 @@ class PedidodeliveryController extends Controller
         return $this->render('asignar_sucursal_precio', [
             'model' => $model,
             'precio_pedido' => $precio_pedido,
+            'cordenadas' => $cordenadas,
         ]);
     }
     
