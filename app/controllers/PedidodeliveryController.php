@@ -39,7 +39,7 @@ class PedidodeliveryController extends Controller
             [
                 'class' => 'yii\filters\HttpCache',
                 'only' => [
-                    'create',
+                    // 'create',
                     'select-cliente'
                 ],
                 'lastModified' => function ($action, $params) {
