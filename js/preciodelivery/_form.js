@@ -56,7 +56,8 @@ function eliminar(element){
 
 let path = $('#base-ruta').val();
 $("#btn-dialog").on("click", function () {
-    krajeeDialogCust.alert(`
+    // krajeeDialogCust.alert(`
+    alert(`
         <p>
             <b>PASO 1</b>
             Abrir el enlace Geojson y seleccionar la herramienta poligono. <br/>

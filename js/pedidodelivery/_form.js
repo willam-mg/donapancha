@@ -47,12 +47,12 @@ function addToTable(producto, cantidad) {
 
 
 function eliminar(index) {
-    krajeeDialogCust.confirm("Quitar producto?", function (result) {
-        if (result) {
-            $('#fila' + index).remove();
-            calcularTotal();
-        }
-    });
+    if (confirm('Quitar producto?')) {
+        $('#fila' + index).remove();
+        calcularTotal();
+    }
+    // krajeeDialogCust.confirm("Quitar producto?", function (result) {
+    // });
 }
 
 
