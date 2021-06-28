@@ -50,7 +50,7 @@ use app\models\Sucursaldelivery;
                             CORDENADAS
                         </td>
                         <td class="text-right">
-                            <a href="#"  class="btn btn-round btn-just-icon btn-info" id="btn-dialog" title="Auda">
+                            <a href="<?=Url::to(['help', 'id'=>$model->id])?>"  class="btn btn-round btn-just-icon btn-info" title="Auda">
                                 <i class="material-icons">help</i>
                             </a>
                         </td>
