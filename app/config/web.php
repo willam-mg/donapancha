@@ -72,7 +72,6 @@ $config = [
         // ],
         'cache' => [
             'class' => 'yii\caching\DbCache',
-            // 'db' => 'mydb',
             'cacheTable' => 'cache',
         ],
         'user' => [
@@ -153,20 +152,8 @@ $config = [
             'appendTimestamp' => true,
         ],
         'session' => [
-            'class' => 'yii\web\CacheSession',
-            'cache' => [
-                'class' => 'yii\caching\DbCache',
-                // 'db' => 'mydb',
-                'cacheTable' => 'cache',
-            ]
-            // 'class' => 'yii\web\DbSession',
-
-            // Set the following if you want to use DB component other than
-            // default 'db'.
-            // 'db' => 'mydb',
-
-            // To override default session table, set the following
-            // 'sessionTable' => 'my_session',
+            'class' => 'yii\web\DbSession',
+            'sessionTable' => 'session',
         ],
         'i18n' => [
             'translations' => [
