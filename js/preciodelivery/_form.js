@@ -56,7 +56,6 @@ function eliminar(element){
 
 let path = $('#base-ruta').val();
 $("#btn-dialog").on("click", function () {
-    // krajeeDialogCust.alert(`
     alert(`
         <p>
             <b>PASO 1</b>

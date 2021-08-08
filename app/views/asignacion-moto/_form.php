@@ -19,19 +19,11 @@ use kartik\time\TimePicker;
 <div class="asignacion-moto-form">
 
     <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'pedido_id')->widget(Select2::classname(), [
-        'data' => ArrayHelper::map($pedidos, 'id', 'nombrecompleto'),
-            'options' => [
-                'placeholder' => 'Seleccione un pedido',
-                'style'=>'display:none',
-                'disabled'=>true
-            ],
-            'pluginOptions' => [
-                'allowClear' => true
-            ],
-        ]
-    )?>
+    
+    
+    <?= $form->field($model,'pedido_id')->textInput(['disabled' => true]); ?>
+    
+   
 
     <?= $form->field($model, 'moto_id')->widget(Select2::classname(), [
         'data' => ArrayHelper::map($motos, 'id', 'nombrecompleto'),

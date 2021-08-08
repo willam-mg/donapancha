@@ -107,8 +107,8 @@ function initMap(){
     }else{
         map = new google.maps.Map(document.getElementById("map"), {
             zoom: 12,
-            // center: { lat: -17.408744, lng: -66.153893 }, // para cochabamba
-            center: { lat: -16.52425154922268, lng: -68.0807103182344 }, // para la paz
+            center: { lat: -17.408744, lng: -66.153893 }, // para cochabamba
+            // center: { lat: -16.52425154922268, lng: -68.0807103182344 }, // para la paz
             mapTypeId: "terrain"
         });
     }

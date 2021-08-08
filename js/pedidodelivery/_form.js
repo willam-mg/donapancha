@@ -51,8 +51,6 @@ function eliminar(index) {
         $('#fila' + index).remove();
         calcularTotal();
     }
-    // krajeeDialogCust.confirm("Quitar producto?", function (result) {
-    // });
 }
 
 

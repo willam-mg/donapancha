@@ -6722,12 +6722,13 @@ class PreciodeliveryController extends Controller
         }
         return $cordinate;
     }
-
-    public function actionHelp($id = null) {
+    
+    public function actionHelp($id=null) {
         $model = Preciodelivery::findOne($id);
         return $this->render('ayuda',[
             'model'=>$model
         ]);
     }
+   
     
 }
