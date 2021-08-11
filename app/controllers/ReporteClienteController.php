@@ -12,7 +12,6 @@ class ReporteClienteController extends \yii\web\Controller
         $query = Cliente::find();
         $clientes = new ActiveDataProvider([
             'query' => $query,
-            'pagination' => false,
         ]);
         $query->all();
 

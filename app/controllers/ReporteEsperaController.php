@@ -32,7 +32,6 @@ class ReporteEsperaController extends \yii\web\Controller
         $query = Pedidodelivery::find();
         $pedidos = new ActiveDataProvider([
             'query' => $query,
-            'pagination' => false,
         ]);
         $query->where([
               'estado'=>Pedidodelivery::ESTADO_EN_ESPERA  
