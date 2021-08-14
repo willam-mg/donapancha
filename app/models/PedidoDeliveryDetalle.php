@@ -66,6 +66,9 @@ class PedidoDeliveryDetalle extends \yii\db\ActiveRecord
     }
 
     public function getSubtotal(){
-        return $this->producto->costo * $this->cantidad;
+        if ($this->producto) {
+            return $this->producto->costo * $this->cantidad;
+        }
+        return 0;
     }
 }
