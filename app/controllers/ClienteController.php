@@ -314,4 +314,21 @@ class ClienteController extends Controller
         }
         return $this->actionTempMostrar($clientesDuplicados);
     }
+
+    public function actionConpromocion($id) {
+        $cliente =$this->findModel($id);
+        $descuento = $cliente->miDescuento;
+        $porcentaje = $descuento['porcentaje'];
+        $numeroPedido = $descuento['numero_pedido'];
+        if ( $porcentaje === 1 ) { // descuento del 100 %
+            return $numeroPedido.' Tiene descuento del 100%';
+        }
+        if ( $porcentaje === 0.5 ) { // descuento del 50 %
+            return $numeroPedido.' Tiene descuento del 50%';
+        }
+        if ( $porcentaje === null ) { // descuento del 50 %
+            return $numeroPedido.' No tiene descuento';
+        }
+        return $numeroPedido;
+    }
 }

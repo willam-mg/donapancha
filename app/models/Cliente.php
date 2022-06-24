@@ -66,6 +66,7 @@ class Cliente extends \yii\db\ActiveRecord
             'latitude' => 'Latitude',
             'longitude' => 'Longitude',
             'hasAcount' => 'Tiene Cuenta',
+            'miDescuento' => 'Mi descuento', // mi descuento en mi siguente pedido
         ];
     }
 
@@ -91,5 +92,57 @@ class Cliente extends \yii\db\ActiveRecord
 
     public function getHasAcount(){
         return $this->user?'Si':'No';
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPedidos()
+    {
+        return $this->hasMany(PedidoDelivery::className(), ['cliente_id' => 'id']);
+    }
+
+    /**
+     * Procetanje de descuento.
+     * retorna el porcentaje en forma decimal del descuento 
+     * de un numero pedido.
+     * @param $numeroPedido int
+     * @return null | float porcentaje de descuento
+     */
+    private function pDescuento($numeroPedido) {
+        if ( $numeroPedido % 3 === 0 ) { // descuento del 100 %
+            return 1;
+        }
+        if ( (($numeroPedido - 1) % 3) === 0 ) { // sin descuento
+            return null;
+        }
+        if ( (($numeroPedido - 2) % 3) === 0 ) { // descuento del 50 %
+            return 0.5;
+        }
+    }
+
+    /**
+     * Porcentaje de descuento en 
+     * mi siguiente pedido.
+     * @return Array ['numero_pedido', 'porcentaje']
+     */
+    public function getMiDescuento() {
+        $numPedidos = $this->getPedidos()
+            ->where(['is_temp'=>0])
+            ->count();
+        $numPedidos++;
+        return [
+            'numero_pedido'=> $numPedidos,
+            'porcentaje'=>$this->pDescuento($numPedidos)
+        ];
+    }
+
+    /**
+     * Si el cliente tiene descuento
+     * @return bool
+     */
+    public function tieneDescuento() {
+        $descuento = $this->miDescuento();
+        return $descuento == null? false: true;
     }
 }
