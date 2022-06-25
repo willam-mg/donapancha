@@ -216,25 +216,21 @@ $this->params['breadcrumbs'][] = $this->title;
                                                     <tr>
                                                         <td style="width:100px">
                                                             <?php  
-                                                            if ($detalle->producto) {
-                                                                if ($detalle->producto->foto){
-                                                                    echo Html::img('@web/uploads'.\app\models\Producto::PATH.$detalle->producto->foto, [
-                                                                        'width'=>'100',
-                                                                        'height'=>'100',
-                                                                    ]);
-                                                                }else{
-                                                                    echo Html::img('@web/images/no-image.jpg', [
-                                                                        'width'=>'100',
-                                                                        'height'=>'100',
-                                                                    ]);
-                                                                }
-                                                            } else {
-                                                                echo 'Producto eliminado';
+                                                            if ($detalle->producto->foto){
+                                                                echo Html::img('@web/uploads'.\app\models\Producto::PATH.$detalle->producto->foto, [
+                                                                    'width'=>'100',
+                                                                    'height'=>'100',
+                                                                ]);
+                                                            }else{
+                                                                echo Html::img('@web/images/no-image.jpg', [
+                                                                    'width'=>'100',
+                                                                    'height'=>'100',
+                                                                ]);
                                                             }
                                                             ?>
                                                         </td>
-                                                        <td><?=$detalle->producto?$detalle->producto->producto:'Producto eliminado'?></td>
-                                                        <td><?=$detalle->producto?$detalle->producto->costo:'Producto eliminado'?> Bs.</td>
+                                                        <td><?=$detalle->producto->producto?></td>
+                                                        <td><?=$detalle->producto->costo?> Bs.</td>
                                                         <td><?=$detalle->cantidad?></td>
                                                         <td><?=$detalle->subtotal?> Bs.</td>
                                                     </tr>

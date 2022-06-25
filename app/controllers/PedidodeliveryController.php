@@ -589,7 +589,7 @@ class PedidodeliveryController extends Controller
     }
     
     private function notifyCallcenter(){
-        $url = 'https://server.testing.dronebolivia.com/pedidos';
+        $url = 'https://socketserver.happy-fry.com/pedidos';
         $crl = curl_init();
         
         curl_setopt($crl, CURLOPT_URL, $url);

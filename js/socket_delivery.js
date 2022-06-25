@@ -1,5 +1,5 @@
 // const socket = io('http://localhost:3000/');
-const socket = io('https://server.testing.dronebolivia.com/');
+const socket = io('https://socketserver.happy-fry.com/');
 
 // DOM elements
 let message = document.getElementById('message');
@@ -23,10 +23,10 @@ socket.on('chat:message', function (data) {
           <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
           Se registraron nuevos pedidos
         </div>`;
-    
+
     audio.play();
     setTimeout(() => {
-        window.location.reload();    
+        window.location.reload();
     }, 1000);
-    
+
 });
