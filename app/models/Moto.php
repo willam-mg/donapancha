@@ -17,6 +17,7 @@ use Yii;
 class Moto extends \yii\db\ActiveRecord
 {
     const PATH = '/motos/';
+
     // const DISPONIBLE = 0;
     // const OCUPADO = 1;
     /**
@@ -39,6 +40,7 @@ class Moto extends \yii\db\ActiveRecord
             [['telefono'], 'string', 'max' => 15],
             [['foto'], 'string', 'max' => 200],
             [['player_id'], 'string', 'max' => 500],
+            ['autentificado', 'boolean']
         ];
     }
 
@@ -56,6 +58,7 @@ class Moto extends \yii\db\ActiveRecord
             'foto' => 'Foto',
             'estado' => 'Estado',
             'player_id' => 'Player id',
+            'autentificado' => 'Autentificado',
         ];
     }
 
@@ -105,4 +108,8 @@ class Moto extends \yii\db\ActiveRecord
     // public function getStrEstado(){
     //     return $this->estado==0?'Disponible':'Ocupado';
     // }
+
+    public function getStrAutentificado() {
+        return $this->autentificado?'Si':'No';
+    }
 }

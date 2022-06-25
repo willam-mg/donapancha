@@ -51,6 +51,17 @@ use kartik\dialog\Dialog;
     
     <?= $form->field($user, 'email')->textInput(['autocomplete'=>'off']) ?>
 
+    <?= $form->field($model, 'autentificado')->widget(Select2::classname(), [
+            'data' => [
+                1=>'Si',
+                0=>'No'
+            ],
+            'pluginOptions' => [
+                'allowClear' => false
+            ],
+        ]
+    )?>
+
     <?php
     // $form->field($model, 'foto')
     //     ->widget(FileInput::classname(), [

@@ -43,6 +43,12 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'sucursal.nombre:text:Sucursal',
                                     'telefono',
                                     'user.email:email:Email',
+                                    [
+                                        'attribute'=>'autentificado',
+                                        'value'=>function($model) {
+                                            return $model->strAutentificado;
+                                        }
+                                    ]
                                 ],
                             ]) ?>
                             

@@ -61,6 +61,12 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'nombre',
                                 'ciudad',
                                 'telefono',
+                                [
+                                    'attribute'=>'autentificado',
+                                    'value'=>function($model) {
+                                        return $model->strAutentificado;
+                                    }
+                                ],
                                 // [
                                 //     'attribute'=>'estado',
                                 //     'value'=>function($model){
