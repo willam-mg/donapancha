@@ -40,7 +40,7 @@ class Moto extends \yii\db\ActiveRecord
             [['telefono'], 'string', 'max' => 15],
             [['foto'], 'string', 'max' => 200],
             [['player_id'], 'string', 'max' => 500],
-            ['autentificado', 'boolean']
+            [['autentificado', 'bloqueado'], 'boolean']
         ];
     }
 
@@ -59,6 +59,7 @@ class Moto extends \yii\db\ActiveRecord
             'estado' => 'Estado',
             'player_id' => 'Player id',
             'autentificado' => 'Autentificado',
+            'bloqueado' => 'Bloqueado',
         ];
     }
 
@@ -111,5 +112,9 @@ class Moto extends \yii\db\ActiveRecord
 
     public function getStrAutentificado() {
         return $this->autentificado?'Si':'No';
+    }
+    
+    public function getStrBloqueado() {
+        return $this->bloqueado?'Si':'No';
     }
 }

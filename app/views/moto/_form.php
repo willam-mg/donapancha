@@ -61,6 +61,17 @@ use kartik\dialog\Dialog;
             ],
         ]
     )?>
+    
+    <?= $form->field($model, 'bloqueado')->widget(Select2::classname(), [
+            'data' => [
+                1=>'Si',
+                0=>'No'
+            ],
+            'pluginOptions' => [
+                'allowClear' => false
+            ],
+        ]
+    )?>
 
     <?php
     // $form->field($model, 'foto')

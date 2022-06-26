@@ -65,7 +65,35 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'attribute'=>'autentificado',
                                     'value'=>function($model) {
                                         return $model->strAutentificado;
-                                    }
+                                    },
+                                    'filter' => [
+                                        1=>'Si',
+                                        0=>'No'
+                                    ],
+                                    'filterType' => GridView::FILTER_SELECT2,
+                                    'filterWidgetOptions' => [
+                                        'options' => ['prompt' => 'Todos'],
+                                        'pluginOptions' => [
+                                            'allowClear' => true,
+                                        ],
+                                    ],
+                                ],
+                                [
+                                    'attribute' => 'bloqueado',
+                                    'value' => function($model){
+                                        return $model->strBloqueado;
+                                    },
+                                    'filter' => [
+                                        1=>'Si',
+                                        0=>'No'
+                                    ],
+                                    'filterType' => GridView::FILTER_SELECT2,
+                                    'filterWidgetOptions' => [
+                                        'options' => ['prompt' => 'Todos'],
+                                        'pluginOptions' => [
+                                            'allowClear' => true,
+                                        ],
+                                    ],
                                 ],
                                 // [
                                 //     'attribute'=>'estado',

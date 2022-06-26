@@ -19,6 +19,7 @@ class MotoSearch extends Moto
         return [
             [['id', 'sucursal_id', 'estado'], 'integer'],
             [['nombre', 'ciudad', 'telefono', 'foto'], 'safe'],
+            [['autentificado', 'bloqueado'], 'boolean']
         ];
     }
 
@@ -65,6 +66,8 @@ class MotoSearch extends Moto
             'id' => $this->id,
             'sucursal_id' => $this->sucursal_id,
             'estado' => $this->estado,
+            'autentificado' => $this->autentificado,
+            'bloqueado' => $this->bloqueado,
         ]);
 
         $query->andFilterWhere(['like', 'nombre', $this->nombre])
