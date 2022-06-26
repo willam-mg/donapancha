@@ -48,6 +48,12 @@ $this->params['breadcrumbs'][] = $this->title;
                                         'value'=>function($model) {
                                             return $model->strAutentificado;
                                         }
+                                    ],
+                                    [
+                                        'attribute'=>'bloqueado',
+                                        'value'=>function($model) {
+                                            return $model->strbloqueado;
+                                        }
                                     ]
                                 ],
                             ]) ?>
