@@ -79,7 +79,8 @@ class AsignacionMotoController extends Controller
         ])->all();
         $motos = Moto::find()
             ->where([
-                'autentificado'=>true
+                'autentificado'=>true,
+                'bloqueado'=>false,
             ])
             ->all();
         if ( \Yii::$app->user->can(\Yii::$app->user->identity::ROLE_SUCURSAL) && !\Yii::$app->user->can(\Yii::$app->user->identity::ROLE_ADMINISTRADOR) ){
