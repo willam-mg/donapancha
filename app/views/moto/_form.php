@@ -51,27 +51,30 @@ use kartik\dialog\Dialog;
     
     <?= $form->field($user, 'email')->textInput(['autocomplete'=>'off']) ?>
 
-    <?= $form->field($model, 'autentificado')->widget(Select2::classname(), [
-            'data' => [
-                1=>'Si',
-                0=>'No'
-            ],
-            'pluginOptions' => [
-                'allowClear' => false
-            ],
-        ]
-    )?>
-    
-    <?= $form->field($model, 'bloqueado')->widget(Select2::classname(), [
-            'data' => [
-                1=>'Si',
-                0=>'No'
-            ],
-            'pluginOptions' => [
-                'allowClear' => false
-            ],
-        ]
-    )?>
+    <?php if (!$model->isNewRecord) { ?>
+        <?= $form->field($model, 'autentificado')->widget(Select2::classname(), [
+                'data' => [
+                    1=>'Si',
+                    0=>'No'
+                ],
+                'pluginOptions' => [
+                    'allowClear' => false
+                ],
+            ]
+        )?>
+        
+        <?= $form->field($model, 'bloqueado')->widget(Select2::classname(), [
+                'data' => [
+                    1=>'Si',
+                    0=>'No'
+                ],
+                'pluginOptions' => [
+                    'allowClear' => false
+                ],
+            ]
+        )?>
+    <?php } ?>
+
 
     <?php
     // $form->field($model, 'foto')
