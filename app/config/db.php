@@ -6,8 +6,10 @@ return [
     // 'username' => 'root',
     // 'password' => '',
     'dsn' => 'mysql:host=localhost;dbname=ptwpmgwx_panchita',
-    'username' => 'ptwpmgwx_panchita',
-    'password' => 'xun4dOqHe)Uf',
+    'username' => 'root',
+    'password' => '',
+    // 'username' => 'ptwpmgwx_panchita',
+    // 'password' => 'xun4dOqHe)Uf',
     'charset' => 'utf8',
 
     // Schema cache options (for production environment)

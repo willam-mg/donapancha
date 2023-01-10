@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Moto;
+use app\models\Version;
 
 /**
- * MotoSearch represents the model behind the search form of `app\models\Moto`.
+ * VersionSearch represents the model behind the search form of `app\models\Version`.
  */
-class MotoSearch extends Moto
+class VersionSearch extends Version
 {
     /**
      * {@inheritdoc}
@@ -17,9 +17,8 @@ class MotoSearch extends Moto
     public function rules()
     {
         return [
-            [['id', 'sucursal_id', 'estado'], 'integer'],
-            [['nombre', 'ciudad', 'telefono', 'foto'], 'safe'],
-            [['autentificado', 'bloqueado'], 'boolean']
+            [['id'], 'integer'],
+            [['nombre', 'fecha_subida', 'hora_subida'], 'safe'],
         ];
     }
 
@@ -41,16 +40,12 @@ class MotoSearch extends Moto
      */
     public function search($params)
     {
-        $query = Moto::find();
+        $query = Version::find();
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort'=> ['defaultOrder' => ['id'=>SORT_DESC]],
-            'pagination' => [
-                'defaultPageSize' => 5,
-            ],
         ]);
 
         $this->load($params);
@@ -64,16 +59,11 @@ class MotoSearch extends Moto
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'sucursal_id' => $this->sucursal_id,
-            'estado' => $this->estado,
-            'autentificado' => $this->autentificado,
-            'bloqueado' => $this->bloqueado,
+            'fecha_subida' => $this->fecha_subida,
+            'hora_subida' => $this->hora_subida,
         ]);
 
-        $query->andFilterWhere(['like', 'nombre', $this->nombre])
-            ->andFilterWhere(['like', 'ciudad', $this->ciudad])
-            ->andFilterWhere(['like', 'telefono', $this->telefono])
-            ->andFilterWhere(['like', 'foto', $this->foto]);
+        $query->andFilterWhere(['like', 'nombre', $this->nombre]);
 
         return $dataProvider;
     }

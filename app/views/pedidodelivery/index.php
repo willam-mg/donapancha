@@ -93,6 +93,24 @@ $this->params['breadcrumbs'][] = $this->title;
                                         ],
                                     ],
                                 ],
+                                [
+                                    'label'=>'Hora Despacho',
+                                    'value'=>function($model) {
+                                        if ($model->asignacionMoto) {
+                                            return $model->asignacionMoto->hora_despacho;
+                                        }
+                                        return '-----';
+                                    }
+                                ],
+                                [
+                                    'label'=>'Hora Entrega',
+                                    'value'=>function($model) {
+                                        if ($model->asignacionMoto) {
+                                            return $model->asignacionMoto->hora_entrega;
+                                        }
+                                        return '-----';
+                                    }
+                                ],
                                 'telefono',
                                 'cliente.razon_social',
                                 [

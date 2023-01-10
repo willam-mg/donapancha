@@ -112,6 +112,8 @@ MaterialAsset::register($this);
 	                            ['icon'=>'list', 'label' => 'Pedidos asignados', 'url' => ['/reporte-asignados'] , 'color'=>'text-default'],
 	                            ['icon'=>'list', 'label' => 'Pedidos entregados', 'url' => ['/reporte-entregados'] , 'color'=>'text-default'],
 	                            ['icon'=>'list', 'label' => 'Reporte motos', 'url' => ['/reporte-motos'] , 'color'=>'text-default'],
+	                            ['icon'=>'list', 'label' => 'Pedidos con productos', 'url' => ['/reporte/pedidos-producto'] , 'color'=>'text-default'],
+	                            ['icon'=>'list', 'label' => 'Productos', 'url' => ['/reporte/productos'] , 'color'=>'text-default'],
 	                        ], 
                         ]);
 

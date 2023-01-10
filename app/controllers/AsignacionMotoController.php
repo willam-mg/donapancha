@@ -77,7 +77,12 @@ class AsignacionMotoController extends Controller
         $pedidos = Pedidodelivery::find()->where([
             'estado'=>Pedidodelivery::ESTADO_EN_ESPERA,
         ])->all();
-        $motos = Moto::find()->all();
+        $motos = Moto::find()
+            ->where([
+                'autentificado'=>true,
+                'bloqueado'=>false,
+            ])
+            ->all();
         if ( \Yii::$app->user->can(\Yii::$app->user->identity::ROLE_SUCURSAL) && !\Yii::$app->user->can(\Yii::$app->user->identity::ROLE_ADMINISTRADOR) ){
             $motos = Moto::find()
                 ->where([

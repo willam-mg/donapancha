@@ -5,7 +5,6 @@ namespace app\controllers;
 use Yii;
 use app\models\Cliente;
 use app\models\ClienteSearch;
-use app\models\PedidodeliverySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -53,14 +52,8 @@ class ClienteController extends Controller
      */
     public function actionView($id)
     {
-        $searchModel = new PedidodeliverySearch();
-        $params = Yii::$app->request->queryParams;
-        $dataProvider = $searchModel->misPedidos($id, $params);
-
         return $this->render('view', [
             'model' => $this->findModel($id),
-            'searchModel'=>$searchModel,
-            'dataProvider'=>$dataProvider
         ]);
     }
 
