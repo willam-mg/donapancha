@@ -106,9 +106,42 @@ $this->params['breadcrumbs'][] = $this->title;
                         ',
                         'columns' => [
                             [
+                                'label'=> 'Nombre',
+                                'value'=>function($model) {
+                                    if($model->producto ) {
+                                        if($model->producto->foto ) {
+                                            return Html::img('@web/uploads' . \app\models\Producto::PATH . $model->producto->foto, [
+                                                'alt' => 'Fotografia',
+                                                'width' => '100',
+                                            ]);
+                                        }else{
+                                            return Html::img('@web/images/no-image.jpg');
+                                        }
+                                    }
+                                },
+                                'width' => '100px', 
+                                'format' => 'raw', 
+                            ],
+                            [
+                                'label' => 'Categoria',
+                                'value'=>function($model) {
+                                    if ($model->producto) {
+                                        return $model->producto->categoria?$model->producto->categoria->nombre:'';
+                                    }
+                                    return '';
+                                },
+                                'noWrap' => true, 
+                            ],
+                            [
                                 'attribute'=> 'producto_id',
                                 'value'=>function($model) {
                                     return $model->producto?$model->producto->producto:'';
+                                }
+                            ],
+                            [
+                                'label' => 'Precio',
+                                'value' => function ($model) {
+                                    return $model->producto ? $model->producto->costo : '';
                                 }
                             ],
                             'cantidad',
