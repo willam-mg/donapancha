@@ -97,7 +97,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     {summary}
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-right">
-                                    <b>{export} </b>
+                                    {toolbarContainer}
                                 </div>
                             </div>
                             <div class="clearfix"></div>
