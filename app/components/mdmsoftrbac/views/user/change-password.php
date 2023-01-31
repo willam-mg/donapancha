@@ -14,7 +14,10 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-centered">
             <div class="card">
                 <div class="card-content">
-                    <h4><?= Html::encode($this->title) ?></h4>
+                    <h4>
+                        <?= Html::encode($this->title) ?> - 
+                        <?= Html::encode($user->username) ?>
+                    </h4>
                     <hr>
                     <?php $form = ActiveForm::begin(['id' => 'form-change']); ?>
                         <?php if ( \Yii::$app->user->can('secretaria') == true && \Yii::$app->user->can('administrador') == false ){ ?>

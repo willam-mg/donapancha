@@ -37,7 +37,9 @@ $controllerId = $this->context->uniqueId . '/';
                     ])
                     ?>
                     <div class="form-group text-right">
-                        <?=\Yii::$app->user->can('admin')?Html::a('<i class="material-icons">lock</i> Cambiar contraseña', ['/admin/user/change-password', 'id'=>Yii::$app->user->identity->id], ['class'=>'btn btn-danger btn-round']):''?>
+                        <?php if ( \Yii::$app->user->can('administrador') ) { ?>
+                            <?=\Yii::$app->user->can('admin')?Html::a('<i class="material-icons">lock</i> Cambiar contraseña', ['/admin/user/change-password', 'id'=>$model->id], ['class'=>'btn btn-danger btn-round']):''?>
+                        <?php } ?>
                         <?=Html::a('<i class="material-icons">clear</i> Cerrar', ['/admin/user/index'], ['class'=>'btn btn-round btn-default'])?>
                     </div>
                 </div>

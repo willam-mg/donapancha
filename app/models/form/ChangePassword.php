@@ -17,6 +17,8 @@ class ChangePassword extends Model
     public $oldPassword;
     public $newPassword;
     public $retypePassword;
+    public $_user = false;
+    public $id;
 
     const SCENARIO_ADMIN = 'admin';
     const SCENARIO_USER = 'user';
@@ -37,11 +39,13 @@ class ChangePassword extends Model
         return [
             [['newPassword', 'retypePassword'], 'required', 'on' => self::SCENARIO_ADMIN],
             [['retypePassword'], 'compare', 'compareAttribute' => 'newPassword', 'on' => self::SCENARIO_ADMIN],
+            [['id'], 'integer', 'on' => self::SCENARIO_ADMIN],
             
             [['oldPassword', 'newPassword', 'retypePassword'], 'required', 'on' => self::SCENARIO_USER],
             [['oldPassword'], 'validatePassword', 'on' => self::SCENARIO_USER],
             [['newPassword'], 'string', 'min' => 6, 'on' => self::SCENARIO_USER],
             [['retypePassword'], 'compare', 'compareAttribute' => 'newPassword', 'on' => self::SCENARIO_USER],
+            [['id'],'integer', 'on' => self::SCENARIO_USER],
         ];
     }
 
@@ -52,7 +56,7 @@ class ChangePassword extends Model
     public function validatePassword()
     {
         /* @var $user User */
-        $user = Yii::$app->user->identity;
+        $user = $this->getUser();
         if (!$user || !$user->validatePassword($this->oldPassword)) {
             $this->addError('oldPassword', 'Incorrect old password.');
         }
@@ -67,7 +71,7 @@ class ChangePassword extends Model
     {
         if ($this->validate()) {
             /* @var $user User */
-            $user = Yii::$app->user->identity;
+            $user = $this->getUser();
             $user->setPassword($this->newPassword);
             $user->generateAuthKey();
             if ($user->save()) {
@@ -87,5 +91,15 @@ class ChangePassword extends Model
             'newPassword'=>'Nueva contraseña',
             'retypePassword'=>'Repetir contraseña',
         ];
+    }
+
+    public function getUser()
+    {
+        return User::findOne($this->id);
+        // if ($this->_user === false) {
+        //     $this->_user = User::findOne($this->id);
+        // }
+
+        // return $this->_user;
     }
 }

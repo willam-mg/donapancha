@@ -276,6 +276,9 @@ class UserController extends Controller
     {
         $this->layout = '/main';
         $model = new ChangePassword();
+        $user = User::findOne($id);
+        $model->_user = $user;
+
         //solo si es vendedor se activa la validacion del ingreso del anteriro password
         if ( \Yii::$app->user->can('secretaria') == true && \Yii::$app->user->can('administrador') == false ){
             $model->scenario = ChangePassword::SCENARIO_USER;
@@ -283,8 +286,12 @@ class UserController extends Controller
             $model->scenario = ChangePassword::SCENARIO_ADMIN;
         }
         //modificando el password
-        if ($model->load(Yii::$app->getRequest()->post()) && $model->change($id)) {
-            $user = User::findOne($id);
+        if ($model->load(Yii::$app->getRequest()->post()) ) {
+            $user->setPassword($model->newPassword);
+            $user->generateAuthKey();
+            if (!$user->save()) {
+                Yii::$app->session->setFlash('warning', 'La contraseña no se puede guardar');
+            }
             //registrando historial de usuario
             $log = new TrailsLog();
             $log->model = get_class($user);
@@ -302,6 +309,7 @@ class UserController extends Controller
 
         return $this->render('change-password', [
                 'model' => $model,
+                'user' => $user,
         ]);
     }
 
